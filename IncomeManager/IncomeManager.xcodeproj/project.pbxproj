@@ -79,6 +79,13 @@
 			path = Date;
 			sourceTree = "<group>";
 		};
+		5D685C692BD1762D008BD15D /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		5D98C7F72BCEC7040098F12C = {
 			isa = PBXGroup;
 			children = (
@@ -99,8 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				5D685C5D2BD169D7008BD15D /* Resources */,
-				5D98C8172BCEC9990098F12C /* Views */,
 				5D98C8162BCEC9870098F12C /* Source */,
+				5D98C8172BCEC9990098F12C /* Views */,
+				5D685C692BD1762D008BD15D /* Preview Content */,
 				5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */,
 				5D98C80C2BCEC7060098F12C /* Persistence.swift */,
 				5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */,

@@ -21,14 +21,14 @@ struct CategoryView: View {
             VStack(spacing: 5) {
                 HStack {
                     Spacer()
-                    Text(categoryName)
+                    Text(self.categoryName)
                         .font(.headline)
                     Spacer()
                 }
                 
                 HStack {
                     Spacer()
-                    Text(String(percentage) + "%")
+                    Text(String(self.percentage) + "%")
                     Spacer()
                 }
             }.padding(.bottom, 7.5)
@@ -36,12 +36,12 @@ struct CategoryView: View {
             
             HStack {
                 Text("Destined" + ":")
-                Text(String(destinatedValue) + "€")
+                Text(String(self.destinatedValue) + "€")
                 Spacer()
             }
             HStack {
                 Text("Spent" + ":")
-                Text("-" + String(spentValue) + "€")
+                Text("-" + String(self.spentValue) + "€")
 
                 Spacer()
             }
@@ -49,13 +49,13 @@ struct CategoryView: View {
             HStack {
                 Spacer()
                 Text("Total" + ":")
-                Text(String(totalValue) + "€")
+                Text(String(self.totalValue) + "€")
                 Spacer()
             }.padding(.top, 12.5)
         }
         .padding()
         .frame(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 20)
-        .background(backgroundColor)
+        .background(self.backgroundColor)
         .border(Color.black, width: 1.25)
         .cornerRadius(5)
         .foregroundColor(.white)

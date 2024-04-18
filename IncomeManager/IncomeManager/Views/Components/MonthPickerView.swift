@@ -21,7 +21,7 @@ struct MonthYearPickerView: View {
             
             Spacer()
             
-            Text(DateFormatterHelper.shared.format(date: selectedDate))
+            Text(DateFormatterHelper.shared.format(date: self.selectedDate))
             
             Spacer()
             

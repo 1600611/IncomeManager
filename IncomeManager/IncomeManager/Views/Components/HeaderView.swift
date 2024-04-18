@@ -13,7 +13,7 @@ struct HeaderView: View {
     var body: some View {
         VStack {
             Rectangle()
-                .fill(color)
+                .fill(self.color)
                 .frame(height: 100)
             
             Spacer()
