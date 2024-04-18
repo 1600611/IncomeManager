@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C512BD154B0008BD15D /* CategoryView.swift */; };
+		5D685C5A2BD15CA1008BD15D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D685C592BD15CA1008BD15D /* Localizable.xcstrings */; };
+		5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */; };
+		5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C5E2BD169ED008BD15D /* DateFormatter.swift */; };
+		5D685C642BD17252008BD15D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C632BD17252008BD15D /* MainView.swift */; };
+		5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C652BD1725D008BD15D /* MainViewModel.swift */; };
+		5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C672BD172BB008BD15D /* HeaderView.swift */; };
 		5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */; };
 		5D98C8082BCEC7060098F12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D98C8072BCEC7060098F12C /* Assets.xcassets */; };
 		5D98C80B2BCEC7060098F12C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D98C80A2BCEC7060098F12C /* Preview Assets.xcassets */; };
@@ -15,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D685C512BD154B0008BD15D /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		5D685C592BD15CA1008BD15D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
+		5D685C5E2BD169ED008BD15D /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		5D685C632BD17252008BD15D /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		5D685C652BD1725D008BD15D /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		5D685C672BD172BB008BD15D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5D98C8002BCEC7040098F12C /* IncomeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeManagerApp.swift; sourceTree = "<group>"; };
 		5D98C8072BCEC7060098F12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -34,6 +48,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D685C502BD15487008BD15D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5D685C512BD154B0008BD15D /* CategoryView.swift */,
+				5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */,
+				5D685C672BD172BB008BD15D /* HeaderView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		5D685C532BD15A1C008BD15D /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				5D685C592BD15CA1008BD15D /* Localizable.xcstrings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		5D685C5D2BD169D7008BD15D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D685C602BD171F1008BD15D /* Date */,
+				5D685C532BD15A1C008BD15D /* Strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5D685C602BD171F1008BD15D /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				5D685C5E2BD169ED008BD15D /* DateFormatter.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 		5D98C7F72BCEC7040098F12C = {
 			isa = PBXGroup;
 			children = (
@@ -53,7 +102,7 @@
 		5D98C8022BCEC7040098F12C /* IncomeManager */ = {
 			isa = PBXGroup;
 			children = (
-				5D98C8182BCEC9A10098F12C /* Test */,
+				5D685C5D2BD169D7008BD15D /* Resources */,
 				5D98C8172BCEC9990098F12C /* Views */,
 				5D98C8162BCEC9870098F12C /* Source */,
 				5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */,
@@ -83,15 +132,11 @@
 		5D98C8172BCEC9990098F12C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D685C502BD15487008BD15D /* Components */,
+				5D685C632BD17252008BD15D /* MainView.swift */,
+				5D685C652BD1725D008BD15D /* MainViewModel.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5D98C8182BCEC9A10098F12C /* Test */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +181,8 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
+				ca,
 			);
 			mainGroup = 5D98C7F72BCEC7040098F12C;
 			productRefGroup = 5D98C8012BCEC7040098F12C /* Products */;
@@ -154,6 +201,7 @@
 			files = (
 				5D98C80B2BCEC7060098F12C /* Preview Assets.xcassets in Resources */,
 				5D98C8082BCEC7060098F12C /* Assets.xcassets in Resources */,
+				5D685C5A2BD15CA1008BD15D /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,9 +212,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
+				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
+				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
 				5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */,
+				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
+				5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */,
+				5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

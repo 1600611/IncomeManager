@@ -12,6 +12,8 @@ struct IncomeManagerApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
-        WindowGroup {}
+        WindowGroup {
+            MonthYearPickerView()
+        }
     }
 }
