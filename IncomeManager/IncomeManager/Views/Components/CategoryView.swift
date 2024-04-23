@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-    var categoryName: String
+    var categoryType: CategoryType
     var percentage: Int
     var destinatedValue: Int
     var spentValue: Int
@@ -21,7 +21,7 @@ struct CategoryView: View {
             VStack(spacing: 5) {
                 HStack {
                     Spacer()
-                    Text(self.categoryName)
+                    Text(self.categoryType.title)
                         .font(.headline)
                     Spacer()
                 }
@@ -64,7 +64,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(categoryName: "Necessitats", percentage: 50, destinatedValue: 500, spentValue: 200, totalValue: 300, backgroundColor: Color.green)
+        CategoryView(categoryType: CategoryType.NEEDS, percentage: 50, destinatedValue: 500, spentValue: 200, totalValue: 300, backgroundColor: Color.green)
     }
 }
 

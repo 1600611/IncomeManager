@@ -103,6 +103,23 @@
         }
       }
     },
+    "Debts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deutes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deudas"
+          }
+        }
+      }
+    },
     "Destined" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,6 +133,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Destinado"
+          }
+        }
+      }
+    },
+    "Emergencies" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emergencies"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Emergencias"
           }
         }
       }
@@ -171,6 +205,22 @@
         }
       }
     },
+    "Income" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingressos"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresos"
+          }
+        }
+      }
+    },
     "Income distribution" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -188,6 +238,23 @@
         }
       }
     },
+    "Incomes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingressos"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresos"
+          }
+        }
+      }
+    },
     "Investments" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -201,6 +268,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Inversiones"
+          }
+        }
+      }
+    },
+    "Monthly salary" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salario mensual"
           }
         }
       }

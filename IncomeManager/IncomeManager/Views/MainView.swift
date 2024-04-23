@@ -16,21 +16,33 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            HeaderView(color: .green)
+            HeaderView(color: .green, incomeChangedAction: updateMonthlyIncome)
+                .frame(height: 100)
             
             MonthYearPickerView()
             
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                ForEach(0..<4) { _ in
-                    CategoryView(categoryName: "Necessitats", percentage: 50, destinatedValue: 500, spentValue: 200, totalValue: 300, backgroundColor: Color.green)
+                ForEach(viewModel.distributions.indices, id: \.self) { index in
+                    let distribution = viewModel.distributions[index]
+                    CategoryView(categoryType: distribution.categoryType,
+                                 percentage: distribution.percentage,
+                                 destinatedValue: 500,
+                                 spentValue: 200,
+                                 totalValue: 300,
+                                 backgroundColor: Color.green)
                 }
             }
             .padding()
+            
+            Spacer()
         }
+    }
+    
+    func updateMonthlyIncome(_ newIncome: Decimal?) {
+        viewModel.actionIncomeChanged(newIncome)
     }
 }
 
 #Preview {
     MainView()
 }
-

@@ -17,6 +17,10 @@
 		5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */; };
 		5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80C2BCEC7060098F12C /* Persistence.swift */; };
 		5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */; };
+		5DDCBD542BD7ECAA0098DC6A /* Distribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD532BD7ECAA0098DC6A /* Distribution.swift */; };
+		5DDCBD592BD7ECEB0098DC6A /* DistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */; };
+		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */; };
+		5DDCBD5E2BD7F03F0098DC6A /* MockDistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5D2BD7F03F0098DC6A /* MockDistributionRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeManagerApp.swift; sourceTree = "<group>"; };
 		5D98C80C2BCEC7060098F12C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5D98C80F2BCEC7060098F12C /* IncomeManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeManager.xcdatamodel; sourceTree = "<group>"; };
+		5DDCBD532BD7ECAA0098DC6A /* Distribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distribution.swift; sourceTree = "<group>"; };
+		5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionRepository.swift; sourceTree = "<group>"; };
+		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDistributionRepository.swift; sourceTree = "<group>"; };
+		5DDCBD5D2BD7F03F0098DC6A /* MockDistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDistributionRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 		5D98C8162BCEC9870098F12C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5DDCBD552BD7ECB00098DC6A /* Distribution */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -131,6 +140,41 @@
 				5D685C652BD1725D008BD15D /* MainViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5DDCBD552BD7ECB00098DC6A /* Distribution */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCBD5C2BD7ED200098DC6A /* Application */,
+				5DDCBD572BD7ECC80098DC6A /* Infrastructure */,
+				5DDCBD562BD7ECBF0098DC6A /* Domain */,
+			);
+			path = Distribution;
+			sourceTree = "<group>";
+		};
+		5DDCBD562BD7ECBF0098DC6A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCBD532BD7ECAA0098DC6A /* Distribution.swift */,
+				5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5DDCBD572BD7ECC80098DC6A /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */,
+				5DDCBD5D2BD7F03F0098DC6A /* MockDistributionRepository.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		5DDCBD5C2BD7ED200098DC6A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,12 +251,16 @@
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
 				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
+				5DDCBD592BD7ECEB0098DC6A /* DistributionRepository.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
 				5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */,
+				5DDCBD5B2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift in Sources */,
 				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
+				5DDCBD5E2BD7F03F0098DC6A /* MockDistributionRepository.swift in Sources */,
 				5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */,
 				5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */,
+				5DDCBD542BD7ECAA0098DC6A /* Distribution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
