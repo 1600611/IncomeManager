@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct HeaderView: View {
-    var color: Color
     @State private var userInput: String = ""
+    var color: Color
     var incomeChangedAction: ((Decimal?) -> Void)
-
+    var optionsButtonAction: (() -> Void)
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -19,22 +20,30 @@ struct HeaderView: View {
                 .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {
-                VStack {
-                    Image(systemName: "line.horizontal.3")
-                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
-                        .foregroundColor(.white)
+                Button(action: {
+                    optionsButtonAction()
+                }) {
+                    VStack {
+                        Image(systemName: "line.horizontal.3")
+                            .font(.title)
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                    }
                     
-                    Spacer()
                 }
                 
                 Spacer()
                 
-                VStack(alignment: .center, spacing: -5) {
+                VStack(alignment: .center, spacing: -10) {
                     HStack(spacing: -10) {
+                        
+                        // Euro icon
                         Image(systemName: "eurosign.circle")
                             .font(.title2)
                             .foregroundColor(.white)
                         
+                        // Income
                         Text("Income")
                             .foregroundColor(.white)
                             .font(.title2)
@@ -42,11 +51,14 @@ struct HeaderView: View {
                     }
                     
                     HStack {
+                        
+                        // Monthly salary field
                         TextField("Monthly salary", text: $userInput)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                             .keyboardType(.decimalPad)
                             .frame(width: 200, height: 40)
                         
+                        //Check button
                         Button(action: {
                             if let newValue = Decimal(string: userInput) {
                                 incomeChangedAction(newValue)
@@ -57,18 +69,17 @@ struct HeaderView: View {
                             }
                         }
                     }
-                }
+                }.padding(.bottom, 12.5)
                 
                 Spacer()
-            }.padding(5)
+            }.padding([.leading, .top], 5)
         }
     }
 }
 
 
-
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(color: .green, incomeChangedAction: { _ in })
+        HeaderView(color: .green, incomeChangedAction: { _ in }, optionsButtonAction: { })
     }
 }

@@ -16,19 +16,14 @@ struct MainView: View {
     
     var body: some View {
         VStack {
-            HeaderView(color: .green, incomeChangedAction: updateMonthlyIncome)
+            HeaderView(color: .green, incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: optionsButtonTapped)
                 .frame(height: 100)
             
             MonthYearPickerView()
             
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                 ForEach(viewModel.categoryInformation) { categoryInformation in
-                    CategoryView(categoryType: categoryInformation.getCategoryType(),
-                                 percentage: categoryInformation.getPercentage(),
-                                 destinatedValue: categoryInformation.getDestinatedValue(),
-                                 spentValue: categoryInformation.getSpentValue(),
-                                 totalValue: categoryInformation.getTotalValue(),
-                                 backgroundColor: Color.green)
+                    CategoryView(categoryInformation: categoryInformation, color: Color.green)
                 }
             }
             .padding()
@@ -37,8 +32,18 @@ struct MainView: View {
         }
     }
     
-    func updateMonthlyIncome(_ newIncome: Decimal?) {
+    func monthlyIncomeUpdated(_ newIncome: Decimal?) {
         viewModel.actionIncomeChanged(newIncome)
+    }
+    
+    func optionsButtonTapped() {
+        let menu = Menu("Opciones") {
+            Button("Opción 1") {
+            }
+            Button("Opción 2") {
+            }
+        }
+        .menuStyle(BorderlessButtonMenuStyle())
     }
 }
 

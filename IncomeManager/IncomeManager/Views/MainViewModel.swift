@@ -49,6 +49,7 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoryInformation: [CategoryInformation] = []
     var distributions: [Distribution] = []
+    var income: Decimal = 1000
     
     private let repository: DistributionRepository
     
@@ -59,6 +60,7 @@ import Foundation
     
     func getDistributions(date: Date) {
         self.distributions = repository.fetchDistributions(date: date)
+        actionIncomeChanged(income)
     }
     
     func actionIncomeChanged(_ newIncome: Decimal?) {
