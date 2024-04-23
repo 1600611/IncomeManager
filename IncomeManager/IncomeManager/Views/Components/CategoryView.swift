@@ -9,10 +9,10 @@ import SwiftUI
 
 struct CategoryView: View {
     var categoryType: CategoryType
-    var percentage: Int
-    var destinatedValue: Int
-    var spentValue: Int
-    var totalValue: Int
+    var percentage: Double
+    var destinatedValue: Decimal
+    var spentValue: Decimal
+    var totalValue: Decimal
     var backgroundColor: Color
     
     var body: some View {
@@ -28,7 +28,7 @@ struct CategoryView: View {
                 
                 HStack {
                     Spacer()
-                    Text(String(self.percentage) + "%")
+                    Text(String(self.percentage * 100) + "%")
                     Spacer()
                 }
             }.padding(.bottom, 7.5)
@@ -36,20 +36,19 @@ struct CategoryView: View {
             
             HStack {
                 Text("Destined" + ":")
-                Text(String(self.destinatedValue) + "€")
+                Text(DecimalFormatter.shared.format(self.destinatedValue) + "€")
                 Spacer()
             }
             HStack {
                 Text("Spent" + ":")
-                Text("-" + String(self.spentValue) + "€")
-
+                Text("-" + DecimalFormatter.shared.format(self.spentValue) + "€")
                 Spacer()
             }
             
             HStack {
                 Spacer()
                 Text("Total" + ":")
-                Text(String(self.totalValue) + "€")
+                Text(DecimalFormatter.shared.format(self.totalValue) + "€")
                 Spacer()
             }.padding(.top, 12.5)
         }
@@ -64,7 +63,6 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoryView(categoryType: CategoryType.NEEDS, percentage: 50, destinatedValue: 500, spentValue: 200, totalValue: 300, backgroundColor: Color.green)
+        CategoryView(categoryType: .NEEDS, percentage: 50, destinatedValue: Decimal(500), spentValue: Decimal(200), totalValue: Decimal(300), backgroundColor: .green)
     }
 }
-

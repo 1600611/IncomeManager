@@ -21,6 +21,7 @@
 		5DDCBD592BD7ECEB0098DC6A /* DistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */; };
 		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */; };
 		5DDCBD5E2BD7F03F0098DC6A /* MockDistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5D2BD7F03F0098DC6A /* MockDistributionRepository.swift */; };
+		5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionRepository.swift; sourceTree = "<group>"; };
 		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDistributionRepository.swift; sourceTree = "<group>"; };
 		5DDCBD5D2BD7F03F0098DC6A /* MockDistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDistributionRepository.swift; sourceTree = "<group>"; };
+		5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 		5D685C5D2BD169D7008BD15D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DDCBD5F2BD8260A0098DC6A /* Numbers */,
 				5D685C602BD171F1008BD15D /* Date */,
 				5D685C532BD15A1C008BD15D /* Strings */,
 			);
@@ -177,6 +180,14 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		5DDCBD5F2BD8260A0098DC6A /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -250,6 +261,7 @@
 			files = (
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
 				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
+				5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */,
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
 				5DDCBD592BD7ECEB0098DC6A /* DistributionRepository.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,

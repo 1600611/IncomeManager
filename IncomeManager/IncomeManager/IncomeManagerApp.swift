@@ -13,6 +13,7 @@ struct IncomeManagerApp: App {
 
     var body: some Scene {
         WindowGroup {
+            MainView()
         }
     }
 }

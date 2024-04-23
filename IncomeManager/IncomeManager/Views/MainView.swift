@@ -22,13 +22,12 @@ struct MainView: View {
             MonthYearPickerView()
             
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                ForEach(viewModel.distributions.indices, id: \.self) { index in
-                    let distribution = viewModel.distributions[index]
-                    CategoryView(categoryType: distribution.categoryType,
-                                 percentage: distribution.percentage,
-                                 destinatedValue: 500,
-                                 spentValue: 200,
-                                 totalValue: 300,
+                ForEach(viewModel.categoryInformation) { categoryInformation in
+                    CategoryView(categoryType: categoryInformation.getCategoryType(),
+                                 percentage: categoryInformation.getPercentage(),
+                                 destinatedValue: categoryInformation.getDestinatedValue(),
+                                 spentValue: categoryInformation.getSpentValue(),
+                                 totalValue: categoryInformation.getTotalValue(),
                                  backgroundColor: Color.green)
                 }
             }

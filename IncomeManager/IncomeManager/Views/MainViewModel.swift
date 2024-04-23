@@ -5,14 +5,15 @@
 //  Created by Joel Angles Roca on 18/4/24.
 //
 
-struct CategoryInformation {
+struct CategoryInformation: Identifiable {
+    let id = UUID()
     private var categoryType: CategoryType
-    private var percentage: Int
+    private var percentage: Double
     private var destinatedValue: Decimal
     private var spentValue: Decimal
     private var totalValue: Decimal
     
-    init(categoryType: CategoryType, percentage: Int, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
+    init(categoryType: CategoryType, percentage: Double, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
         self.categoryType = categoryType
         self.percentage = percentage
         self.destinatedValue = destinatedValue
@@ -25,7 +26,7 @@ struct CategoryInformation {
         return categoryType
     }
     
-    func getPercentage() -> Int {
+    func getPercentage() -> Double {
         return percentage
     }
     
