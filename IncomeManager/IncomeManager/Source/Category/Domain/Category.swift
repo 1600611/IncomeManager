@@ -33,7 +33,7 @@ enum CategoryType: String {
     }
 }
 
-class Distribution {
+class Category {
     private var date: Date
     private var categoryType: CategoryType
     private var percentage: Int

@@ -4,6 +4,9 @@
     "" : {
 
     },
+    "%lld%%" : {
+
+    },
     "Add" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -96,6 +99,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fosc"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oscuro"
           }
         }
       }
@@ -370,6 +379,9 @@
           }
         }
       }
+    },
+    "Save" : {
+
     },
     "Savings" : {
       "extractionState" : "manual",

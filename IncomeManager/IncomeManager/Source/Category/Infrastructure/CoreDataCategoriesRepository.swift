@@ -7,8 +7,8 @@
 
 import Foundation
 
-class CoreDataDistributionRepository: DistributionRepository {
-    func fetchDistributions(date: Date) -> [Distribution] {
+class CoreDataCategoriesRepository: CategoryRepository {
+    func fetchCategories(date: Date) -> [Category] {
         // TODO: Implement CoreData logic
         return []
     }

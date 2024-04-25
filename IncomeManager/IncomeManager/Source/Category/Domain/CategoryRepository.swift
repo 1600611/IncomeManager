@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DistributionRepository {
-    func fetchDistributions(date: Date) -> [Distribution]
+protocol CategoryRepository {
+    func fetchCategories(date: Date) -> [Category]
 }

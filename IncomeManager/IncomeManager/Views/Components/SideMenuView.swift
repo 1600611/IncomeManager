@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SideMenuView: View {
     @EnvironmentObject private var themeManager: ThemeManager
-    @State private var isPickerVisible = false
+    @State private var isThemePickerVisible = false
+    @State private var isIncomeCategoryViewVisible = false
     var categoriesInformation: [CategoryInformation]
     var homeButtonAction: (() -> Void)
     
@@ -39,7 +40,7 @@ struct SideMenuView: View {
             .padding()
             
             Button(action: {
-                IncomeDistributionView(categories: categoriesInformation)
+                isIncomeCategoryViewVisible.toggle()
             }) {
                 HStack {
                     Image(systemName: "chart.pie")
@@ -61,7 +62,7 @@ struct SideMenuView: View {
             .padding()
             
             Button(action: {
-                isPickerVisible.toggle()
+                isThemePickerVisible.toggle()
             }) {
                 HStack {
                     Image(systemName: "paintbrush")
@@ -72,7 +73,7 @@ struct SideMenuView: View {
             }
             .padding()
             
-            if isPickerVisible {
+            if isThemePickerVisible {
                 Picker(selection: $themeManager.selectedIndex, label: Text("")) {
                     Text("Light").tag(0)
                     Text("Dark").tag(1)
@@ -82,6 +83,13 @@ struct SideMenuView: View {
                 .onChange(of: themeManager.selectedIndex) { newValue in
                     themeManager.selectedIndex = newValue
                 }
+            }
+            
+            if isIncomeCategoryViewVisible {
+                let percentage = categoriesInformation.map { $0.getPercentage() }
+                let categories = categoriesInformation.map { $0.getCategoryType() }
+                IncomeCategoryView(localPercentages: percentage, categories: categories)
+                    .padding()
             }
                         
             Spacer()

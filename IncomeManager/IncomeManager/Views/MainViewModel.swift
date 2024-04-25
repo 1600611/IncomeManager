@@ -49,28 +49,28 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
-    var distributions: [Distribution] = []
+    var categories: [Category] = []
     var income: Decimal = 1000
     
-    private let repository: DistributionRepository
+    private let repository: CategoryRepository
     
-    init(repository: DistributionRepository = MockDistributionRepository()) {
+    init(repository: CategoryRepository = MockCategoriesRepository()) {
         self.repository = repository
         getDistributions(date: Date())
     }
     
     func getDistributions(date: Date) {
-        self.distributions = repository.fetchDistributions(date: date)
+        self.categories = repository.fetchCategories(date: date)
         actionIncomeChanged(income)
     }
     
     func actionIncomeChanged(_ newIncome: Decimal?) {
-        for distribution in distributions {
-            let destinatedValue = newIncome! * Decimal(distribution.getPercentage()) / 100
-            let spentValue = distribution.getSpentValue()
+        for category in categories {
+            let destinatedValue = newIncome! * Decimal(category.getPercentage()) / 100
+            let spentValue = category.getSpentValue()
             let totalValue = destinatedValue - spentValue
-            let categoryInfo = CategoryInformation(categoryType: distribution.getCategoryType(),
-                                                   percentage: distribution.getPercentage(),
+            let categoryInfo = CategoryInformation(categoryType: category.getCategoryType(),
+                                                   percentage: category.getPercentage(),
                                                    destinatedValue: destinatedValue,
                                                    spentValue: spentValue,
                                                    totalValue: totalValue)
