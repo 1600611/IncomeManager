@@ -36,10 +36,10 @@ enum CategoryType: String {
 class Distribution {
     private var date: Date
     private var categoryType: CategoryType
-    private var percentage: Double
+    private var percentage: Int
     private var spentValue: Decimal
     
-    init(date: Date, categoryType: CategoryType, percentage: Double, spentValue: Decimal) {
+    init(date: Date, categoryType: CategoryType, percentage: Int, spentValue: Decimal) {
         self.date = date
         self.categoryType = categoryType
         self.percentage = percentage
@@ -54,7 +54,7 @@ class Distribution {
         return self.categoryType
     }
     
-    func getPercentage() -> Double {
+    func getPercentage() -> Int {
         return self.percentage
     }
     
@@ -70,7 +70,7 @@ class Distribution {
         self.categoryType = categoryType
     }
     
-    func setPercentage(_ percentage: Double) {
+    func setPercentage(_ percentage: Int) {
         self.percentage = percentage
     }
     

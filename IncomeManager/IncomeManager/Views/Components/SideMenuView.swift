@@ -10,17 +10,18 @@ import SwiftUI
 struct SideMenuView: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @State private var isPickerVisible = false
+    var categoriesInformation: [CategoryInformation]
     var homeButtonAction: (() -> Void)
     
     var body: some View {
         VStack(alignment: .leading, spacing: -7.5) {
             Text("Options")
                 .font(.title)
-                .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 .padding()
             
             Rectangle()
-                .fill(themeManager.selectedIndex == 0 ? Color.gray : Color.white)
+                .fill(0 == 0 ? Color.gray : Color.white)
                 .frame(height: 1)
                 .padding(.vertical, 5)
                 .padding(.horizontal)
@@ -30,19 +31,21 @@ struct SideMenuView: View {
             }) {
                 HStack {
                     Image(systemName: "house")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Home")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
             
-            Button(action: {}) {
+            Button(action: {
+                IncomeDistributionView(categories: categoriesInformation)
+            }) {
                 HStack {
                     Image(systemName: "chart.pie")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Income distribution")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -50,9 +53,9 @@ struct SideMenuView: View {
             Button(action: {}) {
                 HStack {
                     Image(systemName: "dollarsign.square")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Currency")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -62,9 +65,9 @@ struct SideMenuView: View {
             }) {
                 HStack {
                     Image(systemName: "paintbrush")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Theme")
-                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -83,11 +86,11 @@ struct SideMenuView: View {
                         
             Spacer()
         }
-        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+        .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .shadow(radius: 5)
     }
 }
 
 #Preview {
-    SideMenuView(homeButtonAction: {})
+    SideMenuView(categoriesInformation: [], homeButtonAction: {})
 }

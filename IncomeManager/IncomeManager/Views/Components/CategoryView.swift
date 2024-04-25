@@ -24,7 +24,7 @@ struct CategoryView: View {
                 
                 HStack {
                     Spacer()
-                    Text(String(self.categoryInformation.getPercentage() * 100) + "%")
+                    Text(String(self.categoryInformation.getPercentage()) + "%")
                         .font(.subheadline)
                     Spacer()
                 }
@@ -62,7 +62,7 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
-        let categoryInformation = CategoryInformation(categoryType: .NEEDS, percentage: 0.5, destinatedValue: Decimal(2000), spentValue: Decimal(200), totalValue: Decimal(300))
+        let categoryInformation = CategoryInformation(categoryType: .NEEDS, percentage: 50, destinatedValue: Decimal(2000), spentValue: Decimal(200), totalValue: Decimal(300))
         CategoryView(categoryInformation: categoryInformation)
     }
 }

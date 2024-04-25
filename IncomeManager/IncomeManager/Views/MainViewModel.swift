@@ -5,15 +5,15 @@
 //  Created by Joel Angles Roca on 18/4/24.
 //
 
-struct CategoryInformation: Identifiable {
+struct CategoryInformation: Identifiable, Equatable {
     let id = UUID()
     private var categoryType: CategoryType
-    private var percentage: Double
+    private var percentage: Int
     private var destinatedValue: Decimal
     private var spentValue: Decimal
     private var totalValue: Decimal
     
-    init(categoryType: CategoryType, percentage: Double, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
+    init(categoryType: CategoryType, percentage: Int, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
         self.categoryType = categoryType
         self.percentage = percentage
         self.destinatedValue = destinatedValue
@@ -26,7 +26,7 @@ struct CategoryInformation: Identifiable {
         return categoryType
     }
     
-    func getPercentage() -> Double {
+    func getPercentage() -> Int {
         return percentage
     }
     
@@ -47,7 +47,7 @@ struct CategoryInformation: Identifiable {
 import Foundation
 
 @MainActor class MainViewModel: ObservableObject {
-    @Published var categoryInformation: [CategoryInformation] = []
+    @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
     var distributions: [Distribution] = []
     var income: Decimal = 1000
@@ -66,7 +66,7 @@ import Foundation
     
     func actionIncomeChanged(_ newIncome: Decimal?) {
         for distribution in distributions {
-            let destinatedValue = newIncome! * Decimal(distribution.getPercentage())
+            let destinatedValue = newIncome! * Decimal(distribution.getPercentage()) / 100
             let spentValue = distribution.getSpentValue()
             let totalValue = destinatedValue - spentValue
             let categoryInfo = CategoryInformation(categoryType: distribution.getCategoryType(),
@@ -74,7 +74,7 @@ import Foundation
                                                    destinatedValue: destinatedValue,
                                                    spentValue: spentValue,
                                                    totalValue: totalValue)
-            categoryInformation.append(categoryInfo)
+            categoriesInformation.append(categoryInfo)
             monthBenefit += totalValue
         }
     }

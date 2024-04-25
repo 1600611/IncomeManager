@@ -27,7 +27,7 @@ struct MainView: View {
                 // Categories
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                        ForEach(viewModel.categoryInformation) { categoryInformation in
+                        ForEach(viewModel.categoriesInformation) { categoryInformation in
                             CategoryView(categoryInformation: categoryInformation)
                         }
                     }
@@ -64,7 +64,7 @@ struct MainView: View {
             
             if isMenuVisible {
                 GeometryReader { geometry in
-                    SideMenuView(homeButtonAction: { isMenuVisible.toggle() })
+                    SideMenuView(categoriesInformation: viewModel.categoriesInformation, homeButtonAction: { isMenuVisible.toggle() })
                         .frame(maxWidth: geometry.size.width * 0.70, maxHeight: .infinity)
                         .transition(.move(edge: .leading))
                 }
