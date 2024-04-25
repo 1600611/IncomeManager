@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MonthYearPickerView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var selectedDate = Date()
     
     var body: some View {
@@ -22,6 +23,7 @@ struct MonthYearPickerView: View {
             Spacer()
             
             Text(DateFormatterHelper.shared.format(date: self.selectedDate))
+                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
             
             Spacer()
             

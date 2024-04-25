@@ -13,6 +13,10 @@ class MockDistributionRepository: DistributionRepository {
         let distribution2 = Distribution(date: Date(), categoryType: CategoryType.ENTERTAINMENT, percentage: 0.3, spentValue: 200)
         let distribution3 = Distribution(date: Date(), categoryType: CategoryType.INVESTMENTS, percentage: 0.1, spentValue: 100)
         let distribution4 = Distribution(date: Date(), categoryType: CategoryType.SAVINGS, percentage: 0.1, spentValue: 0)
-        return [distribution1, distribution2, distribution3, distribution4]
+        let distribution5 = Distribution(date: Date(), categoryType: CategoryType.SAVINGS, percentage: 0.1, spentValue: 0)
+        let distribution6 = Distribution(date: Date(), categoryType: CategoryType.SAVINGS, percentage: 0.1, spentValue: 0)
+        let distribution7 = Distribution(date: Date(), categoryType: CategoryType.SAVINGS, percentage: 0.1, spentValue: 0)
+
+        return [distribution1, distribution2, distribution3, distribution4, distribution5, distribution6, distribution7]
     }
 }

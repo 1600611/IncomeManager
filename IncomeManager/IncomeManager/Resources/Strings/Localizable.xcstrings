@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "" : {
+
+    },
     "Add" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -82,6 +85,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Divisa"
+          }
+        }
+      }
+    },
+    "Dark" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fosc"
           }
         }
       }
@@ -272,9 +286,32 @@
         }
       }
     },
+    "Light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Clar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Claro"
+          }
+        }
+      }
+    },
     "Monthly salary" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salari mensual"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -299,15 +336,6 @@
           }
         }
       }
-    },
-    "Opción 1" : {
-
-    },
-    "Opción 2" : {
-
-    },
-    "Opciones" : {
-
     },
     "Options" : {
       "extractionState" : "manual",

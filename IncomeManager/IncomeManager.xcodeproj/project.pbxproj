@@ -17,6 +17,9 @@
 		5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */; };
 		5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80C2BCEC7060098F12C /* Persistence.swift */; };
 		5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */; };
+		5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B922BDA968000B4E597 /* SideMenuView.swift */; };
+		5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B952BDAA9A500B4E597 /* ThemeManager.swift */; };
+		5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B972BDAAD0100B4E597 /* Styles.swift */; };
 		5DDCBD542BD7ECAA0098DC6A /* Distribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD532BD7ECAA0098DC6A /* Distribution.swift */; };
 		5DDCBD592BD7ECEB0098DC6A /* DistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */; };
 		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */; };
@@ -36,6 +39,9 @@
 		5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeManagerApp.swift; sourceTree = "<group>"; };
 		5D98C80C2BCEC7060098F12C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5D98C80F2BCEC7060098F12C /* IncomeManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeManager.xcdatamodel; sourceTree = "<group>"; };
+		5DAD5B922BDA968000B4E597 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		5DAD5B952BDAA9A500B4E597 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		5DAD5B972BDAAD0100B4E597 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		5DDCBD532BD7ECAA0098DC6A /* Distribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distribution.swift; sourceTree = "<group>"; };
 		5DDCBD582BD7ECEB0098DC6A /* DistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistributionRepository.swift; sourceTree = "<group>"; };
 		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataDistributionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDistributionRepository.swift; sourceTree = "<group>"; };
@@ -60,6 +66,7 @@
 				5D685C512BD154B0008BD15D /* CategoryView.swift */,
 				5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */,
 				5D685C672BD172BB008BD15D /* HeaderView.swift */,
+				5DAD5B922BDA968000B4E597 /* SideMenuView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -75,6 +82,7 @@
 		5D685C5D2BD169D7008BD15D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5DAD5B942BDAA98A00B4E597 /* Colors */,
 				5DDCBD5F2BD8260A0098DC6A /* Numbers */,
 				5D685C602BD171F1008BD15D /* Date */,
 				5D685C532BD15A1C008BD15D /* Strings */,
@@ -143,6 +151,15 @@
 				5D685C652BD1725D008BD15D /* MainViewModel.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5DAD5B942BDAA98A00B4E597 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				5DAD5B952BDAA9A500B4E597 /* ThemeManager.swift */,
+				5DAD5B972BDAAD0100B4E597 /* Styles.swift */,
+			);
+			path = Colors;
 			sourceTree = "<group>";
 		};
 		5DDCBD552BD7ECB00098DC6A /* Distribution */ = {
@@ -270,7 +287,10 @@
 				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
 				5DDCBD5E2BD7F03F0098DC6A /* MockDistributionRepository.swift in Sources */,
+				5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */,
+				5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */,
 				5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */,
+				5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */,
 				5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */,
 				5DDCBD542BD7ECAA0098DC6A /* Distribution.swift in Sources */,
 			);

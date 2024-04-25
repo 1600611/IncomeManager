@@ -48,6 +48,7 @@ import Foundation
 
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoryInformation: [CategoryInformation] = []
+    @Published var monthBenefit: Decimal = 0
     var distributions: [Distribution] = []
     var income: Decimal = 1000
     
@@ -74,6 +75,7 @@ import Foundation
                                                    spentValue: spentValue,
                                                    totalValue: totalValue)
             categoryInformation.append(categoryInfo)
+            monthBenefit += totalValue
         }
     }
     

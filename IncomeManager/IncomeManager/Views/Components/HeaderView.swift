@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct HeaderView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var userInput: String = ""
-    var color: Color
     var incomeChangedAction: ((Decimal?) -> Void)
     var optionsButtonAction: (() -> Void)
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(color)
+                .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                 .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {
@@ -27,6 +27,7 @@ struct HeaderView: View {
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
                             .foregroundColor(.white)
+                            .padding(.top, 5)
                         
                         Spacer()
                     }
@@ -80,6 +81,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(color: .green, incomeChangedAction: { _ in }, optionsButtonAction: { })
+        HeaderView(incomeChangedAction: { _ in }, optionsButtonAction: { })
     }
 }

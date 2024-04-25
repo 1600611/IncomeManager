@@ -8,42 +8,73 @@
 import SwiftUI
 
 struct MainView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @StateObject var viewModel: MainViewModel
+    @State private var isMenuVisible = false
     
     init() {
         self._viewModel = StateObject(wrappedValue: MainViewModel())
     }
     
     var body: some View {
-        VStack {
-            HeaderView(color: .green, incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: optionsButtonTapped)
-                .frame(height: 100)
+        ZStack {
+            VStack {
+                HeaderView(incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
+                    .frame(height: 100)
+                
+                MonthYearPickerView()
+                
+                // Categories
+                ScrollView {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
+                        ForEach(viewModel.categoryInformation) { categoryInformation in
+                            CategoryView(categoryInformation: categoryInformation)
+                        }
+                    }
+                    .padding()
+                }
+                
+                Spacer()
+                
+                // Monthly total benefits
+                ZStack {
+                    Rectangle()
+                        .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                        .frame(height: 75)
+                    
+                    HStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/) {
+                        Text("Total" + ":")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                        Text(DecimalFormatter.shared.format(viewModel.monthBenefit) + "€")
+                            .foregroundColor(.white)
+                            .font(.title2)
+                    }
+                }
+                
+            }
+            .disabled(isMenuVisible)
+            .overlay(
+                Color.black.opacity(isMenuVisible ? 0.5 : 0)
+                    .edgesIgnoringSafeArea(.all)
+                    .onTapGesture {
+                        if isMenuVisible { isMenuVisible.toggle() }
+                    }
+            )
             
-            MonthYearPickerView()
-            
-            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                ForEach(viewModel.categoryInformation) { categoryInformation in
-                    CategoryView(categoryInformation: categoryInformation, color: Color.green)
+            if isMenuVisible {
+                GeometryReader { geometry in
+                    SideMenuView(homeButtonAction: { isMenuVisible.toggle() })
+                        .frame(maxWidth: geometry.size.width * 0.70, maxHeight: .infinity)
+                        .transition(.move(edge: .leading))
                 }
             }
-            .padding()
-            
-            Spacer()
         }
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
     }
     
     func monthlyIncomeUpdated(_ newIncome: Decimal?) {
         viewModel.actionIncomeChanged(newIncome)
-    }
-    
-    func optionsButtonTapped() {
-        let menu = Menu("Opciones") {
-            Button("Opción 1") {
-            }
-            Button("Opción 2") {
-            }
-        }
-        .menuStyle(BorderlessButtonMenuStyle())
     }
 }
 

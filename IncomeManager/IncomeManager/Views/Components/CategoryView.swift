@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct CategoryView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     var categoryInformation: CategoryInformation
-    var color: Color
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7.5) {
@@ -53,7 +53,7 @@ struct CategoryView: View {
         }
         .padding()
         .frame(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 40)
-        .background(self.color)
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
         .border(Color.black, width: 1.25)
         .cornerRadius(5)
         .foregroundColor(.white)
@@ -63,6 +63,6 @@ struct CategoryView: View {
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         let categoryInformation = CategoryInformation(categoryType: .NEEDS, percentage: 0.5, destinatedValue: Decimal(2000), spentValue: Decimal(200), totalValue: Decimal(300))
-        CategoryView(categoryInformation: categoryInformation, color: .green)
+        CategoryView(categoryInformation: categoryInformation)
     }
 }
