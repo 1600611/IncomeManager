@@ -15,12 +15,13 @@
 		5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C652BD1725D008BD15D /* MainViewModel.swift */; };
 		5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C672BD172BB008BD15D /* HeaderView.swift */; };
 		5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */; };
-		5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80C2BCEC7060098F12C /* Persistence.swift */; };
 		5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */; };
 		5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B922BDA968000B4E597 /* SideMenuView.swift */; };
 		5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B952BDAA9A500B4E597 /* ThemeManager.swift */; };
 		5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B972BDAAD0100B4E597 /* Styles.swift */; };
-		5DAD5B9A2BDAC76300B4E597 /* IncomeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B992BDAC76300B4E597 /* IncomeCategoryView.swift */; };
+		5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B992BDAC76300B4E597 /* IncomeDistributionCategoryView.swift */; };
+		5DC67DD32BE3F00B0027F48E /* CDCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC67DD22BE3F00B0027F48E /* CDCategory.swift */; };
+		5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */; };
 		5DDCBD542BD7ECAA0098DC6A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD532BD7ECAA0098DC6A /* Category.swift */; };
 		5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD582BD7ECEB0098DC6A /* CategoryRepository.swift */; };
 		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift */; };
@@ -38,12 +39,13 @@
 		5D685C672BD172BB008BD15D /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5D98C8002BCEC7040098F12C /* IncomeManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IncomeManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeManagerApp.swift; sourceTree = "<group>"; };
-		5D98C80C2BCEC7060098F12C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		5D98C80F2BCEC7060098F12C /* IncomeManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = IncomeManager.xcdatamodel; sourceTree = "<group>"; };
 		5DAD5B922BDA968000B4E597 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		5DAD5B952BDAA9A500B4E597 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		5DAD5B972BDAAD0100B4E597 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
-		5DAD5B992BDAC76300B4E597 /* IncomeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCategoryView.swift; sourceTree = "<group>"; };
+		5DAD5B992BDAC76300B4E597 /* IncomeDistributionCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDistributionCategoryView.swift; sourceTree = "<group>"; };
+		5DC67DD22BE3F00B0027F48E /* CDCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategory.swift; sourceTree = "<group>"; };
+		5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		5DDCBD532BD7ECAA0098DC6A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5DDCBD582BD7ECEB0098DC6A /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoriesRepository.swift; sourceTree = "<group>"; };
@@ -69,7 +71,7 @@
 				5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */,
 				5D685C672BD172BB008BD15D /* HeaderView.swift */,
 				5DAD5B922BDA968000B4E597 /* SideMenuView.swift */,
-				5DAD5B992BDAC76300B4E597 /* IncomeCategoryView.swift */,
+				5DAD5B992BDAC76300B4E597 /* IncomeDistributionCategoryView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -127,13 +129,12 @@
 		5D98C8022BCEC7040098F12C /* IncomeManager */ = {
 			isa = PBXGroup;
 			children = (
+				5DE0565A2BE3E4AE0051D7C5 /* CoreData */,
 				5D685C5D2BD169D7008BD15D /* Resources */,
 				5D98C8162BCEC9870098F12C /* Source */,
 				5D98C8172BCEC9990098F12C /* Views */,
 				5D685C692BD1762D008BD15D /* Preview Content */,
 				5D98C8032BCEC7040098F12C /* IncomeManagerApp.swift */,
-				5D98C80C2BCEC7060098F12C /* Persistence.swift */,
-				5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */,
 			);
 			path = IncomeManager;
 			sourceTree = "<group>";
@@ -149,9 +150,7 @@
 		5D98C8172BCEC9990098F12C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D685C502BD15487008BD15D /* Components */,
-				5D685C632BD17252008BD15D /* MainView.swift */,
-				5D685C652BD1725D008BD15D /* MainViewModel.swift */,
+				5DE056592BE3BFEB0051D7C5 /* Main */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +205,26 @@
 				5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */,
 			);
 			path = Numbers;
+			sourceTree = "<group>";
+		};
+		5DE056592BE3BFEB0051D7C5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5D685C502BD15487008BD15D /* Components */,
+				5D685C632BD17252008BD15D /* MainView.swift */,
+				5D685C652BD1725D008BD15D /* MainViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		5DE0565A2BE3E4AE0051D7C5 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */,
+				5DC67DD22BE3F00B0027F48E /* CDCategory.swift */,
+				5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,18 +299,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
-				5DAD5B9A2BDAC76300B4E597 /* IncomeCategoryView.swift in Sources */,
+				5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */,
 				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
 				5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */,
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
 				5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
-				5D98C80D2BCEC7060098F12C /* Persistence.swift in Sources */,
 				5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift in Sources */,
 				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
 				5DDCBD5E2BD7F03F0098DC6A /* MockCategoriesRepository.swift in Sources */,
 				5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */,
+				5DC67DD32BE3F00B0027F48E /* CDCategory.swift in Sources */,
+				5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */,
 				5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */,
 				5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */,
 				5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */,

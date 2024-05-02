@@ -64,7 +64,7 @@ struct MainView: View {
             
             if isMenuVisible {
                 GeometryReader { geometry in
-                    SideMenuView(categoriesInformation: viewModel.categoriesInformation, homeButtonAction: { isMenuVisible.toggle() })
+                    SideMenuView(categoriesInformation: viewModel.categoriesInformation, saveIncomeDistributionsAction: incomeDistributionPercentagesUpdated, homeButtonAction: { isMenuVisible.toggle() })
                         .frame(maxWidth: geometry.size.width * 0.70, maxHeight: .infinity)
                         .transition(.move(edge: .leading))
                 }
@@ -74,7 +74,12 @@ struct MainView: View {
     }
     
     func monthlyIncomeUpdated(_ newIncome: Decimal?) {
-        viewModel.actionIncomeChanged(newIncome)
+        viewModel.actionIncomeSetted(newIncome)
+    }
+    
+    func incomeDistributionPercentagesUpdated(_ updatedIncomeDistributionPercentages: [Int]) {
+        isMenuVisible = false
+        viewModel.actionIncomeDistributionsSetted(updatedIncomeDistributionPercentages)
     }
 }
 

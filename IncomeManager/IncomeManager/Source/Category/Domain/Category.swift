@@ -34,20 +34,14 @@ enum CategoryType: String {
 }
 
 class Category {
-    private var date: Date
     private var categoryType: CategoryType
     private var percentage: Int
     private var spentValue: Decimal
     
-    init(date: Date, categoryType: CategoryType, percentage: Int, spentValue: Decimal) {
-        self.date = date
+    init(categoryType: CategoryType, percentage: Int, spentValue: Decimal) {
         self.categoryType = categoryType
         self.percentage = percentage
         self.spentValue = spentValue
-    }
-    
-    func getDate() -> Date {
-        return self.date
     }
     
     func getCategoryType() -> CategoryType {
@@ -60,10 +54,6 @@ class Category {
     
     func getSpentValue() -> Decimal {
         return self.spentValue
-    }
-    
-    func setDate(_ date: Date) {
-        self.date = date
     }
     
     func setCategoryType(_ categoryType: CategoryType) {

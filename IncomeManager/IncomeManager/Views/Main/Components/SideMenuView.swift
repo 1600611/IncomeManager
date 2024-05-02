@@ -12,8 +12,9 @@ struct SideMenuView: View {
     @State private var isThemePickerVisible = false
     @State private var isIncomeCategoryViewVisible = false
     var categoriesInformation: [CategoryInformation]
+    var saveIncomeDistributionsAction: ([Int]) -> Void
     var homeButtonAction: (() -> Void)
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: -7.5) {
             Text("Options")
@@ -40,6 +41,7 @@ struct SideMenuView: View {
             .padding()
             
             Button(action: {
+                isThemePickerVisible = false
                 isIncomeCategoryViewVisible.toggle()
             }) {
                 HStack {
@@ -62,6 +64,7 @@ struct SideMenuView: View {
             .padding()
             
             Button(action: {
+                isIncomeCategoryViewVisible = false
                 isThemePickerVisible.toggle()
             }) {
                 HStack {
@@ -88,8 +91,8 @@ struct SideMenuView: View {
             if isIncomeCategoryViewVisible {
                 let percentage = categoriesInformation.map { $0.getPercentage() }
                 let categories = categoriesInformation.map { $0.getCategoryType() }
-                IncomeCategoryView(localPercentages: percentage, categories: categories)
-                    .padding()
+                IncomeDistributionCategoryView(localPercentages: percentage, categories: categories, saveIncomeDistributionsAction: saveIncomeDistributionsAction)
+                                .padding()
             }
                         
             Spacer()
@@ -100,5 +103,5 @@ struct SideMenuView: View {
 }
 
 #Preview {
-    SideMenuView(categoriesInformation: [], homeButtonAction: {})
+    SideMenuView(categoriesInformation: [], saveIncomeDistributionsAction: { _ in }, homeButtonAction: {})
 }

@@ -7,11 +7,11 @@
 
 struct CategoryInformation: Identifiable, Equatable {
     let id = UUID()
-    private var categoryType: CategoryType
-    private var percentage: Int
-    private var destinatedValue: Decimal
-    private var spentValue: Decimal
-    private var totalValue: Decimal
+    let categoryType: CategoryType
+    private(set) var percentage: Int
+    private(set) var destinatedValue: Decimal
+    let spentValue: Decimal
+    private(set) var totalValue: Decimal
     
     init(categoryType: CategoryType, percentage: Int, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
         self.categoryType = categoryType
@@ -41,6 +41,18 @@ struct CategoryInformation: Identifiable, Equatable {
     func getTotalValue() -> Decimal {
         return totalValue
     }
+    
+    mutating func setPercentage(_ percentage: Int) {
+        self.percentage = percentage
+    }
+    
+    mutating func setTotalValue(_ totalValue: Decimal) {
+        self.totalValue = totalValue
+    }
+    
+    mutating func setDestinatedValue(_ destinatedValue: Decimal) {
+        self.destinatedValue = destinatedValue
+    }
 }
 
 
@@ -49,22 +61,22 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
-    var categories: [Category] = []
-    var income: Decimal = 1000
+    private(set) var categories: [Category] = []
+    private(set) var income: Decimal = 1000
     
     private let repository: CategoryRepository
     
     init(repository: CategoryRepository = MockCategoriesRepository()) {
         self.repository = repository
-        getDistributions(date: Date())
+        getCategories(date: Date())
     }
     
-    func getDistributions(date: Date) {
+    func getCategories(date: Date) {
         self.categories = repository.fetchCategories(date: date)
-        actionIncomeChanged(income)
+        actionIncomeSetted(income)
     }
     
-    func actionIncomeChanged(_ newIncome: Decimal?) {
+    func actionIncomeSetted(_ newIncome: Decimal?) {
         for category in categories {
             let destinatedValue = newIncome! * Decimal(category.getPercentage()) / 100
             let spentValue = category.getSpentValue()
@@ -77,6 +89,17 @@ import Foundation
             categoriesInformation.append(categoryInfo)
             monthBenefit += totalValue
         }
+    }
+    
+    func actionIncomeDistributionsSetted(_ incomeDistributions: [Int]) {
+        for i in incomeDistributions.indices {
+            categoriesInformation[i].setPercentage(incomeDistributions[i])
+            let destinatedValue = income * Decimal(incomeDistributions[i]) / 100
+            categoriesInformation[i].setDestinatedValue(destinatedValue)
+            categoriesInformation[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
+        }
+        
+        repository.save(categoriesInformation: categoriesInformation, date: Date())
     }
     
 }

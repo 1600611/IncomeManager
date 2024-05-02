@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct IncomeCategoryView: View {
+struct IncomeDistributionCategoryView: View {
     @State private var totalPercentage: Int = 0
     @State var localPercentages: [Int]
     @State private var isPresentingPicker = false
     @State private var selectedCategoryIndex = 0
     var categories: [CategoryType]
-    
+    var saveIncomeDistributionsAction: ([Int]) -> Void
+
     var body: some View {
         VStack {
             List {
@@ -26,7 +27,7 @@ struct IncomeCategoryView: View {
                                 get: { localPercentages[selectedCategoryIndex] },
                                 set: { newValue in
                                     localPercentages[selectedCategoryIndex] = newValue
-                                    updateTotalPercentage() // Actualiza el total cuando se cambia un porcentaje
+                                    updateTotalPercentage()
                                 }
                             )) {
                                 ForEach(0...100, id: \.self) { percentage in
@@ -34,11 +35,15 @@ struct IncomeCategoryView: View {
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
-                            .frame(width: 100)
+                            .frame(width: 100, height: 120)
                         } else {
                             Button(action: {
-                                isPresentingPicker = true
-                                selectedCategoryIndex = index
+                                if selectedCategoryIndex == index {
+                                    isPresentingPicker.toggle()
+                                } else {
+                                    isPresentingPicker = true
+                                    selectedCategoryIndex = index
+                                }
                             }) {
                                 Text("\(localPercentages[index])%")
                             }
@@ -46,18 +51,19 @@ struct IncomeCategoryView: View {
                     }
                 }
             }
+            .listStyle(PlainListStyle())
             
             
-            Button("Save") {
-                // Aquí puedes usar la lista local de porcentajes para cualquier lógica de guardado
-                print("Local Percentages: \(localPercentages)")
-            }
+            Button("Save", action: {
+                saveIncomeDistributionsAction(localPercentages)
+            })
             .padding()
-            .disabled(totalPercentage <= 100)
+            .disabled(totalPercentage != 100)
         }
         .onAppear {
             updateTotalPercentage()
         }
+        .background(Color.clear)
     }
     
     private func updateTotalPercentage() {
@@ -69,6 +75,6 @@ struct IncomeCategoryView_Previews: PreviewProvider {
     static var previews: some View {
         let categories = [CategoryType.NEEDS, CategoryType.ENTERTAINMENT, CategoryType.INVESTMENTS, CategoryType.SAVINGS]
         let percentages = [50, 30, 10, 10]
-        IncomeCategoryView(localPercentages: percentages, categories: categories)
+        IncomeDistributionCategoryView(localPercentages: percentages, categories: categories, saveIncomeDistributionsAction: { _ in })
     }
 }
