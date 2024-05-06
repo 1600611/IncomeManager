@@ -61,17 +61,19 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
+    @Published var date: Date
     private(set) var categories: [Category] = []
     private(set) var income: Decimal = 1000
     
     private let repository: CategoryRepository
     
-    init(repository: CategoryRepository = MockCategoriesRepository()) {
+    init(date: Date, repository: CategoryRepository = CoreDataCategoryRepository()) {
+        self.date = date
         self.repository = repository
-        getCategories(date: Date())
+        getCategories()
     }
     
-    func getCategories(date: Date) {
+    func getCategories() {
         self.categories = repository.fetchCategories(date: date)
         actionIncomeSetted(income)
     }
@@ -99,7 +101,7 @@ import Foundation
             categoriesInformation[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
         }
         
-        repository.save(categoriesInformation: categoriesInformation, date: Date())
+        repository.save(categoriesInformation: categoriesInformation, date: date)
     }
     
 }

@@ -26,21 +26,31 @@ extension CDCategory {
         }
     }
     
-    static func fetch(_ predicate: NSPredicate) -> NSFetchRequest<CDCategory> {
-        let request = CDCategory.fetchRequest()
-        return request
+    static func fetch(_ date: Date) -> [CDCategory] {
+        
+        // Create a fetch request to check if categories with the given month and year already exist
+        let calendar = Calendar.current
+        let monthAndYearComponents = calendar.dateComponents([.year, .month], from: date)
+        let startOfMonth = calendar.date(from: monthAndYearComponents)!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+        
+        let fetchRequest: NSFetchRequest<CDCategory> = CDCategory.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startOfMonth as NSDate, endOfMonth as NSDate)
+        
+        do {
+            let context = PersistenceController.shared.container.viewContext
+            return try context.fetch(fetchRequest)
+        } catch {
+            print("Error fetching categories: \(error.localizedDescription)")
+            return []
+        }
     }
     
     static func saveOrUpdate(categoryInformations: [CategoryInformation], date: Date) {
         let context = PersistenceController.shared.container.viewContext
         
         do {
-            // Create a fetch request to check if categories with the given date and category type already exist
-            let fetchRequest: NSFetchRequest<CDCategory> = CDCategory.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "date == %@", date as NSDate)
-
-            // Fetch existing categories based on the predicate
-            let existingCategories = try context.fetch(fetchRequest)
+            let existingCategories = fetch(date)
 
             // Create a dictionary to map category types to existing categories
             var existingCategoriesMap: [String: CDCategory] = [:]

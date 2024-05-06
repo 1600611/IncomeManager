@@ -22,10 +22,11 @@
 		5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAD5B992BDAC76300B4E597 /* IncomeDistributionCategoryView.swift */; };
 		5DC67DD32BE3F00B0027F48E /* CDCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC67DD22BE3F00B0027F48E /* CDCategory.swift */; };
 		5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */; };
+		5DD358C42BE979EB009A201A /* CategoryMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DD358C32BE979EB009A201A /* CategoryMapper.swift */; };
 		5DDCBD542BD7ECAA0098DC6A /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD532BD7ECAA0098DC6A /* Category.swift */; };
 		5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD582BD7ECEB0098DC6A /* CategoryRepository.swift */; };
-		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift */; };
-		5DDCBD5E2BD7F03F0098DC6A /* MockCategoriesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5D2BD7F03F0098DC6A /* MockCategoriesRepository.swift */; };
+		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift */; };
+		5DDCBD5E2BD7F03F0098DC6A /* MockCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5D2BD7F03F0098DC6A /* MockCategoryRepository.swift */; };
 		5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,10 +47,11 @@
 		5DAD5B992BDAC76300B4E597 /* IncomeDistributionCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDistributionCategoryView.swift; sourceTree = "<group>"; };
 		5DC67DD22BE3F00B0027F48E /* CDCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategory.swift; sourceTree = "<group>"; };
 		5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		5DD358C32BE979EB009A201A /* CategoryMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryMapper.swift; sourceTree = "<group>"; };
 		5DDCBD532BD7ECAA0098DC6A /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		5DDCBD582BD7ECEB0098DC6A /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
-		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoriesRepository.swift; sourceTree = "<group>"; };
-		5DDCBD5D2BD7F03F0098DC6A /* MockCategoriesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoriesRepository.swift; sourceTree = "<group>"; };
+		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoryRepository.swift; sourceTree = "<group>"; };
+		5DDCBD5D2BD7F03F0098DC6A /* MockCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryRepository.swift; sourceTree = "<group>"; };
 		5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,8 +188,9 @@
 		5DDCBD572BD7ECC80098DC6A /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift */,
-				5DDCBD5D2BD7F03F0098DC6A /* MockCategoriesRepository.swift */,
+				5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift */,
+				5DDCBD5D2BD7F03F0098DC6A /* MockCategoryRepository.swift */,
+				5DD358C32BE979EB009A201A /* CategoryMapper.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -305,10 +308,11 @@
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
 				5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
-				5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoriesRepository.swift in Sources */,
+				5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift in Sources */,
 				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
-				5DDCBD5E2BD7F03F0098DC6A /* MockCategoriesRepository.swift in Sources */,
+				5DD358C42BE979EB009A201A /* CategoryMapper.swift in Sources */,
+				5DDCBD5E2BD7F03F0098DC6A /* MockCategoryRepository.swift in Sources */,
 				5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */,
 				5DC67DD32BE3F00B0027F48E /* CDCategory.swift in Sources */,
 				5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */,

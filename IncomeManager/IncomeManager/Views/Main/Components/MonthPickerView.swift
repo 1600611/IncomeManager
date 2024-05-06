@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MonthYearPickerView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    @State private var selectedDate = Date()
+    @Binding var selectedDate: Date
     
     var body: some View {
         
@@ -39,6 +39,6 @@ struct MonthYearPickerView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MonthYearPickerView()
+        MonthYearPickerView(selectedDate: .constant(Date()))
     }
 }

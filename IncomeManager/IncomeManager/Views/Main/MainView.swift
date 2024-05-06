@@ -13,7 +13,7 @@ struct MainView: View {
     @State private var isMenuVisible = false
     
     init() {
-        self._viewModel = StateObject(wrappedValue: MainViewModel())
+        self._viewModel = StateObject(wrappedValue: MainViewModel(date: Date()))
     }
     
     var body: some View {
@@ -22,7 +22,7 @@ struct MainView: View {
                 HeaderView(incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
                     .frame(height: 100)
                 
-                MonthYearPickerView()
+                MonthYearPickerView(selectedDate: $viewModel.date)
                 
                 // Categories
                 ScrollView {

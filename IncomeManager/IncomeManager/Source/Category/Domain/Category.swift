@@ -31,6 +31,7 @@ enum CategoryType: String {
             "Debts"
         }
     }
+
 }
 
 class Category {
@@ -38,10 +39,10 @@ class Category {
     private var percentage: Int
     private var spentValue: Decimal
     
-    init(categoryType: CategoryType, percentage: Int, spentValue: Decimal) {
-        self.categoryType = categoryType
+    init(categoryType: String, percentage: Int, spentValue: Decimal) {
         self.percentage = percentage
         self.spentValue = spentValue
+        self.categoryType = CategoryType(rawValue: categoryType)!
     }
     
     func getCategoryType() -> CategoryType {
