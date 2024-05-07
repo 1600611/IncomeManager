@@ -9,12 +9,8 @@ import SwiftUI
 
 struct MainView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    @StateObject var viewModel: MainViewModel
+    @ObservedObject var viewModel = MainViewModel()
     @State private var isMenuVisible = false
-    
-    init() {
-        self._viewModel = StateObject(wrappedValue: MainViewModel(date: Date()))
-    }
     
     var body: some View {
         ZStack {
@@ -22,13 +18,13 @@ struct MainView: View {
                 HeaderView(incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
                     .frame(height: 100)
                 
-                MonthYearPickerView(selectedDate: $viewModel.date)
+                MonthYearPickerView(changeDateAction: dateChanged)
                 
                 // Categories
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                        ForEach(viewModel.categoriesInformation) { categoryInformation in
-                            CategoryView(categoryInformation: categoryInformation)
+                        ForEach(viewModel.categoriesInformation) { category in
+                            CategoryView(category: category)
                         }
                     }
                     .padding()
@@ -64,7 +60,7 @@ struct MainView: View {
             
             if isMenuVisible {
                 GeometryReader { geometry in
-                    SideMenuView(categoriesInformation: viewModel.categoriesInformation, saveIncomeDistributionsAction: incomeDistributionPercentagesUpdated, homeButtonAction: { isMenuVisible.toggle() })
+                    SideMenuView(categories: viewModel.categoriesInformation, saveIncomeDistributionsAction: incomeDistributionPercentagesUpdated, homeButtonAction: { isMenuVisible.toggle() })
                         .frame(maxWidth: geometry.size.width * 0.70, maxHeight: .infinity)
                         .transition(.move(edge: .leading))
                 }
@@ -73,7 +69,7 @@ struct MainView: View {
         .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
     }
     
-    func monthlyIncomeUpdated(_ newIncome: Decimal?) {
+    func monthlyIncomeUpdated(_ newIncome: Decimal) {
         viewModel.actionIncomeSetted(newIncome)
     }
     
@@ -81,8 +77,12 @@ struct MainView: View {
         isMenuVisible = false
         viewModel.actionIncomeDistributionsSetted(updatedIncomeDistributionPercentages)
     }
+    
+    func dateChanged(_ date: Date) {
+        viewModel.actionDateChanged(date)
+    }
 }
 
 #Preview {
-    MainView()
+    MainView(viewModel: MainViewModel())
 }

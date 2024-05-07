@@ -61,26 +61,32 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
-    @Published var date: Date
+    private(set) var date: Date?
     private(set) var categories: [Category] = []
-    private(set) var income: Decimal = 1000
+    private(set) var income: Decimal!
     
-    private let repository: CategoryRepository
+    private let categoryRepository: CategoryRepository
+    private let incomeRepository: IncomeRepository
     
-    init(date: Date, repository: CategoryRepository = CoreDataCategoryRepository()) {
-        self.date = date
-        self.repository = repository
-        getCategories()
+    init(categoryRepository: CategoryRepository = CoreDataCategoryRepository(), incomeRepository: IncomeRepository = CoreDataIncomeRepository()) {
+        self.categoryRepository = categoryRepository
+        self.incomeRepository = incomeRepository
     }
     
-    func getCategories() {
-        self.categories = repository.fetchCategories(date: date)
+    func actionDateChanged(_ date: Date) {
+        self.date = date
+        self.categories = categoryRepository.fetchCategories(date: date)
+        self.income = incomeRepository.fetchIncome(date: date).getAmount()
         actionIncomeSetted(income)
     }
     
-    func actionIncomeSetted(_ newIncome: Decimal?) {
+    func actionIncomeSetted(_ newIncome: Decimal) {
+        self.income = newIncome
+        self.categoriesInformation.removeAll()
+        self.monthBenefit = 0
+        
         for category in categories {
-            let destinatedValue = newIncome! * Decimal(category.getPercentage()) / 100
+            let destinatedValue = newIncome * Decimal(category.getPercentage()) / 100
             let spentValue = category.getSpentValue()
             let totalValue = destinatedValue - spentValue
             let categoryInfo = CategoryInformation(categoryType: category.getCategoryType(),
@@ -91,17 +97,25 @@ import Foundation
             categoriesInformation.append(categoryInfo)
             monthBenefit += totalValue
         }
+        
+        incomeRepository.save(income: newIncome, date: date!)
     }
     
     func actionIncomeDistributionsSetted(_ incomeDistributions: [Int]) {
         for i in incomeDistributions.indices {
             categoriesInformation[i].setPercentage(incomeDistributions[i])
+            categories[i].setPercentage(incomeDistributions[i])
+            
             let destinatedValue = income * Decimal(incomeDistributions[i]) / 100
+            
             categoriesInformation[i].setDestinatedValue(destinatedValue)
+            categories[i].setDestinatedValue(destinatedValue )
+            
             categoriesInformation[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
+            categories[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
         }
         
-        repository.save(categoriesInformation: categoriesInformation, date: date)
+        categoryRepository.save(categories: categories, date: date!)
     }
     
 }

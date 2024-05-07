@@ -34,10 +34,12 @@ enum CategoryType: String {
 
 }
 
-class Category {
+class Category: Identifiable {
     private var categoryType: CategoryType
     private var percentage: Int
     private var spentValue: Decimal
+    private var destinatedValue: Decimal?
+    private var totalValue: Decimal?
     
     init(categoryType: String, percentage: Int, spentValue: Decimal) {
         self.percentage = percentage
@@ -57,15 +59,31 @@ class Category {
         return self.spentValue
     }
     
-    func setCategoryType(_ categoryType: CategoryType) {
-        self.categoryType = categoryType
+    func getDestinatedValue() -> Decimal {
+        if let destinatedValue = self.destinatedValue {
+            return destinatedValue
+        }
+        
+        return 0
+    }
+    
+    func getTotalValue() -> Decimal {
+        if let totalValue = self.totalValue {
+            return totalValue
+        }
+        
+        return 0
     }
     
     func setPercentage(_ percentage: Int) {
         self.percentage = percentage
     }
     
-    func setSpentValue(_ spentValue: Decimal) {
-        self.spentValue = spentValue
+    func setDestinatedValue(_ destinatedValue: Decimal) {
+        self.destinatedValue = destinatedValue
+    }
+    
+    func setTotalValue(_ totalValue: Decimal) {
+        self.totalValue = totalValue
     }
 }

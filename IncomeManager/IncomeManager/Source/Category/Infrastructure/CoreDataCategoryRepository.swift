@@ -33,7 +33,7 @@ class CoreDataCategoryRepository: CategoryRepository {
         }
     }
     
-    func save(categoriesInformation: [CategoryInformation], date: Date) {
-        CDCategory.saveOrUpdate(categoryInformations: categoriesInformation, date: date)
+    func save(categories: [Category], date: Date) {
+        CDCategory.saveOrUpdate(categories: categories, date: date)
     }
 }

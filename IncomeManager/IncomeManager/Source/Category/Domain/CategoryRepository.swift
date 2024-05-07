@@ -9,5 +9,5 @@ import Foundation
 
 protocol CategoryRepository {
     func fetchCategories(date: Date) -> [Category]
-    func save(categoriesInformation: [CategoryInformation], date: Date) 
+    func save(categories: [Category], date: Date) 
 }

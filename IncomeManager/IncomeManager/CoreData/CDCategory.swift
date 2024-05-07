@@ -11,7 +11,7 @@ import CoreData
 extension CDCategory {
     
     static func deleteAll() {
-        let context = PersistenceController.shared.container.viewContext
+        /*let context = PersistenceController.shared.container.viewContext
         
         do {
             // Create a batch delete request for the CDCategory entity
@@ -23,7 +23,7 @@ extension CDCategory {
         } catch {
             // Handle any errors that occur during the deletion process
             print("Error deleting categories: \(error.localizedDescription)")
-        }
+        }*/
     }
     
     static func fetch(_ date: Date) -> [CDCategory] {
@@ -46,7 +46,7 @@ extension CDCategory {
         }
     }
     
-    static func saveOrUpdate(categoryInformations: [CategoryInformation], date: Date) {
+    static func saveOrUpdate(categories: [Category], date: Date) {
         let context = PersistenceController.shared.container.viewContext
         
         do {
@@ -61,18 +61,18 @@ extension CDCategory {
             }
 
             // Iterate over the category informations and update or create categories accordingly
-            for categoryInformation in categoryInformations {
-                if let existingCategory = existingCategoriesMap[categoryInformation.categoryType.rawValue] {
+            for category in categories {
+                if let existingCategory = existingCategoriesMap[category.getCategoryType().rawValue] {
                     // If the category already exists, update its percentage and spent attributes
-                    existingCategory.percentage = Int16(categoryInformation.percentage)
-                    existingCategory.spent = categoryInformation.getSpentValue() as NSDecimalNumber
+                    existingCategory.percentage = Int16(category.getPercentage())
+                    existingCategory.spent = category.getSpentValue() as NSDecimalNumber
                 } else {
                     // If the category does not exist, create a new instance and set its attributes
                     let newCategory = CDCategory(context: context)
-                    newCategory.categoryType = categoryInformation.categoryType.rawValue
+                    newCategory.categoryType = category.getCategoryType().rawValue
                     newCategory.date = date
-                    newCategory.percentage = Int16(categoryInformation.percentage)
-                    newCategory.spent = categoryInformation.getSpentValue() as NSDecimalNumber
+                    newCategory.percentage = Int16(category.getPercentage())
+                    newCategory.spent = category.getSpentValue() as NSDecimalNumber
                 }
             }
 

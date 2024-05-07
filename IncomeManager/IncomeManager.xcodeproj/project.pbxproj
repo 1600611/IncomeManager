@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50772BEA6F5C006B3122 /* CDIncome.swift */; };
+		5D5D50832BEA71A0006B3122 /* CoreDataIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */; };
+		5D5D50852BEA71AF006B3122 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50842BEA71AF006B3122 /* Income.swift */; };
+		5D5D50872BEA71B8006B3122 /* IncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50862BEA71B8006B3122 /* IncomeRepository.swift */; };
 		5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C512BD154B0008BD15D /* CategoryView.swift */; };
 		5D685C5A2BD15CA1008BD15D /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5D685C592BD15CA1008BD15D /* Localizable.xcstrings */; };
 		5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D5D50772BEA6F5C006B3122 /* CDIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDIncome.swift; sourceTree = "<group>"; };
+		5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIncomeRepository.swift; sourceTree = "<group>"; };
+		5D5D50842BEA71AF006B3122 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		5D5D50862BEA71B8006B3122 /* IncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeRepository.swift; sourceTree = "<group>"; };
 		5D685C512BD154B0008BD15D /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		5D685C592BD15CA1008BD15D /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5D685C5B2BD1688F008BD15D /* MonthPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthPickerView.swift; sourceTree = "<group>"; };
@@ -66,6 +74,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D5D507F2BEA716D006B3122 /* Income */ = {
+			isa = PBXGroup;
+			children = (
+				5D5D50802BEA717C006B3122 /* Infrastructure */,
+				5D5D50812BEA7187006B3122 /* Domain */,
+			);
+			path = Income;
+			sourceTree = "<group>";
+		};
+		5D5D50802BEA717C006B3122 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		5D5D50812BEA7187006B3122 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5D5D50842BEA71AF006B3122 /* Income.swift */,
+				5D5D50862BEA71B8006B3122 /* IncomeRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		5D685C502BD15487008BD15D /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +178,7 @@
 		5D98C8162BCEC9870098F12C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				5D5D507F2BEA716D006B3122 /* Income */,
 				5DDCBD552BD7ECB00098DC6A /* Category */,
 			);
 			path = Source;
@@ -169,7 +204,6 @@
 		5DDCBD552BD7ECB00098DC6A /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				5DDCBD5C2BD7ED200098DC6A /* Application */,
 				5DDCBD572BD7ECC80098DC6A /* Infrastructure */,
 				5DDCBD562BD7ECBF0098DC6A /* Domain */,
 			);
@@ -195,13 +229,6 @@
 			path = Infrastructure;
 			sourceTree = "<group>";
 		};
-		5DDCBD5C2BD7ED200098DC6A /* Application */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
 		5DDCBD5F2BD8260A0098DC6A /* Numbers */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */,
+				5D5D50772BEA6F5C006B3122 /* CDIncome.swift */,
 				5DC67DD22BE3F00B0027F48E /* CDCategory.swift */,
 				5DC67DD42BE3F73F0027F48E /* PersistenceController.swift */,
 			);
@@ -301,10 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */,
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
 				5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */,
 				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
+				5D5D50872BEA71B8006B3122 /* IncomeRepository.swift in Sources */,
 				5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */,
+				5D5D50832BEA71A0006B3122 /* CoreDataIncomeRepository.swift in Sources */,
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
 				5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */,
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
@@ -318,6 +349,7 @@
 				5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */,
 				5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */,
 				5D685C5C2BD1688F008BD15D /* MonthPickerView.swift in Sources */,
+				5D5D50852BEA71AF006B3122 /* Income.swift in Sources */,
 				5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */,
 				5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */,
 				5DDCBD542BD7ECAA0098DC6A /* Category.swift in Sources */,

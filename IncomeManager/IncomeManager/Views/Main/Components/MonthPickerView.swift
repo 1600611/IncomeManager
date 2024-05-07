@@ -9,13 +9,15 @@ import SwiftUI
 
 struct MonthYearPickerView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    @Binding var selectedDate: Date
+    @State var selectedDate = Date()
+    var changeDateAction: (Date) -> Void
     
     var body: some View {
         
         HStack {
             Button(action: {
                 self.selectedDate = Calendar.current.date(byAdding: .month, value: -1, to: self.selectedDate) ?? Date()
+                changeDateAction(selectedDate)
             }) {
                 Image(systemName: "chevron.left")
             }
@@ -29,16 +31,20 @@ struct MonthYearPickerView: View {
             
             Button(action: {
                 self.selectedDate = Calendar.current.date(byAdding: .month, value: 1, to: self.selectedDate) ?? Date()
+                changeDateAction(selectedDate)
             }) {
                 Image(systemName: "chevron.right")
             }
         }
         .padding()
+        .onAppear() {
+            changeDateAction(selectedDate)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MonthYearPickerView(selectedDate: .constant(Date()))
+        MonthYearPickerView(changeDateAction: { _ in })
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryView: View {
     @EnvironmentObject var themeManager: ThemeManager
-    var categoryInformation: CategoryInformation
+    var category: CategoryInformation
     
     var body: some View {
         VStack(alignment: .leading, spacing: 7.5) {
@@ -17,14 +17,14 @@ struct CategoryView: View {
             VStack(spacing: 5) {
                 HStack {
                     Spacer()
-                    Text(self.categoryInformation.getCategoryType().title)
+                    Text(self.category.getCategoryType().title)
                         .font(.headline)
                     Spacer()
                 }
                 
                 HStack {
                     Spacer()
-                    Text(String(self.categoryInformation.getPercentage()) + "%")
+                    Text(String(self.category.getPercentage()) + "%")
                         .font(.subheadline)
                     Spacer()
                 }
@@ -34,20 +34,20 @@ struct CategoryView: View {
             HStack {
                 Text("Destined" + ":")
                 Spacer()
-                Text(DecimalFormatter.shared.format(self.categoryInformation.getDestinatedValue()) + "€")
+                Text(DecimalFormatter.shared.format(self.category.getDestinatedValue()) + "€")
                     .font(.system(size: 12.5))
             }
             HStack {
                 Text("Spent" + ":")
                 Spacer()
-                Text("-" + DecimalFormatter.shared.format(self.categoryInformation.getSpentValue()) + "€")
+                Text("-" + DecimalFormatter.shared.format(self.category.getSpentValue()) + "€")
                     .font(.system(size: 12.5))
             }
             
             HStack {
                 Spacer()
                 Text("Total" + ":")
-                Text(DecimalFormatter.shared.format(self.categoryInformation.getTotalValue()) + "€")
+                Text(DecimalFormatter.shared.format(self.category.getTotalValue()) + "€")
                 Spacer()
             }.padding(.top, 12.5)
         }
@@ -63,6 +63,6 @@ struct CategoryView: View {
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
         let categoryInformation = CategoryInformation(categoryType: .NEEDS, percentage: 50, destinatedValue: Decimal(2000), spentValue: Decimal(200), totalValue: Decimal(300))
-        CategoryView(categoryInformation: categoryInformation)
+        CategoryView(category: categoryInformation)
     }
 }

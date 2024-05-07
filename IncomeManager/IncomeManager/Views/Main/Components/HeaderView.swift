@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @State private var userInput: String = ""
-    var incomeChangedAction: ((Decimal?) -> Void)
+    var incomeChangedAction: ((Decimal) -> Void)
     var optionsButtonAction: (() -> Void)
     
     var body: some View {

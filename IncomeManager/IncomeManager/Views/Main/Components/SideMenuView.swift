@@ -11,7 +11,7 @@ struct SideMenuView: View {
     @EnvironmentObject private var themeManager: ThemeManager
     @State private var isThemePickerVisible = false
     @State private var isIncomeCategoryViewVisible = false
-    var categoriesInformation: [CategoryInformation]
+    var categories: [CategoryInformation]
     var saveIncomeDistributionsAction: ([Int]) -> Void
     var homeButtonAction: (() -> Void)
 
@@ -89,8 +89,8 @@ struct SideMenuView: View {
             }
             
             if isIncomeCategoryViewVisible {
-                let percentage = categoriesInformation.map { $0.getPercentage() }
-                let categories = categoriesInformation.map { $0.getCategoryType() }
+                let percentage = categories.map { $0.getPercentage() }
+                let categories = categories.map { $0.getCategoryType() }
                 IncomeDistributionCategoryView(localPercentages: percentage, categories: categories, saveIncomeDistributionsAction: saveIncomeDistributionsAction)
                                 .padding()
             }
@@ -103,5 +103,5 @@ struct SideMenuView: View {
 }
 
 #Preview {
-    SideMenuView(categoriesInformation: [], saveIncomeDistributionsAction: { _ in }, homeButtonAction: {})
+    SideMenuView(categories: [], saveIncomeDistributionsAction: { _ in }, homeButtonAction: {})
 }
