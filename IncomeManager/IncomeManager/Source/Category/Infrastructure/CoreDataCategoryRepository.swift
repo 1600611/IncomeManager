@@ -10,22 +10,13 @@ import CoreData
 
 class CoreDataCategoryRepository: CategoryRepository {
     
-    final private var defaultCategories: [Category]
     private var mapper = CategoryMapper()
-    
-    init() {
-        let needsCategory = Category(categoryType: "NEEDS", percentage: 0, spentValue: 0)
-        let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 0, spentValue: 0)
-        let investmentsCategory = Category(categoryType: "INVESTMENTS", percentage: 0, spentValue: 0)
-        let savingsCategory = Category(categoryType: "SAVINGS", percentage: 0, spentValue: 0)
-        defaultCategories = [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
-    }
     
     func fetchCategories(date: Date) -> [Category] {
         let categoriesCD = CDCategory.fetch(date)
         
         if categoriesCD.isEmpty {
-            return defaultCategories
+            return defaultCategories()
         }
         
         return categoriesCD.map { categoryCD in
@@ -35,5 +26,13 @@ class CoreDataCategoryRepository: CategoryRepository {
     
     func save(categories: [Category], date: Date) {
         CDCategory.saveOrUpdate(categories: categories, date: date)
+    }
+    
+    func defaultCategories() -> [Category] {
+        let needsCategory = Category(categoryType: "NEEDS", percentage: 50, spentValue: 0)
+        let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 30, spentValue: 0)
+        let investmentsCategory = Category(categoryType: "INVESTMENTS", percentage: 10, spentValue: 0)
+        let savingsCategory = Category(categoryType: "SAVINGS", percentage: 10, spentValue: 0)
+        return [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
     }
 }

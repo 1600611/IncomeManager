@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A662BED25560094E6BD /* MockIncomeRepository.swift */; };
+		5D338A6A2BED333B0094E6BD /* CategoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A692BED333B0094E6BD /* CategoryDetailView.swift */; };
+		5D338A6C2BED3A250094E6BD /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */; };
 		5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50772BEA6F5C006B3122 /* CDIncome.swift */; };
 		5D5D50832BEA71A0006B3122 /* CoreDataIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */; };
 		5D5D50852BEA71AF006B3122 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50842BEA71AF006B3122 /* Income.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D338A662BED25560094E6BD /* MockIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIncomeRepository.swift; sourceTree = "<group>"; };
+		5D338A692BED333B0094E6BD /* CategoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailView.swift; sourceTree = "<group>"; };
+		5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
 		5D5D50772BEA6F5C006B3122 /* CDIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDIncome.swift; sourceTree = "<group>"; };
 		5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIncomeRepository.swift; sourceTree = "<group>"; };
 		5D5D50842BEA71AF006B3122 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
@@ -74,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D338A682BED33110094E6BD /* CategoryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5D338A692BED333B0094E6BD /* CategoryDetailView.swift */,
+			);
+			path = CategoryDetail;
+			sourceTree = "<group>";
+		};
 		5D5D507F2BEA716D006B3122 /* Income */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */,
+				5D338A662BED25560094E6BD /* MockIncomeRepository.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -187,7 +202,9 @@
 		5D98C8172BCEC9990098F12C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D338A682BED33110094E6BD /* CategoryDetail */,
 				5DE056592BE3BFEB0051D7C5 /* Main */,
+				5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +348,7 @@
 			files = (
 				5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */,
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
+				5D338A6C2BED3A250094E6BD /* CustomBackButton.swift in Sources */,
 				5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */,
 				5D685C682BD172BB008BD15D /* HeaderView.swift in Sources */,
 				5D5D50872BEA71B8006B3122 /* IncomeRepository.swift in Sources */,
@@ -341,6 +359,7 @@
 				5D98C8102BCEC7060098F12C /* IncomeManager.xcdatamodeld in Sources */,
 				5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift in Sources */,
 				5D685C522BD154B0008BD15D /* CategoryView.swift in Sources */,
+				5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */,
 				5D98C8042BCEC7040098F12C /* IncomeManagerApp.swift in Sources */,
 				5DD358C42BE979EB009A201A /* CategoryMapper.swift in Sources */,
 				5DDCBD5E2BD7F03F0098DC6A /* MockCategoryRepository.swift in Sources */,
@@ -353,6 +372,7 @@
 				5DAD5B932BDA968000B4E597 /* SideMenuView.swift in Sources */,
 				5D685C662BD1725D008BD15D /* MainViewModel.swift in Sources */,
 				5DDCBD542BD7ECAA0098DC6A /* Category.swift in Sources */,
+				5D338A6A2BED333B0094E6BD /* CategoryDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

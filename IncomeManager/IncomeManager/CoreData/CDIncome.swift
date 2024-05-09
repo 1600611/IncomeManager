@@ -10,6 +10,20 @@ import CoreData
 
 extension CDIncome {
     
+    static func deleteAll() {
+        let context = PersistenceController.shared.container.viewContext
+        
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = CDIncome.fetchRequest()
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(batchDeleteRequest)
+            try context.save()
+        } catch {
+            print("Error deleting all incomes: \(error.localizedDescription)")
+        }
+    }
+    
     static func fetch(_ date: Date) -> CDIncome? {
         
         // Create a fetch request to check if the income with the given month and year already exist

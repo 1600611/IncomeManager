@@ -7,10 +7,10 @@
 
 struct CategoryInformation: Identifiable, Equatable {
     let id = UUID()
-    let categoryType: CategoryType
+    private let categoryType: CategoryType
     private(set) var percentage: Int
     private(set) var destinatedValue: Decimal
-    let spentValue: Decimal
+    private let spentValue: Decimal
     private(set) var totalValue: Decimal
     
     init(categoryType: CategoryType, percentage: Int, destinatedValue: Decimal, spentValue: Decimal, totalValue: Decimal) {
@@ -61,9 +61,9 @@ import Foundation
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
+    @Published var income: Decimal?
     private(set) var date: Date?
     private(set) var categories: [Category] = []
-    private(set) var income: Decimal!
     
     private let categoryRepository: CategoryRepository
     private let incomeRepository: IncomeRepository
@@ -75,9 +75,10 @@ import Foundation
     
     func actionDateChanged(_ date: Date) {
         self.date = date
-        self.categories = categoryRepository.fetchCategories(date: date)
+        let newCategories = categoryRepository.fetchCategories(date: date)
+        self.categories = newCategories
         self.income = incomeRepository.fetchIncome(date: date).getAmount()
-        actionIncomeSetted(income)
+        actionIncomeSetted(income!)
     }
     
     func actionIncomeSetted(_ newIncome: Decimal) {
@@ -106,7 +107,7 @@ import Foundation
             categoriesInformation[i].setPercentage(incomeDistributions[i])
             categories[i].setPercentage(incomeDistributions[i])
             
-            let destinatedValue = income * Decimal(incomeDistributions[i]) / 100
+            let destinatedValue = income! * Decimal(incomeDistributions[i]) / 100
             
             categoriesInformation[i].setDestinatedValue(destinatedValue)
             categories[i].setDestinatedValue(destinatedValue )

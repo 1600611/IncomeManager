@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MockCategoryRepository: Category {
+class MockCategoryRepository: CategoryRepository {
     func fetchCategories(date: Date) -> [Category] {
         let needsCategory = Category(categoryType: "NEEDS", percentage: 0, spentValue: 0)
         let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 0, spentValue: 0)
@@ -18,7 +18,7 @@ class MockCategoryRepository: Category {
     }
     
     func save(categories: [Category], date: Date) {
-        //CDCategory.deleteAll()
+        CDCategory.deleteAll()
         //CDCategory.saveOrUpdate(categoryInformations: categoriesInformation, date: date)
     }
 }

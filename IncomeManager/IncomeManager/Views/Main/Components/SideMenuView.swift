@@ -19,11 +19,11 @@ struct SideMenuView: View {
         VStack(alignment: .leading, spacing: -7.5) {
             Text("Options")
                 .font(.title)
-                .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 .padding()
             
             Rectangle()
-                .fill(0 == 0 ? Color.gray : Color.white)
+                .fill(themeManager.selectedIndex == 0 ? Color.gray : Color.white)
                 .frame(height: 1)
                 .padding(.vertical, 5)
                 .padding(.horizontal)
@@ -33,9 +33,9 @@ struct SideMenuView: View {
             }) {
                 HStack {
                     Image(systemName: "house")
-                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Home")
-                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -46,9 +46,9 @@ struct SideMenuView: View {
             }) {
                 HStack {
                     Image(systemName: "chart.pie")
-                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Income distribution")
-                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -56,9 +56,9 @@ struct SideMenuView: View {
             Button(action: {}) {
                 HStack {
                     Image(systemName: "dollarsign.square")
-                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Currency")
-                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -69,9 +69,9 @@ struct SideMenuView: View {
             }) {
                 HStack {
                     Image(systemName: "paintbrush")
-                        .foregroundColor(0 == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightIcons : CustomColor.darkIcons)
                     Text("Theme")
-                        .foregroundColor(0 == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? CustomColor.lightOptionsText : CustomColor.darkOptionsText)
                 }
             }
             .padding()
@@ -97,7 +97,7 @@ struct SideMenuView: View {
                         
             Spacer()
         }
-        .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .shadow(radius: 5)
     }
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct HeaderView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @State private var userInput: String = ""
+    @State private var isEditing: Bool = false
+    var income: Decimal
     var incomeChangedAction: ((Decimal) -> Void)
     var optionsButtonAction: (() -> Void)
     
@@ -52,22 +54,28 @@ struct HeaderView: View {
                     }
                     
                     HStack {
+                        if isEditing {
+                            TextField("Monthly salary", text: $userInput)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .keyboardType(.decimalPad)
+                                .frame(width: 150, height: 40)
+                        } else {
+                            Text(DecimalFormatter.shared.format(income) + "€")
+                                .foregroundColor(.white)
+                                .font(.title3)
+                                .padding(.leading)
+                        }
                         
-                        // Monthly salary field
-                        TextField("Monthly salary", text: $userInput)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .keyboardType(.decimalPad)
-                            .frame(width: 200, height: 40)
-                        
-                        //Check button
                         Button(action: {
-                            if let newValue = Decimal(string: userInput) {
-                                incomeChangedAction(newValue)
+                            isEditing.toggle()
+                            if !isEditing {
+                                if let newValue = Decimal(string: userInput) {
+                                    incomeChangedAction(newValue)
+                                    userInput = ""
+                                }
                             }
                         }) {
-                            HStack {
-                                Image(systemName: "checkmark.circle")
-                            }
+                            Image(systemName: isEditing ? "checkmark.circle" : "pencil.circle")
                         }
                     }
                 }.padding(.bottom, 12.5)
@@ -81,6 +89,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(incomeChangedAction: { _ in }, optionsButtonAction: { })
+        HeaderView(income: 0, incomeChangedAction: { _ in }, optionsButtonAction: { })
     }
 }

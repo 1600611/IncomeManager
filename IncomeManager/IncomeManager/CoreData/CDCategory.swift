@@ -11,7 +11,7 @@ import CoreData
 extension CDCategory {
     
     static func deleteAll() {
-        /*let context = PersistenceController.shared.container.viewContext
+        let context = PersistenceController.shared.container.viewContext
         
         do {
             // Create a batch delete request for the CDCategory entity
@@ -23,7 +23,7 @@ extension CDCategory {
         } catch {
             // Handle any errors that occur during the deletion process
             print("Error deleting categories: \(error.localizedDescription)")
-        }*/
+        }
     }
     
     static func fetch(_ date: Date) -> [CDCategory] {
@@ -36,6 +36,9 @@ extension CDCategory {
         
         let fetchRequest: NSFetchRequest<CDCategory> = CDCategory.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@)", startOfMonth as NSDate, endOfMonth as NSDate)
+        
+        let sortDescriptor = NSSortDescriptor(key: "percentage", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         do {
             let context = PersistenceController.shared.container.viewContext
