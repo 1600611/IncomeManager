@@ -35,9 +35,9 @@ enum CategoryType: String {
 }
 
 class Category: Identifiable {
-    private var categoryType: CategoryType
+    private final var categoryType: CategoryType
     private var percentage: Int
-    private var spentValue: Decimal
+    private final var spentValue: Decimal
     private var destinatedValue: Decimal?
     private var totalValue: Decimal?
     

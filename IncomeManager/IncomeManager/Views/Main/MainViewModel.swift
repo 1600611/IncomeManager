@@ -5,6 +5,9 @@
 //  Created by Joel Angles Roca on 18/4/24.
 //
 
+import Foundation
+
+
 struct CategoryInformation: Identifiable, Equatable {
     let id = UUID()
     private let categoryType: CategoryType
@@ -56,8 +59,6 @@ struct CategoryInformation: Identifiable, Equatable {
 }
 
 
-import Foundation
-
 @MainActor class MainViewModel: ObservableObject {
     @Published var categoriesInformation: [CategoryInformation] = []
     @Published var monthBenefit: Decimal = 0
@@ -75,10 +76,9 @@ import Foundation
     
     func actionDateChanged(_ date: Date) {
         self.date = date
-        let newCategories = categoryRepository.fetchCategories(date: date)
-        self.categories = newCategories
-        self.income = incomeRepository.fetchIncome(date: date).getAmount()
-        actionIncomeSetted(income!)
+        self.categories = self.categoryRepository.fetchCategories(date: date)
+        self.income = self.incomeRepository.fetchIncome(date: date).getAmount()
+        self.actionIncomeSetted(income!)
     }
     
     func actionIncomeSetted(_ newIncome: Decimal) {
@@ -95,28 +95,28 @@ import Foundation
                                                    destinatedValue: destinatedValue,
                                                    spentValue: spentValue,
                                                    totalValue: totalValue)
-            categoriesInformation.append(categoryInfo)
-            monthBenefit += totalValue
+            self.categoriesInformation.append(categoryInfo)
+            self.monthBenefit += totalValue
         }
         
-        incomeRepository.save(income: newIncome, date: date!)
+        self.incomeRepository.save(income: newIncome, date: date!)
     }
     
     func actionIncomeDistributionsSetted(_ incomeDistributions: [Int]) {
         for i in incomeDistributions.indices {
-            categoriesInformation[i].setPercentage(incomeDistributions[i])
-            categories[i].setPercentage(incomeDistributions[i])
+            self.categoriesInformation[i].setPercentage(incomeDistributions[i])
+            self.categories[i].setPercentage(incomeDistributions[i])
             
             let destinatedValue = income! * Decimal(incomeDistributions[i]) / 100
             
-            categoriesInformation[i].setDestinatedValue(destinatedValue)
-            categories[i].setDestinatedValue(destinatedValue )
+            self.categoriesInformation[i].setDestinatedValue(destinatedValue)
+            self.categories[i].setDestinatedValue(destinatedValue )
             
-            categoriesInformation[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
-            categories[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
+            self.categoriesInformation[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
+            self.categories[i].setTotalValue(destinatedValue - categories[i].getSpentValue())
         }
         
-        categoryRepository.save(categories: categories, date: date!)
+        self.categoryRepository.save(categories: categories, date: date!)
     }
     
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class Income {
-    final private var amount: Decimal?
+    private final var amount: Decimal?
     
     init(amount: Decimal?) {
         self.amount = amount

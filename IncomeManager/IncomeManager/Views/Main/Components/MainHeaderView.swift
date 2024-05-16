@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct HeaderView: View {
+struct MainHeaderView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @State private var userInput: String = ""
     @State private var isEditing: Bool = false
@@ -18,7 +18,7 @@ struct HeaderView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                 .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {
@@ -29,17 +29,16 @@ struct HeaderView: View {
                         Image(systemName: "line.horizontal.3")
                             .font(.title)
                             .foregroundColor(.white)
-                            .padding(.top, 5)
                         
                         Spacer()
                     }
                     
-                }
+                }.padding([.leading, .top], 5)
                 
                 Spacer()
                 
-                VStack(alignment: .center, spacing: -10) {
-                    HStack(spacing: -10) {
+                VStack(spacing: 5) {
+                    HStack(spacing: 5) {
                         
                         // Euro icon
                         Image(systemName: "eurosign.circle")
@@ -50,8 +49,8 @@ struct HeaderView: View {
                         Text("Income")
                             .foregroundColor(.white)
                             .font(.title2)
-                            .padding()
                     }
+                    .padding(.leading, -10)
                     
                     HStack {
                         if isEditing {
@@ -63,7 +62,6 @@ struct HeaderView: View {
                             Text(DecimalFormatter.shared.format(income) + "€")
                                 .foregroundColor(.white)
                                 .font(.title3)
-                                .padding(.leading)
                         }
                         
                         Button(action: {
@@ -78,17 +76,18 @@ struct HeaderView: View {
                             Image(systemName: isEditing ? "checkmark.circle" : "pencil.circle")
                         }
                     }
-                }.padding(.bottom, 12.5)
+                }
+                .padding(.leading, -12.5)
                 
                 Spacer()
-            }.padding([.leading, .top], 5)
+            }
         }
     }
 }
 
 
-struct HeaderView_Previews: PreviewProvider {
+struct MainHeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(income: 0, incomeChangedAction: { _ in }, optionsButtonAction: { })
+        MainHeaderView(income: 0, incomeChangedAction: { _ in }, optionsButtonAction: { })
     }
 }

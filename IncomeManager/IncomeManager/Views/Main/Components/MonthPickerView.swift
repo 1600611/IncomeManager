@@ -43,7 +43,7 @@ struct MonthYearPickerView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MonthYearPickerView_Previews: PreviewProvider {
     static var previews: some View {
         MonthYearPickerView(changeDateAction: { _ in })
     }

@@ -7,6 +7,12 @@
     "%lld%%" : {
 
     },
+    "25%" : {
+
+    },
+    "100.00€" : {
+
+    },
     "Add" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -37,6 +43,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Añadir gasto"
+          }
+        }
+      }
+    },
+    "Bottom Text" : {
+
+    },
+    "Clothes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roba"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ropa"
           }
         }
       }
@@ -211,6 +237,23 @@
         }
       }
     },
+    "Health" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salut"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salud"
+          }
+        }
+      }
+    },
     "Home" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -346,6 +389,9 @@
         }
       }
     },
+    "Nombre del gasto" : {
+
+    },
     "Options" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -359,6 +405,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Opciones"
+          }
+        }
+      }
+    },
+    "Presents" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regals"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Regalos"
           }
         }
       }
@@ -430,6 +493,40 @@
         }
       }
     },
+    "Sport" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esport"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deporte"
+          }
+        }
+      }
+    },
+    "Technology" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tecnologia"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tecnología"
+          }
+        }
+      }
+    },
     "Theme" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -446,6 +543,9 @@
           }
         }
       }
+    },
+    "Top Text" : {
+
     },
     "Total" : {
       "extractionState" : "manual",

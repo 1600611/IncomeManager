@@ -17,7 +17,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    HeaderView(income: viewModel.income ?? 0, incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
+                    MainHeaderView(income: viewModel.income ?? 0, incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
                         .frame(height: 100)
                     
                     MonthYearPickerView(changeDateAction: dateChanged)
@@ -26,7 +26,7 @@ struct MainView: View {
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
                             ForEach(viewModel.categoriesInformation) { category in
-                                NavigationLink(destination: CategoryDetailView(category: category)) {
+                                NavigationLink(destination: CategoryDetailView(category: category, date: viewModel.date!)) {
                                     CategoryView(category: category)
                                 }
                             }
