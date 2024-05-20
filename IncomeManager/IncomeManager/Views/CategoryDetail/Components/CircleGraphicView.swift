@@ -32,7 +32,7 @@ struct DonutChart: Shape {
 }
 
 struct CircleGraphicView: View {
-    let data = [(value: 75.0, color: Color.blue), (value: 25.0, color: Color.green), (value: 25.0, color: Color.red)]
+    let data = [(value: 50.0, color: Color.blue), (value: 25.0, color: Color.green), (value: 25.0, color: Color.red)]
     
     var body: some View {
         GeometryReader { geometry in

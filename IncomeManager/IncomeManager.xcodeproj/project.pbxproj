@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D302A172BFBB66500B3485B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D302A162BFBB66500B3485B /* Assets.xcassets */; };
 		5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A662BED25560094E6BD /* MockIncomeRepository.swift */; };
 		5D338A6A2BED333B0094E6BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A692BED333B0094E6BD /* HeaderView.swift */; };
 		5D338A6C2BED3A250094E6BD /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D302A162BFBB66500B3485B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D338A662BED25560094E6BD /* MockIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIncomeRepository.swift; sourceTree = "<group>"; };
 		5D338A692BED333B0094E6BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				5DDCBD5F2BD8260A0098DC6A /* Numbers */,
 				5D685C602BD171F1008BD15D /* Date */,
 				5D685C532BD15A1C008BD15D /* Strings */,
+				5D302A162BFBB66500B3485B /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D302A172BFBB66500B3485B /* Assets.xcassets in Resources */,
 				5D685C5A2BD15CA1008BD15D /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IncomeManager/Preview Content\"";
+				DEVELOPMENT_TEAM = 8QPK4MAXB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -598,6 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"IncomeManager/Preview Content\"";
+				DEVELOPMENT_TEAM = 8QPK4MAXB9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
