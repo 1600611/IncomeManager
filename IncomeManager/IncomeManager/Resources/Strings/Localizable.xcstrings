@@ -7,12 +7,6 @@
     "%lld%%" : {
 
     },
-    "25%" : {
-
-    },
-    "100.00€" : {
-
-    },
     "Add" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -46,9 +40,6 @@
           }
         }
       }
-    },
-    "Bottom Text" : {
-
     },
     "Clothes" : {
       "extractionState" : "manual",
@@ -169,19 +160,19 @@
         }
       }
     },
-    "Destined" : {
+    "Destined:" : {
       "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Destinat"
+            "value" : "Destinat:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Destinado"
+            "value" : "Destinado:"
           }
         }
       }
@@ -389,7 +380,7 @@
         }
       }
     },
-    "Nombre del gasto" : {
+    "NEEDS" : {
 
     },
     "Options" : {
@@ -476,19 +467,19 @@
         }
       }
     },
-    "Spent" : {
+    "Spent:" : {
       "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gastat"
+            "value" : "Gastat:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Gastado"
+            "value" : "Gastado:"
           }
         }
       }
@@ -543,9 +534,6 @@
           }
         }
       }
-    },
-    "Top Text" : {
-
     },
     "Total" : {
       "extractionState" : "manual",

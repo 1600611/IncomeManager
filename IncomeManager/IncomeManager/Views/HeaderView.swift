@@ -8,15 +8,15 @@
 import SwiftUI
 
 struct HeaderView: View {
-    var title: String
+    @EnvironmentObject var themeManager: ThemeManager
+    var title: LocalizedStringResource
     var totalValue: Decimal
-    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         VStack {
             ZStack {
                 Rectangle()
-                    .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                    .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                     .frame(height: 100)
                 
                 HStack() {

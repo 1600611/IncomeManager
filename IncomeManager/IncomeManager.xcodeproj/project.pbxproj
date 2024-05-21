@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D274E982BFCE8980089F647 /* MockExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */; };
 		5D302A172BFBB66500B3485B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D302A162BFBB66500B3485B /* Assets.xcassets */; };
 		5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A662BED25560094E6BD /* MockIncomeRepository.swift */; };
 		5D338A6A2BED333B0094E6BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A692BED333B0094E6BD /* HeaderView.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExpenseRepository.swift; sourceTree = "<group>"; };
 		5D302A162BFBB66500B3485B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D338A662BED25560094E6BD /* MockIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIncomeRepository.swift; sourceTree = "<group>"; };
 		5D338A692BED333B0094E6BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				5D9851FF2BF66A2800C74CD0 /* CoreDataExpenseRepository.swift */,
+				5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D274E982BFCE8980089F647 /* MockExpenseRepository.swift in Sources */,
 				5D9851FE2BF6663300C74CD0 /* Expense.swift in Sources */,
 				5D9851F52BF65BDF00C74CD0 /* ExpenseListItemView.swift in Sources */,
 				5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */,

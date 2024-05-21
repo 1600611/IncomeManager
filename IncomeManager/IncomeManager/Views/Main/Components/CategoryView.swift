@@ -32,13 +32,13 @@ struct CategoryView: View {
             
             
             HStack {
-                Text("Destined" + ":")
+                Text("Destined:")
                 Spacer()
                 Text(DecimalFormatter.shared.format(self.category.getDestinatedValue()) + "€")
                     .font(.system(size: 12.5))
             }
             HStack {
-                Text("Spent" + ":")
+                Text("Spent:")
                 Spacer()
                 Text("-" + DecimalFormatter.shared.format(self.category.getSpentValue()) + "€")
                     .font(.system(size: 12.5))

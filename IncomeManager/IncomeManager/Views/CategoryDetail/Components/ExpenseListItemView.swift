@@ -8,24 +8,26 @@
 import SwiftUI
 
 struct ExpenseListItemView: View {
+    var expenseInformation: ExpenseInformation
+    
     var body: some View {
         Rectangle()
-            .fill(Color.gray.opacity(0.1))
+            .fill(Color(named: expenseInformation.getColor()) ?? Color.gray.opacity(0.1))
             .cornerRadius(10)
             .frame(height: 50)
             .overlay(
                 HStack {
-                    Image(systemName: "dollarsign.circle.fill")
+                    Image(systemName: expenseInformation.getIcon())
                         .resizable()
                         .frame(width: 30, height: 30)
                     
-                    Text("Nombre del gasto")
+                    Text(expenseInformation.getType())
                     
                     Spacer()
                     
-                    Text("25%")
+                    Text(DecimalFormatter.shared.format(expenseInformation.getPercentage()) + "%")
                     
-                    Text("100.00€")
+                    Text(DecimalFormatter.shared.format(expenseInformation.getTotalExpended()) + "€")
                 }
                 .padding()
             )
@@ -34,6 +36,7 @@ struct ExpenseListItemView: View {
 
 struct ExpenseListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ExpenseListItemView()
+        let expenseInformation = ExpenseInformation(type: .CLOTHES, totalExpended: Decimal(100), percentage: 25)
+        ExpenseListItemView(expenseInformation: expenseInformation)
     }
 }

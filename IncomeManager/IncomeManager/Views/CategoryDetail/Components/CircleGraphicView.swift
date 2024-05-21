@@ -32,7 +32,9 @@ struct DonutChart: Shape {
 }
 
 struct CircleGraphicView: View {
-    let data = [(value: 50.0, color: Color.blue), (value: 25.0, color: Color.green), (value: 25.0, color: Color.red)]
+    var destined: Decimal
+    var totalMonthExpended: Decimal
+    var expensesInformation: [ExpenseInformation]
     
     var body: some View {
         GeometryReader { geometry in
@@ -43,12 +45,12 @@ struct CircleGraphicView: View {
                 DonutChart(startAngle: .degrees(0), endAngle: .degrees(360))
                     .fill(Color.gray.opacity(0.3))
                 
-                ForEach(0..<data.count) { index in
-                    let startAngle: Double = index == 0 ? 0 : data[0..<index].reduce(0) { $0 + $1.value } / 100 * 360
-                    let endAngle: Double = startAngle + (data[index].value / 100 * 360)
+                ForEach(expensesInformation.indices, id: \.self) { index in
+                    let startAngle: Double = index == 0 ? 0 : expensesInformation[0..<index].reduce(0) { $0 + ($1.getPercentage() as NSDecimalNumber).doubleValue } / 100 * 360
+                    let endAngle: Double = startAngle + ((expensesInformation[index].getPercentage() as NSDecimalNumber).doubleValue / 100 * 360)
                     
                     DonutChart(startAngle: .degrees(startAngle), endAngle: .degrees(endAngle))
-                        .fill(data[index].color)
+                        .fill(Color(named: expensesInformation[index].getColor()) ?? Color.gray)
                 }
                 
                 Circle()
@@ -56,9 +58,10 @@ struct CircleGraphicView: View {
                     .frame(width: circleDiameter, height: circleDiameter)
                 
                 VStack {
-                    Text("Top Text")
+                    Text(DecimalFormatter.shared.format(self.destined) + "€")
                         .foregroundColor(.black)
-                    Text("Bottom Text")
+                        .font(.title3)
+                    Text("-" + DecimalFormatter.shared.format(self.totalMonthExpended) + "€")
                         .foregroundColor(.black)
                 }
             }
@@ -70,7 +73,10 @@ struct CircleGraphicView: View {
 
 struct CircleGraphicView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleGraphicView()
+        let destined: Decimal = 2000
+        let totalMonthExpended: Decimal = 1000
+        let expensesInformation: [ExpenseInformation] = []
+        CircleGraphicView(destined: destined, totalMonthExpended: totalMonthExpended, expensesInformation: expensesInformation)
     }
 }
 

@@ -7,34 +7,35 @@
 
 import Foundation
 
-
 struct ExpenseInformation {
-    private let icon: String
+    private let type: ExpenseType
     private let totalExpended: Decimal
-    private let type: String
-    private let percentage: Int
+    private let percentage: Decimal
     
-    init(icon: String, totalExpended: Decimal, type: String, percentage: Int) {
-        self.icon = icon
-        self.totalExpended = totalExpended
+    init(type: ExpenseType, totalExpended: Decimal, percentage: Decimal) {
         self.type = type
+        self.totalExpended = totalExpended
         self.percentage = percentage
     }
     
     func getIcon() -> String {
-        return self.icon
+        return self.type.iconName
     }
     
     func getTotalExpended() -> Decimal {
         return self.totalExpended
     }
     
-    func getType() -> String {
-        return self.type
+    func getType() -> LocalizedStringResource {
+        return self.type.title
     }
     
-    func getPercentage() -> Int {
+    func getPercentage() -> Decimal {
         return self.percentage
+    }
+    
+    func getColor() -> String {
+        return self.type.colorName
     }
 }
 
@@ -42,11 +43,13 @@ struct ExpenseInformation {
 @MainActor class CategoryDetailViewModel: ObservableObject {
     @Published var expensesInformation: [ExpenseInformation] = []
     @Published var monthExpense: Decimal = 0
+    @Published var totalValue: Decimal = 0
     private var expenseRepository: ExpenseRepository
     private(set) var expenses: [Expense] = []
  
-    init(expenseRepository: ExpenseRepository = CoreDataExpenseRepository()) {
+    init(totalValue: Decimal, expenseRepository: ExpenseRepository = MockExpenseRepository()) {
         self.expenseRepository = expenseRepository
+        self.totalValue = totalValue
     }
     
     func onAppear(_ date: Date, _ categoryType: CategoryType)  {
@@ -55,9 +58,23 @@ struct ExpenseInformation {
     }
         
     func mapExpenses() {
-        // TODO: crear un diccionari on cada clau es el tipus de gasto i calcular el total per cada gasto per despres també tenir el tant per cent gastat
+        var expenseTotals: [ExpenseType: Decimal] = [:]
+        
+        for expense in expenses {
+            let expenseType = expense.getType()
+            let amount = expense.getAmount()
+            
+            // Add the current amount to the stored amount, or initialize with the current amount
+            expenseTotals[expenseType, default: 0] += amount
+        }
         
         self.monthExpense = self.expenses.reduce(0, { $0 + $1.getAmount() })
+        self.totalValue = self.totalValue - self.monthExpense
+        self.expensesInformation = expenseTotals.map { (type, total) in
+            let percentageDouble = (total as NSDecimalNumber).doubleValue / (self.monthExpense as NSDecimalNumber).doubleValue * 100
+            let percentageDecimal = Decimal(percentageDouble)
+            return ExpenseInformation(type: type, totalExpended: total, percentage: percentageDecimal)
+        }.sorted(by: { $0.getTotalExpended() > $1.getTotalExpended() })
     }
     
 }
