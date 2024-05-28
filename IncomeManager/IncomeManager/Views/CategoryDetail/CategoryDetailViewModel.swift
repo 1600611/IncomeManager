@@ -26,7 +26,11 @@ struct ExpenseInformation {
         return self.totalExpended
     }
     
-    func getType() -> LocalizedStringResource {
+    func getType() -> ExpenseType {
+        return self.type
+    }
+    
+    func getTitle() -> LocalizedStringResource {
         return self.type.title
     }
     
@@ -53,7 +57,7 @@ struct ExpenseInformation {
     }
     
     func onAppear(_ date: Date, _ categoryType: CategoryType)  {
-        self.expenses = self.expenseRepository.fetchExpenses(date: date, categoryType: categoryType.rawValue)
+        self.expenses = self.expenseRepository.fetchExpenses(date: date, categoryType: categoryType)
         self.mapExpenses()
     }
         

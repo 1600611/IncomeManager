@@ -20,14 +20,19 @@ struct ExpenseListItemView: View {
                     Image(systemName: expenseInformation.getIcon())
                         .resizable()
                         .frame(width: 30, height: 30)
+                        .foregroundColor(.black)
                     
-                    Text(expenseInformation.getType())
+                    Text(expenseInformation.getTitle())
+                        .padding(.leading, 10)     
+                        .foregroundColor(.black)
                     
                     Spacer()
                     
                     Text(DecimalFormatter.shared.format(expenseInformation.getPercentage()) + "%")
+                        .foregroundColor(.black)
                     
                     Text(DecimalFormatter.shared.format(expenseInformation.getTotalExpended()) + "€")
+                        .foregroundColor(.black)
                 }
                 .padding()
             )

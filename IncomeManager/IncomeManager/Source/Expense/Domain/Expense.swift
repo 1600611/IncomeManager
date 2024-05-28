@@ -89,11 +89,11 @@ class Expense {
     private final var categoryType: CategoryType
     private final var date: Date
     
-    init(description: String, amount: Decimal, type: ExpenseType, categoryType: CategoryType, date: Date) {
+    init(description: String, amount: Decimal, type: String, categoryType: String, date: Date) {
         self.description = description
         self.amount = amount
-        self.type = type
-        self.categoryType = categoryType
+        self.type = ExpenseType(rawValue: type.uppercased())!
+        self.categoryType = CategoryType(rawValue: categoryType.uppercased())!
         self.date = date
     }
     

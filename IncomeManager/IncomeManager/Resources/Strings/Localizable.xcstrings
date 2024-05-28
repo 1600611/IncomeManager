@@ -143,23 +143,6 @@
         }
       }
     },
-    "Debts" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deutes"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Deudas"
-          }
-        }
-      }
-    },
     "Destined:" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -173,23 +156,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Destinado:"
-          }
-        }
-      }
-    },
-    "Emergencies" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Emergencies"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Emergencias"
           }
         }
       }
@@ -379,9 +345,6 @@
           }
         }
       }
-    },
-    "NEEDS" : {
-
     },
     "Options" : {
       "extractionState" : "manual",

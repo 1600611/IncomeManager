@@ -16,7 +16,7 @@ struct HeaderView: View {
         VStack {
             ZStack {
                 Rectangle()
-                    .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                    .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                     .frame(height: 100)
                 
                 HStack() {
@@ -49,6 +49,6 @@ struct HeaderView: View {
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(title: "NEEDS", totalValue: 300)
+        HeaderView(title: "Needs", totalValue: 300)
     }
 }

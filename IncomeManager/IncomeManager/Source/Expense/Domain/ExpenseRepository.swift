@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ExpenseRepository {
-    func fetchExpenses(date: Date, categoryType: String) -> [Expense]
+    func fetchExpenses(date: Date, categoryType: CategoryType) -> [Expense]
+    func fetchExpenses(date: Date, expenseType: ExpenseType) -> [Expense]
 }

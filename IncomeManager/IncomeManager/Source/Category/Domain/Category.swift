@@ -12,8 +12,6 @@ enum CategoryType: String {
     case ENTERTAINMENT
     case INVESTMENTS
     case SAVINGS
-    case EMERGENCIES
-    case DEBTS
     
     var title: LocalizedStringResource {
         switch self {
@@ -25,10 +23,6 @@ enum CategoryType: String {
             "Investments"
         case .SAVINGS:
             "Savings"
-        case .EMERGENCIES:
-            "Emergencies"
-        case .DEBTS:
-            "Debts"
         }
     }
 

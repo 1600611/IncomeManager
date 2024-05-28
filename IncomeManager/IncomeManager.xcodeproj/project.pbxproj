@@ -12,6 +12,10 @@
 		5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A662BED25560094E6BD /* MockIncomeRepository.swift */; };
 		5D338A6A2BED333B0094E6BD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A692BED333B0094E6BD /* HeaderView.swift */; };
 		5D338A6C2BED3A250094E6BD /* CustomBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */; };
+		5D4F30B62C05D4C300B6A3FB /* ExpenseDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F30B52C05D4C300B6A3FB /* ExpenseDetailView.swift */; };
+		5D4F30B82C05D8E800B6A3FB /* ExpenseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F30B72C05D8E800B6A3FB /* ExpenseDetailViewModel.swift */; };
+		5D4F30BA2C05DB9800B6A3FB /* ExpenseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F30B92C05DB9800B6A3FB /* ExpenseMapper.swift */; };
+		5D4F30BD2C05E7E000B6A3FB /* ExpenseDetailListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4F30BC2C05E7E000B6A3FB /* ExpenseDetailListItemView.swift */; };
 		5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50772BEA6F5C006B3122 /* CDIncome.swift */; };
 		5D5D50832BEA71A0006B3122 /* CoreDataIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */; };
 		5D5D50852BEA71AF006B3122 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D50842BEA71AF006B3122 /* Income.swift */; };
@@ -53,6 +57,10 @@
 		5D338A662BED25560094E6BD /* MockIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIncomeRepository.swift; sourceTree = "<group>"; };
 		5D338A692BED333B0094E6BD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBackButton.swift; sourceTree = "<group>"; };
+		5D4F30B52C05D4C300B6A3FB /* ExpenseDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailView.swift; sourceTree = "<group>"; };
+		5D4F30B72C05D8E800B6A3FB /* ExpenseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailViewModel.swift; sourceTree = "<group>"; };
+		5D4F30B92C05DB9800B6A3FB /* ExpenseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseMapper.swift; sourceTree = "<group>"; };
+		5D4F30BC2C05E7E000B6A3FB /* ExpenseDetailListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailListItemView.swift; sourceTree = "<group>"; };
 		5D5D50772BEA6F5C006B3122 /* CDIncome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDIncome.swift; sourceTree = "<group>"; };
 		5D5D50822BEA71A0006B3122 /* CoreDataIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataIncomeRepository.swift; sourceTree = "<group>"; };
 		5D5D50842BEA71AF006B3122 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
@@ -108,6 +116,24 @@
 				5D9851F62BF65ED300C74CD0 /* CategoryDetailViewModel.swift */,
 			);
 			path = CategoryDetail;
+			sourceTree = "<group>";
+		};
+		5D4F30B42C05D48600B6A3FB /* ExpenseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F30BB2C05E7A200B6A3FB /* Components */,
+				5D4F30B52C05D4C300B6A3FB /* ExpenseDetailView.swift */,
+				5D4F30B72C05D8E800B6A3FB /* ExpenseDetailViewModel.swift */,
+			);
+			path = ExpenseDetail;
+			sourceTree = "<group>";
+		};
+		5D4F30BB2C05E7A200B6A3FB /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				5D4F30BC2C05E7E000B6A3FB /* ExpenseDetailListItemView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		5D5D507F2BEA716D006B3122 /* Income */ = {
@@ -216,6 +242,7 @@
 			children = (
 				5D9851FF2BF66A2800C74CD0 /* CoreDataExpenseRepository.swift */,
 				5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */,
+				5D4F30B92C05DB9800B6A3FB /* ExpenseMapper.swift */,
 			);
 			path = Infrastructure;
 			sourceTree = "<group>";
@@ -264,6 +291,7 @@
 			children = (
 				5DE056592BE3BFEB0051D7C5 /* Main */,
 				5D338A682BED33110094E6BD /* CategoryDetail */,
+				5D4F30B42C05D48600B6A3FB /* ExpenseDetail */,
 				5D338A692BED333B0094E6BD /* HeaderView.swift */,
 				5D338A6B2BED3A250094E6BD /* CustomBackButton.swift */,
 			);
@@ -412,13 +440,16 @@
 				5D274E982BFCE8980089F647 /* MockExpenseRepository.swift in Sources */,
 				5D9851FE2BF6663300C74CD0 /* Expense.swift in Sources */,
 				5D9851F52BF65BDF00C74CD0 /* ExpenseListItemView.swift in Sources */,
+				5D4F30BD2C05E7E000B6A3FB /* ExpenseDetailListItemView.swift in Sources */,
 				5D5D50782BEA6F5C006B3122 /* CDIncome.swift in Sources */,
 				5D685C5F2BD169ED008BD15D /* DateFormatter.swift in Sources */,
 				5D338A6C2BED3A250094E6BD /* CustomBackButton.swift in Sources */,
 				5DAD5B9A2BDAC76300B4E597 /* IncomeDistributionCategoryView.swift in Sources */,
 				5D685C682BD172BB008BD15D /* MainHeaderView.swift in Sources */,
 				5D5D50872BEA71B8006B3122 /* IncomeRepository.swift in Sources */,
+				5D4F30BA2C05DB9800B6A3FB /* ExpenseMapper.swift in Sources */,
 				5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */,
+				5D4F30B82C05D8E800B6A3FB /* ExpenseDetailViewModel.swift in Sources */,
 				5D5D50832BEA71A0006B3122 /* CoreDataIncomeRepository.swift in Sources */,
 				5D9851FA2BF6645100C74CD0 /* CDExpense.swift in Sources */,
 				5D9851F72BF65ED300C74CD0 /* CategoryDetailViewModel.swift in Sources */,
@@ -435,6 +466,7 @@
 				5DAD5B962BDAA9A500B4E597 /* ThemeManager.swift in Sources */,
 				5DC67DD32BE3F00B0027F48E /* CDCategory.swift in Sources */,
 				5D9852002BF66A2800C74CD0 /* CoreDataExpenseRepository.swift in Sources */,
+				5D4F30B62C05D4C300B6A3FB /* ExpenseDetailView.swift in Sources */,
 				5D9851F02BF6523700C74CD0 /* CategoryDetailView.swift in Sources */,
 				5DC67DD52BE3F73F0027F48E /* PersistenceController.swift in Sources */,
 				5DAD5B982BDAAD0100B4E597 /* Styles.swift in Sources */,

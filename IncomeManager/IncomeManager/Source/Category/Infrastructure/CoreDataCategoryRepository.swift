@@ -29,10 +29,10 @@ class CoreDataCategoryRepository: CategoryRepository {
     }
     
     func defaultCategories() -> [Category] {
-        let needsCategory = Category(categoryType: "NEEDS", percentage: 50, spentValue: 0)
-        let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 30, spentValue: 0)
-        let investmentsCategory = Category(categoryType: "INVESTMENTS", percentage: 10, spentValue: 0)
-        let savingsCategory = Category(categoryType: "SAVINGS", percentage: 10, spentValue: 0)
+        let needsCategory = Category(categoryType: "Needs", percentage: 50, spentValue: 0)
+        let entertainmentCategory = Category(categoryType: "Entertainment", percentage: 30, spentValue: 0)
+        let investmentsCategory = Category(categoryType: "Investments", percentage: 10, spentValue: 0)
+        let savingsCategory = Category(categoryType: "Savings", percentage: 10, spentValue: 0)
         return [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
     }
 }

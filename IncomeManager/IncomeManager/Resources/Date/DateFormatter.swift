@@ -12,7 +12,7 @@ class DateFormatterHelper {
     
     private init() {}
     
-    func format(date: Date) -> String {
+    func monthAndYearFormat(date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MMMM yyyy"
         
@@ -29,4 +29,22 @@ class DateFormatterHelper {
         
         return formattedDate
     }
+    
+    func format(date: Date) -> String {
+        let formatter = DateFormatter()
+        
+        switch Locale.current.language.languageCode?.identifier {
+        case "ca": // Catalan
+            formatter.dateFormat = "d MMMM 'del' yyyy"
+        case "es": // Spanish
+            formatter.dateFormat = "d 'de' MMMM 'de' yyyy"
+        case "en": // English
+            formatter.dateStyle = .long
+        default:
+            formatter.dateStyle = .medium
+        }
+        
+        return formatter.string(from: date)
+    }
+    
 }
