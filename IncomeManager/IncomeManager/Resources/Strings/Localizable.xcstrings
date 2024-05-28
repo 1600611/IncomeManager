@@ -58,13 +58,13 @@
         }
       }
     },
-    "Comment" : {
+    "Comment:" : {
       "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Comentari"
+            "value" : "Comentari:"
           }
         },
         "es" : {
@@ -75,19 +75,19 @@
         }
       }
     },
-    "Cost" : {
+    "Cost:" : {
       "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cost"
+            "value" : "Cost:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Coste"
+            "value" : "Coste:"
           }
         }
       }
@@ -126,19 +126,19 @@
         }
       }
     },
-    "Date" : {
+    "Date:" : {
       "extractionState" : "manual",
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Data"
+            "value" : "Data:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Data"
+            "value" : "Data:"
           }
         }
       }
@@ -274,6 +274,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ingresos"
+          }
+        }
+      }
+    },
+    "Introduce a comment" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix un comentari"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce un comentario"
+          }
+        }
+      }
+    },
+    "Introduce the cost" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdueix el cost"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce el coste"
           }
         }
       }
@@ -515,19 +548,18 @@
         }
       }
     },
-    "Type" : {
-      "extractionState" : "manual",
+    "Type:" : {
       "localizations" : {
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipus"
+            "value" : "Tipus:"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tipo"
+            "value" : "Tipo:"
           }
         }
       }

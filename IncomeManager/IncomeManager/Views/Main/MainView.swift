@@ -85,7 +85,6 @@ struct MainView: View {
     }
     
     func dateChanged(_ date: Date) {
-        print("MainView appeared")
         viewModel.actionDateChanged(date)
     }
 }

@@ -10,14 +10,21 @@ import SwiftUI
 struct HeaderView: View {
     @EnvironmentObject var themeManager: ThemeManager
     var title: LocalizedStringResource
-    var totalValue: Decimal
+    var totalValue: Decimal?
+    var color: String?
     
     var body: some View {
         VStack {
             ZStack {
-                Rectangle()
-                    .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
-                    .frame(height: 100)
+                if let color = self.color {
+                    Rectangle()
+                        .fill(Color(named: color) ?? Color.gray.opacity(0.1))
+                        .frame(height: 100)
+                } else {
+                    Rectangle()
+                        .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                        .frame(height: 100)
+                }
                 
                 HStack() {
                     VStack {
@@ -28,14 +35,20 @@ struct HeaderView: View {
                     
                     Spacer()
                     
-                    VStack(spacing: 5) {
+                    if let totalValue = self.totalValue {
+                        VStack(spacing: 5) {
+                            Text(title)
+                                .foregroundColor(.white)
+                                .font(.title2)
+                            
+                            Text("Total" + ": " + DecimalFormatter.shared.format(totalValue) + "€")
+                                .foregroundColor(.white)
+                                .font(.headline)
+                        }
+                    } else {
                         Text(title)
                             .foregroundColor(.white)
                             .font(.title2)
-                        
-                        Text("Total" + ": " + DecimalFormatter.shared.format(totalValue) + "€")
-                            .foregroundColor(.white)
-                            .font(.headline)
                     }
                     
                     Spacer()

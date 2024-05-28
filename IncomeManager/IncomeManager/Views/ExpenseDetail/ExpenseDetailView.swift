@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ExpenseDetailView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @StateObject var viewModel = ExpenseDetailViewModel()
     var type: ExpenseType
     var date: Date
@@ -15,19 +16,22 @@ struct ExpenseDetailView: View {
     
     var body: some View {
         VStack() {
-            HeaderView(title: type.title, totalValue: totalExpended)
+            HeaderView(title: type.title, totalValue: totalExpended, color: type.colorName)
       
             ScrollView {
                 ForEach(viewModel.expenses.indices, id: \.self) { index in
                     VStack {
                         HStack {
                             Text(DateFormatterHelper.shared.format(date: viewModel.expenses[index].getDate()))
-                                .foregroundColor(0 == 0 ? Color.black : Color.white)
+                                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
                             Spacer()
                         }
                         
                         ExpenseDetailListItemView(expense: viewModel.expenses[index])
-                            .listRowBackground(0 == 0 ? CustomColor.lightListBackground : CustomColor.darkListBackground)
+                        
+                        Divider()
+                            .background(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                            .padding(.top, 5)
                     }
                     .padding(.horizontal, 10)
                     .padding(.top, 2)
@@ -36,6 +40,7 @@ struct ExpenseDetailView: View {
             
             Spacer()
         }
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
             viewModel.onAppear(date, type)
         }

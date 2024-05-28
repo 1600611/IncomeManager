@@ -9,10 +9,10 @@ import Foundation
 
 class MockCategoryRepository: CategoryRepository {
     func fetchCategories(date: Date) -> [Category] {
-        let needsCategory = Category(categoryType: "Needs", percentage: 0, spentValue: 0)
-        let entertainmentCategory = Category(categoryType: "Entertainment", percentage: 0, spentValue: 0)
-        let investmentsCategory = Category(categoryType: "Investments", percentage: 0, spentValue: 0)
-        let savingsCategory = Category(categoryType: "Savings", percentage: 0, spentValue: 0)
+        let needsCategory = Category(categoryType: "NEEDS", percentage: 0, spentValue: 0)
+        let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 0, spentValue: 0)
+        let investmentsCategory = Category(categoryType: "INVESTMENTS", percentage: 0, spentValue: 0)
+        let savingsCategory = Category(categoryType: "SAVINGS", percentage: 0, spentValue: 0)
 
         return [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
     }

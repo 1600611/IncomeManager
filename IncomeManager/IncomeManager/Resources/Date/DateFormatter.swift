@@ -30,7 +30,9 @@ class DateFormatterHelper {
         return formattedDate
     }
     
-    func format(date: Date) -> String {
+    func format(date: Date?) -> String {
+        guard let date = date else { return "" }
+        
         let formatter = DateFormatter()
         
         switch Locale.current.language.languageCode?.identifier {
