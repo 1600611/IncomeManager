@@ -11,7 +11,7 @@ import Foundation
     @Published var expenses: [Expense] = []
     private var expenseRepository: ExpenseRepository
     
-    init(expenseRepository: ExpenseRepository = MockExpenseRepository()) {
+    init(expenseRepository: ExpenseRepository = CoreDataExpenseRepository()) {
         self.expenseRepository = expenseRepository
     }
     

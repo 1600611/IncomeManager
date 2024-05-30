@@ -83,18 +83,24 @@ enum ExpenseType: String {
 
 
 class Expense {
+    private final var id: UUID
     private final var description: String
     private final var amount: Decimal
     private final var type: ExpenseType
     private final var categoryType: CategoryType
     private final var date: Date
     
-    init(description: String, amount: Decimal, type: String, categoryType: String, date: Date) {
+    init(id: UUID, description: String, amount: Decimal, type: String, categoryType: String, date: Date) {
+        self.id = id
         self.description = description
         self.amount = amount
         self.type = ExpenseType(rawValue: type.uppercased())!
         self.categoryType = CategoryType(rawValue: categoryType.uppercased())!
         self.date = date
+    }
+    
+    func getId() -> UUID {
+        return self.id
     }
     
     func getDescription() -> String {

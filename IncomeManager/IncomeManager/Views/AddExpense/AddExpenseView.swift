@@ -1,21 +1,18 @@
-//
-//  AddExpenseView.swift
-//  IncomeManager
-//
-//  Created by Joel Angles Roca on 28/5/24.
-//
-
 import SwiftUI
 
 struct AddExpenseView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var themeManager: ThemeManager
-    @StateObject var viewModel = AddExpenseViewModel()
-    @State private var cost: String = ""
-    @State private var comment: String = ""
-    @State private var selectedExpense: ExpenseType?
-    @State var selectedDate: Date?
+    @StateObject var viewModel: AddExpenseViewModel
     @State private var isShowingDatePicker = false
     var date: Date
+    var categoryType: CategoryType
+    
+    init(date: Date, categoryType: CategoryType) {
+        self.date = date
+        self.categoryType = categoryType
+        _viewModel = StateObject(wrappedValue: AddExpenseViewModel(categoryType: categoryType))
+    }
     
     var body: some View {
         ZStack {
@@ -25,9 +22,9 @@ struct AddExpenseView: View {
                 HStack {
                     Text("Cost:")
                         .font(.headline)
-                        .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                        .foregroundColor(.primary)
     
-                    TextField("Introduce the cost", text: $cost)
+                    TextField("Introduce the cost", text: $viewModel.cost)
                         .keyboardType(.decimalPad)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                         .padding(.leading, 10)
@@ -35,14 +32,14 @@ struct AddExpenseView: View {
                 .padding()
                 
                 Rectangle()
-                    .fill(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                    .fill(Color.primary)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
                 HStack {
                     Text("Type:")
                         .font(.headline)
-                        .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                        .foregroundColor(.primary)
     
                     Spacer()
                 }
@@ -51,11 +48,11 @@ struct AddExpenseView: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 10) {
                     ForEach(viewModel.defaultExpenses.indices, id: \.self) { index in
                         Button(action: {
-                            if self.selectedExpense == self.viewModel.defaultExpenses[index] {
-                                self.selectedExpense = nil
+                            if self.viewModel.selectedExpense == self.viewModel.defaultExpenses[index] {
+                                self.viewModel.selectedExpense = nil
                             } else {
                                 // De lo contrario, selecciona la imagen
-                                self.selectedExpense = self.viewModel.defaultExpenses[index]
+                                self.viewModel.selectedExpense = self.viewModel.defaultExpenses[index]
                             }
                         }) {
                             VStack {
@@ -72,28 +69,28 @@ struct AddExpenseView: View {
                                 
                                 Text(self.viewModel.defaultExpenses[index].title)
                                     .font(.caption)
-                                    .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                                    .foregroundColor(.primary)
                             }
                             .padding()
-                            .background(self.viewModel.defaultExpenses[index] == self.selectedExpense ? Color(named: self.viewModel.defaultExpenses[index].colorName) ?? Color.gray.opacity(0.1) : Color.clear)
+                            .background(self.viewModel.defaultExpenses[index] == self.viewModel.selectedExpense ? Color(named: self.viewModel.defaultExpenses[index].colorName) ?? Color.gray.opacity(0.1) : Color.clear)
                             .cornerRadius(10)
                         }
                     }
                 }
                 
                 Rectangle()
-                    .fill(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                    .fill(Color.primary)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
                 HStack {
                     Text("Date:")
                         .font(.headline)
-                        .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                        .foregroundColor(.primary)
                     
-                    Text(DateFormatterHelper.shared.format(date: self.selectedDate ?? nil))
+                    Text(DateFormatterHelper.shared.format(date: self.viewModel.selectedDate))
                         .padding(.leading, 10)
-                        .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                        .foregroundColor(.primary)
                     
                     Spacer()
                     
@@ -103,13 +100,13 @@ struct AddExpenseView: View {
                         Image(systemName: "calendar")
                             .resizable()
                             .frame(width: 22, height: 22)
-                            .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                            .foregroundColor(.primary)
                     }
                 }
                 .padding()
                 
                 Rectangle()
-                    .fill(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                    .fill(Color.primary)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
@@ -117,12 +114,12 @@ struct AddExpenseView: View {
                     HStack {
                         Text("Comment:")
                             .font(.headline)
-                            .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                            .foregroundColor(.primary)
                         Spacer()
                     }
                                     
                     HStack {
-                        TextField("Introduce a comment", text: $comment)
+                        TextField("Introduce a comment", text: $viewModel.comment)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
                         
                         Spacer()
@@ -130,9 +127,23 @@ struct AddExpenseView: View {
                 }
                 .padding()
                 
+                Button(action: {
+                    self.viewModel.actionAddExpense()
+                }) {
+                    Text("Add")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: 200)
+                        .background(viewModel.isFormValid ? Color.blue : Color.gray)
+                        .cornerRadius(10)
+                        .padding()
+                }
+                .disabled(!viewModel.isFormValid)
+                
                 Spacer()
             }
-            .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+            .background(Color(UIColor.systemBackground))
             .blur(radius: isShowingDatePicker ? 2 : 0)
             
             if isShowingDatePicker {
@@ -142,13 +153,17 @@ struct AddExpenseView: View {
                         self.isShowingDatePicker = false
                     }
                 
-                DatePickerPopup(selectedDate: self.$selectedDate, isPresented: self.$isShowingDatePicker, date: date)
+                DatePickerPopup(selectedDate: self.$viewModel.selectedDate, isPresented: self.$isShowingDatePicker, date: date)
+            }
+        }
+        .onChange(of: viewModel.saveCompleted) { saveCompleted in
+            if saveCompleted {
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }
 }
 
-
 #Preview {
-    AddExpenseView(date: Date())
+    AddExpenseView(date: Date(), categoryType: CategoryType.ENTERTAINMENT)
 }

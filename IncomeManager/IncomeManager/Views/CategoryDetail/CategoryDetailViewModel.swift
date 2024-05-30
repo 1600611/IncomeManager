@@ -50,10 +50,11 @@ struct ExpenseInformation {
     @Published var totalValue: Decimal = 0
     private var expenseRepository: ExpenseRepository
     private(set) var expenses: [Expense] = []
+    private(set) var categoryDestinedValue: Decimal
  
-    init(totalValue: Decimal, expenseRepository: ExpenseRepository = MockExpenseRepository()) {
+    init(destinedValue: Decimal, expenseRepository: ExpenseRepository = CoreDataExpenseRepository()) {
         self.expenseRepository = expenseRepository
-        self.totalValue = totalValue
+        self.categoryDestinedValue = destinedValue
     }
     
     func onAppear(_ date: Date, _ categoryType: CategoryType)  {
@@ -73,12 +74,11 @@ struct ExpenseInformation {
         }
         
         self.monthExpense = self.expenses.reduce(0, { $0 + $1.getAmount() })
-        self.totalValue = self.totalValue - self.monthExpense
+        self.totalValue = self.categoryDestinedValue - self.monthExpense
         self.expensesInformation = expenseTotals.map { (type, total) in
             let percentageDouble = (total as NSDecimalNumber).doubleValue / (self.monthExpense as NSDecimalNumber).doubleValue * 100
             let percentageDecimal = Decimal(percentageDouble)
             return ExpenseInformation(type: type, totalExpended: total, percentage: percentageDecimal)
         }.sorted(by: { $0.getTotalExpended() > $1.getTotalExpended() })
     }
-    
 }

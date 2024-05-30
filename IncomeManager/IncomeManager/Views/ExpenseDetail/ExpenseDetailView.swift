@@ -49,7 +49,7 @@ struct ExpenseDetailView: View {
 
 struct ExpenseDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let expense = Expense(description: "de locos", amount: Decimal(100), type: "Entertainment", categoryType: "Entertainment", date: Date())
+        let expense = Expense(id: UUID(), description: "de locos", amount: Decimal(100), type: "Entertainment", categoryType: "Entertainment", date: Date())
         ExpenseDetailView(type: expense.getType(), date: expense.getDate(), totalExpended: expense.getAmount())
     }
 }

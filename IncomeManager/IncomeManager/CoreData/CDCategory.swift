@@ -86,4 +86,35 @@ extension CDCategory {
             print("Error saving or updating categories: \(error.localizedDescription)")
         }
     }
+    
+    static func updateSpentValue(categoryType: String, spentValue: Decimal, date: Date) {
+        let context = PersistenceController.shared.container.viewContext
+        
+        let calendar = Calendar.current
+        let monthAndYearComponents = calendar.dateComponents([.year, .month], from: date)
+        let startOfMonth = calendar.date(from: monthAndYearComponents)!
+        let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
+        
+        // Fetch the category with the given category type and date
+        let fetchRequest: NSFetchRequest<CDCategory> = CDCategory.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "(date >= %@) AND (date <= %@) AND categoryType == %@", startOfMonth as NSDate, endOfMonth as NSDate, categoryType)
+        
+        do {
+            let existingCategories = try context.fetch(fetchRequest)
+            
+            if let existingCategory = existingCategories.first {
+                // If the category exists, update its spent value by adding the new spent value
+                if let currentSpentNumber = existingCategory.spent {
+                    let currentSpentValue = currentSpentNumber.decimalValue
+                    let updatedSpentValue = currentSpentValue + spentValue
+                    existingCategory.spent = NSDecimalNumber(decimal: updatedSpentValue)
+                    try context.save()
+                }
+            }
+        } catch {
+            // Handle any errors that occur during the fetching or saving process
+            print("Error updating spent value for category: \(error.localizedDescription)")
+        }
+    }
+
 }

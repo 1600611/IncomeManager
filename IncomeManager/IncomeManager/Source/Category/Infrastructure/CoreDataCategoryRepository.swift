@@ -16,7 +16,7 @@ class CoreDataCategoryRepository: CategoryRepository {
         let categoriesCD = CDCategory.fetch(date)
         
         if categoriesCD.isEmpty {
-            return defaultCategories()
+            return defaultCategories(date: date)
         }
         
         return categoriesCD.map { categoryCD in
@@ -28,11 +28,18 @@ class CoreDataCategoryRepository: CategoryRepository {
         CDCategory.saveOrUpdate(categories: categories, date: date)
     }
     
-    func defaultCategories() -> [Category] {
+    func updateSpentValue(categoryType: CategoryType, spentValue: Decimal, date: Date) {
+        CDCategory.updateSpentValue(categoryType: categoryType.rawValue, spentValue: spentValue, date: date)
+    }
+    
+    func defaultCategories(date: Date) -> [Category] {
         let needsCategory = Category(categoryType: "NEEDS", percentage: 50, spentValue: 0)
         let entertainmentCategory = Category(categoryType: "ENTERTAINMENT", percentage: 30, spentValue: 0)
         let investmentsCategory = Category(categoryType: "INVESTMENTS", percentage: 10, spentValue: 0)
         let savingsCategory = Category(categoryType: "SAVINGS", percentage: 10, spentValue: 0)
-        return [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
+        let categories = [needsCategory, entertainmentCategory, investmentsCategory, savingsCategory]
+        
+        save(categories: categories, date: date)
+        return categories
     }
 }

@@ -18,7 +18,10 @@ class MockCategoryRepository: CategoryRepository {
     }
     
     func save(categories: [Category], date: Date) {
-        CDCategory.deleteAll()
-        //CDCategory.saveOrUpdate(categoryInformations: categoriesInformation, date: date)
+        // Do nothing
+    }
+    
+    func updateSpentValue(categoryType: CategoryType, spentValue: Decimal, date: Date) {
+        // Do nothing
     }
 }

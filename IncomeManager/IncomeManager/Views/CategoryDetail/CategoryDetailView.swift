@@ -16,7 +16,7 @@ struct CategoryDetailView: View {
     init(category: CategoryInformation, date: Date) {
         self.category = category
         self.date = date
-        _viewModel = StateObject(wrappedValue: CategoryDetailViewModel(totalValue: category.getTotalValue()))
+        _viewModel = StateObject(wrappedValue: CategoryDetailViewModel(destinedValue: category.getDestinatedValue()))
     }
     
     var body: some View {
@@ -46,7 +46,7 @@ struct CategoryDetailView: View {
                         Spacer()
                         HStack {
                             Spacer()
-                            NavigationLink(destination: AddExpenseView(date: self.date)) {
+                            NavigationLink(destination: AddExpenseView(date: self.date, categoryType: category.getCategoryType())) {
                                 Image(systemName: "plus.circle")
                                     .font(.system(size: 40))
                                     .shadow(color: .gray, radius: 5, x: 0, y: 5)
