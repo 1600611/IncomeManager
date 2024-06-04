@@ -23,7 +23,7 @@ struct ExpenseDetailView: View {
                     VStack {
                         HStack {
                             Text(DateFormatterHelper.shared.format(date: viewModel.expenses[index].getDate()))
-                                .foregroundColor(0 == 0 ? Color.black : Color.white)
+                                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
                             Spacer()
                         }
                         
@@ -40,7 +40,7 @@ struct ExpenseDetailView: View {
                         }
                         
                         Divider()
-                            .background(0 == 0 ? Color.black : Color.white)
+                            .background(themeManager.selectedIndex == 0 ? Color.black : Color.white)
                             .padding(.top, 5)
                     }
                     .padding(.horizontal, 10)
@@ -50,7 +50,7 @@ struct ExpenseDetailView: View {
             
             Spacer()
         }
-        .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
             viewModel.onAppear(date, type)
         }

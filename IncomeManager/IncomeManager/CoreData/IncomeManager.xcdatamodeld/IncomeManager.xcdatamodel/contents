@@ -18,4 +18,7 @@
         <attribute name="amount" optional="YES" attributeType="Decimal" defaultValueString="0.0"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="CDUser" representedClassName="CDUser" syncable="YES" codeGenerationType="class">
+        <attribute name="lightTheme" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+    </entity>
 </model>

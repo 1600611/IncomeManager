@@ -52,6 +52,7 @@
 		5DDCBD5B2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift */; };
 		5DDCBD5E2BD7F03F0098DC6A /* MockCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD5D2BD7F03F0098DC6A /* MockCategoryRepository.swift */; };
 		5DDCBD612BD8266F0098DC6A /* DecimalFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */; };
+		5DE98DB72C0F76C40010BD09 /* CDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE98DB62C0F76C40010BD09 /* CDUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		5DDCBD5A2BD7ED0D0098DC6A /* CoreDataCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCategoryRepository.swift; sourceTree = "<group>"; };
 		5DDCBD5D2BD7F03F0098DC6A /* MockCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryRepository.swift; sourceTree = "<group>"; };
 		5DDCBD602BD8266F0098DC6A /* DecimalFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalFormatter.swift; sourceTree = "<group>"; };
+		5DE98DB62C0F76C40010BD09 /* CDUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				5D98C80E2BCEC7060098F12C /* IncomeManager.xcdatamodeld */,
+				5DE98DB62C0F76C40010BD09 /* CDUser.swift */,
 				5D9851F92BF6645100C74CD0 /* CDExpense.swift */,
 				5D5D50772BEA6F5C006B3122 /* CDIncome.swift */,
 				5DC67DD22BE3F00B0027F48E /* CDCategory.swift */,
@@ -479,6 +482,7 @@
 				5D9851FA2BF6645100C74CD0 /* CDExpense.swift in Sources */,
 				5D9851F72BF65ED300C74CD0 /* CategoryDetailViewModel.swift in Sources */,
 				5D685C642BD17252008BD15D /* MainView.swift in Sources */,
+				5DE98DB72C0F76C40010BD09 /* CDUser.swift in Sources */,
 				5D4F30C42C0626A400B6A3FB /* AddExpenseViewModel.swift in Sources */,
 				5D9852022BF66A3000C74CD0 /* ExpenseRepository.swift in Sources */,
 				5DDCBD592BD7ECEB0098DC6A /* CategoryRepository.swift in Sources */,

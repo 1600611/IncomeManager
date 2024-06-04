@@ -22,7 +22,7 @@ struct HeaderView: View {
                         .frame(height: 100)
                 } else {
                     Rectangle()
-                        .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                        .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                         .frame(height: 100)
                 }
                 
@@ -42,7 +42,7 @@ struct HeaderView: View {
                                 .font(.title2)
                             
                             Text("Total" + ": " + DecimalFormatter.shared.format(totalValue) + "€")
-                                .foregroundColor(.white)
+                                .foregroundColor(totalValue < 0 ? .red : .white)
                                 .font(.headline)
                         }
                     } else {
