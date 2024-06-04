@@ -63,6 +63,11 @@ struct MainHeaderView: View {
                                 .background(.white)
                                 .cornerRadius(10)
                                 .shadow(radius: 1)
+                                .onChange(of: userInput) { newValue in
+                                    if newValue.contains(",") {
+                                        userInput = newValue.replacingOccurrences(of: ",", with: ".")
+                                    }
+                                }
                         } else {
                             Text(DecimalFormatter.shared.format(income) + "€")
                                 .foregroundColor(.white)

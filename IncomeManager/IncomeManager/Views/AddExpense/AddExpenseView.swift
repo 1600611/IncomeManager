@@ -36,7 +36,12 @@ struct AddExpenseView: View {
                                 .shadow(radius: 1)
                                 .focused($focusField)
                                 .onTapGesture {
-                                    self.focusField = true // Activar el teclado
+                                    self.focusField = true
+                                }
+                                .onChange(of: viewModel.cost) { newValue in
+                                    if newValue.contains(",") {
+                                        viewModel.cost = newValue.replacingOccurrences(of: ",", with: ".")
+                                    }
                                 }
                             
                             Button(action: {
