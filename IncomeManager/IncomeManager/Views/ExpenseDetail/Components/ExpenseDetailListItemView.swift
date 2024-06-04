@@ -12,19 +12,22 @@ struct ExpenseDetailListItemView: View {
     
     var body: some View {
         HStack(alignment: .center) {
-                Image(systemName: expense.getType().iconName)
-                    .resizable()
+            Image(systemName: expense.getType().iconName)
+                .resizable()
+                .foregroundColor(.black)
                 .frame(width: 30, height: 30)
             
             VStack(alignment: .leading) {
                 Text(expense.getDescription())
                     .font(.headline)
+                    .foregroundColor(.black)
             }
             .padding(.leading, 10)
             
             Spacer()
             
             Text(DecimalFormatter.shared.format(expense.getAmount()) + "€")
+                .foregroundColor(.black)
         }
         .padding()
         .background(

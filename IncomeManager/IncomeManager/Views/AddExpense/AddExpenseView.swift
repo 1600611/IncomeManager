@@ -3,21 +3,21 @@ import SwiftUI
 struct AddExpenseView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var themeManager: ThemeManager
-    @StateObject var viewModel: AddExpenseViewModel
+    @ObservedObject var viewModel: AddExpenseViewModel
     @State private var isShowingDatePicker = false
     var date: Date
     var categoryType: CategoryType
     
-    init(date: Date, categoryType: CategoryType) {
+    init(date: Date, categoryType: CategoryType, expense: Expense? = nil) {
         self.date = date
         self.categoryType = categoryType
-        _viewModel = StateObject(wrappedValue: AddExpenseViewModel(categoryType: categoryType))
+        _viewModel = ObservedObject(wrappedValue: AddExpenseViewModel(categoryType: categoryType, expense: expense))
     }
     
     var body: some View {
         ZStack {
             VStack {
-                HeaderView(title: "Add expense", totalValue: nil)
+                HeaderView(title: viewModel.isModifing ? "Modify expense" : "Add expense", totalValue: nil)
                 
                 HStack {
                     Text("Cost:")
@@ -137,9 +137,9 @@ struct AddExpenseView: View {
                 .padding()
                 
                 Button(action: {
-                    self.viewModel.actionAddExpense()
+                    viewModel.isModifing ? self.viewModel.actionModifyExpense() : self.viewModel.actionAddExpense()
                 }) {
-                    Text("Add")
+                    Text(viewModel.isModifing ? "Modify" : "Add")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
@@ -164,6 +164,9 @@ struct AddExpenseView: View {
                 
                 DatePickerPopup(selectedDate: self.$viewModel.selectedDate, isPresented: self.$isShowingDatePicker, date: date)
             }
+        }
+        .onAppear() {
+            viewModel.onAppear()
         }
         .onChange(of: viewModel.saveCompleted) { saveCompleted in
             if saveCompleted {

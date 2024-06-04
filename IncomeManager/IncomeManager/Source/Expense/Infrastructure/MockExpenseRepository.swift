@@ -35,6 +35,10 @@ class MockExpenseRepository: ExpenseRepository {
         // Do nothing
     }
     
+    func update(id: UUID, amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType) {
+        // Do nothing
+    }
+    
     func delete(id: UUID) {
         // Do nothing
     }

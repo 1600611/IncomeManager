@@ -22,6 +22,10 @@ class CoreDataExpenseRepository: ExpenseRepository {
         CDExpense.save(amount: amount, comment: comment, date: date, categoryType: categoryType, type: type)
     }
     
+    func update(id: UUID, amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType) {
+        CDExpense.update(id: id, amount: amount, comment: comment, date: date, categoryType: categoryType, type: type)
+    }
+    
     func delete(id: UUID) {
         CDExpense.delete(id: id)
     }

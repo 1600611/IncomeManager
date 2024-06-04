@@ -11,5 +11,6 @@ protocol ExpenseRepository {
     func fetchExpenses(date: Date, categoryType: CategoryType) -> [Expense]
     func fetchExpenses(date: Date, expenseType: ExpenseType) -> [Expense]
     func save(amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType)
+    func update(id: UUID, amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType)
     func delete(id: UUID)
 }

@@ -64,6 +64,33 @@ extension CDExpense {
         }
     }
     
+    static func update(id: UUID, amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType) {
+        let context = PersistenceController.shared.container.viewContext
+        let fetchRequest: NSFetchRequest<CDExpense> = CDExpense.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+        
+        do {
+            let expenses = try context.fetch(fetchRequest)
+            if let expenseToUpdate = expenses.first {
+                expenseToUpdate.amount = NSDecimalNumber(decimal: amount)
+                expenseToUpdate.comment = comment
+                expenseToUpdate.date = date
+                expenseToUpdate.categoryType = categoryType.rawValue
+                expenseToUpdate.type = type.rawValue
+                
+                do {
+                    try context.save()
+                } catch {
+                    print("Error saving context after updating expense: \(error.localizedDescription)")
+                }
+            } else {
+                print("No expense found with the provided id.")
+            }
+        } catch {
+            print("Error fetching expense: \(error.localizedDescription)")
+        }
+    }
+    
     static func delete(id: UUID) {
         let context = PersistenceController.shared.container.viewContext
         let fetchRequest: NSFetchRequest<CDExpense> = CDExpense.fetchRequest()

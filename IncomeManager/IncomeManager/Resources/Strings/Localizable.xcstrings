@@ -344,6 +344,40 @@
         }
       }
     },
+    "Modify" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modificar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modificar"
+          }
+        }
+      }
+    },
+    "Modify expense" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modificar despesa"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modificar gasto"
+          }
+        }
+      }
+    },
     "Monthly salary" : {
       "extractionState" : "manual",
       "localizations" : {

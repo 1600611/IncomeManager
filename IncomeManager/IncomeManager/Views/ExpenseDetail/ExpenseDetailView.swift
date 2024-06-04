@@ -13,10 +13,10 @@ struct ExpenseDetailView: View {
     var type: ExpenseType
     var date: Date
     var totalExpended: Decimal
-    
+        
     var body: some View {
         VStack() {
-            HeaderView(title: type.title, totalValue: totalExpended, color: type.colorName)
+            HeaderView(title: type.title, totalValue: viewModel.totalExpended, color: type.colorName)
       
             ScrollView {
                 ForEach(viewModel.expenses.indices, id: \.self) { index in
@@ -27,15 +27,17 @@ struct ExpenseDetailView: View {
                             Spacer()
                         }
                         
-                        ExpenseDetailListItemView(expense: viewModel.expenses[index])
-                            .contextMenu {
-                                Button(action: {
-                                    viewModel.deleteExpense(viewModel.expenses[index])
-                                }) {
-                                    Text("Delete")
-                                    Image(systemName: "trash")
+                        NavigationLink(destination: AddExpenseView(date: self.date, categoryType: viewModel.expenses[index].getCategoryType(), expense: viewModel.expenses[index])) {
+                            ExpenseDetailListItemView(expense: viewModel.expenses[index])
+                                .contextMenu {
+                                    Button(action: {
+                                        viewModel.deleteExpense(viewModel.expenses[index])
+                                    }) {
+                                        Text("Delete")
+                                        Image(systemName: "trash")
+                                    }
                                 }
-                            }
+                        }
                         
                         Divider()
                             .background(0 == 0 ? Color.black : Color.white)

@@ -21,7 +21,7 @@ struct MainView: View {
                         .frame(height: 100)
                     
                     MonthYearPickerView(changeDateAction: dateChanged)
-                    
+                                
                     // Categories
                     ScrollView {
                         LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
@@ -73,7 +73,6 @@ struct MainView: View {
             }
             .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
             .edgesIgnoringSafeArea(.bottom)
-            .ignoresSafeArea(.keyboard)
         }
     }
     
