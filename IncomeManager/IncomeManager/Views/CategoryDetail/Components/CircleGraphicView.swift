@@ -61,7 +61,7 @@ struct CircleGraphicView: View {
                     Text(DecimalFormatter.shared.format(self.destined) + "€")
                         .foregroundColor(.black)
                         .font(.title3)
-                    Text("-" + DecimalFormatter.shared.format(self.totalMonthExpended) + "€")
+                    Text("\(self.totalMonthExpended > 0 ? "-" : "")" + DecimalFormatter.shared.format(self.totalMonthExpended) + "€")
                         .foregroundColor(.black)
                 }
             }
