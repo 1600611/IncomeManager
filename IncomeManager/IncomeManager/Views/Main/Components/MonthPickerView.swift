@@ -13,6 +13,7 @@ struct MonthYearPickerView: View {
     var changeDateAction: (Date) -> Void
     
     var body: some View {
+        let isCurrentMonth = Calendar.current.isDate(selectedDate, equalTo: Date(), toGranularity: .month)
         
         HStack {
             Button(action: {
@@ -25,7 +26,7 @@ struct MonthYearPickerView: View {
             Spacer()
             
             Text(DateFormatterHelper.shared.monthAndYearFormat(date: self.selectedDate))
-                .foregroundColor(0 == 0 ? Color.black : Color.white)
+                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
             
             Spacer()
             
@@ -35,6 +36,7 @@ struct MonthYearPickerView: View {
             }) {
                 Image(systemName: "chevron.right")
             }
+            .disabled(isCurrentMonth)
         }
         .padding()
         .onAppear() {

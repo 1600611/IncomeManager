@@ -126,6 +126,22 @@
         }
       }
     },
+    "Delete" : {
+      "localizations" : {
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eliminar"
+          }
+        }
+      }
+    },
     "Destined:" : {
       "extractionState" : "manual",
       "localizations" : {

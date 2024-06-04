@@ -23,14 +23,22 @@ struct ExpenseDetailView: View {
                     VStack {
                         HStack {
                             Text(DateFormatterHelper.shared.format(date: viewModel.expenses[index].getDate()))
-                                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                                .foregroundColor(0 == 0 ? Color.black : Color.white)
                             Spacer()
                         }
                         
                         ExpenseDetailListItemView(expense: viewModel.expenses[index])
+                            .contextMenu {
+                                Button(action: {
+                                    viewModel.deleteExpense(viewModel.expenses[index])
+                                }) {
+                                    Text("Delete")
+                                    Image(systemName: "trash")
+                                }
+                            }
                         
                         Divider()
-                            .background(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                            .background(0 == 0 ? Color.black : Color.white)
                             .padding(.top, 5)
                     }
                     .padding(.horizontal, 10)
@@ -40,7 +48,7 @@ struct ExpenseDetailView: View {
             
             Spacer()
         }
-        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+        .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
             viewModel.onAppear(date, type)
         }

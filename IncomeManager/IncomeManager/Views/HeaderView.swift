@@ -22,7 +22,7 @@ struct HeaderView: View {
                         .frame(height: 100)
                 } else {
                     Rectangle()
-                        .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                        .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                         .frame(height: 100)
                 }
                 

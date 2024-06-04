@@ -40,20 +40,22 @@ struct CategoryView: View {
             HStack {
                 Text("Spent:")
                 Spacer()
-                Text("-" + DecimalFormatter.shared.format(self.category.getSpentValue()) + "€")
+                Text("\(self.category.getSpentValue() > 0 ? "-" : "")" + DecimalFormatter.shared.format(self.category.getSpentValue()) + "€")
                     .font(.system(size: 12.5))
+                    .foregroundColor(self.category.getSpentValue() > 0 ? .red : .white)
             }
             
             HStack {
                 Spacer()
                 Text("Total" + ":")
                 Text(DecimalFormatter.shared.format(self.category.getTotalValue()) + "€")
+                    .foregroundColor(self.category.getTotalValue() < 0 ? .red : .white)
                 Spacer()
             }.padding(.top, 25)
         }
         .padding()
         .frame(width: UIScreen.main.bounds.width / 2 - 5, height: UIScreen.main.bounds.width / 1.85)
-        .background(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+        .background(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
         .border(Color.black, width: 1.25)
         .cornerRadius(5)
         .foregroundColor(.white)

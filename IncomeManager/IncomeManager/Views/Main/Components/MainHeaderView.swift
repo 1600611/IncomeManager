@@ -18,7 +18,7 @@ struct MainHeaderView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                 .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {

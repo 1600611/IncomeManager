@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct IncomeDistributionCategoryView: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @State private var totalPercentage: Int = 0
     @State var localPercentages: [Int]
     @State private var isPresentingPicker = false
@@ -21,6 +22,7 @@ struct IncomeDistributionCategoryView: View {
                 ForEach(categories.indices, id: \.self) { index in
                     HStack {
                         Text(categories[index].title)
+                            .foregroundColor(.black)
                         Spacer()
                         if selectedCategoryIndex == index && isPresentingPicker {
                             Picker("", selection: Binding<Int>(
@@ -32,6 +34,7 @@ struct IncomeDistributionCategoryView: View {
                             )) {
                                 ForEach(0...100, id: \.self) { percentage in
                                     Text("\(percentage)%").tag(percentage)
+                                        .foregroundColor(.black)
                                 }
                             }
                             .pickerStyle(WheelPickerStyle())
@@ -46,13 +49,14 @@ struct IncomeDistributionCategoryView: View {
                                 }
                             }) {
                                 Text("\(localPercentages[index])%")
+                                    .foregroundColor(.black)
                             }
                         }
                     }
                 }
+                .listRowBackground(themeManager.selectedIndex == 0 ? Color.white : Color.white.opacity(0.7))
             }
             .listStyle(PlainListStyle())
-            
             
             Button("Save", action: {
                 saveIncomeDistributionsAction(localPercentages)

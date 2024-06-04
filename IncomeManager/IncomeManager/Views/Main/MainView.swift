@@ -23,22 +23,24 @@ struct MainView: View {
                     MonthYearPickerView(changeDateAction: dateChanged)
                     
                     // Categories
-                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
-                        ForEach(viewModel.categoriesInformation) { category in
-                            NavigationLink(destination: CategoryDetailView(category: category, date: viewModel.date!)) {
-                                CategoryView(category: category)
+                    ScrollView {
+                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
+                            ForEach(viewModel.categoriesInformation) { category in
+                                NavigationLink(destination: CategoryDetailView(category: category, date: viewModel.date!)) {
+                                    CategoryView(category: category)
+                                }
                             }
                         }
+                        .padding(.horizontal, 5)
+                        .padding(.top, 20)
                     }
-                    .padding(.horizontal, 5)
-                    .padding(.top, 15)
                     
                     Spacer()
                     
                     // Monthly total benefits
                     ZStack {
                         Rectangle()
-                            .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                            .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                             .frame(height: 110)
                         
                         HStack(alignment: .center) {
@@ -69,8 +71,9 @@ struct MainView: View {
                     }
                 }
             }
-            .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+            .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
             .edgesIgnoringSafeArea(.bottom)
+            .ignoresSafeArea(.keyboard)
         }
     }
     

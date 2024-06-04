@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 @MainActor class AddExpenseViewModel: ObservableObject {
     @Published var defaultExpenses: [ExpenseType] = [.FOOD, .ENTERTAINMENT, .RESTAURANT, .HEALTH, .TECHNOLOGY, .PRESENTS, .SPORT, .CLOTHES]
     @Published var cost: String = ""

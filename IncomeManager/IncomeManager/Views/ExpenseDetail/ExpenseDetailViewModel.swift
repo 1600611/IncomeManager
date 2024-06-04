@@ -19,4 +19,9 @@ import Foundation
         self.expenses = self.expenseRepository.fetchExpenses(date: date, expenseType: type)
     }
     
+    func deleteExpense(_ expense: Expense) {
+        self.expenseRepository.delete(id: expense.getId())
+        self.expenses = self.expenseRepository.fetchExpenses(date: expense.getDate(), expenseType: expense.getType())
+    }
+    
 }
