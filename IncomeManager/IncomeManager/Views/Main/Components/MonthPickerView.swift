@@ -25,7 +25,7 @@ struct MonthYearPickerView: View {
             Spacer()
             
             Text(DateFormatterHelper.shared.monthAndYearFormat(date: self.selectedDate))
-                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                .foregroundColor(0 == 0 ? Color.black : Color.white)
             
             Spacer()
             

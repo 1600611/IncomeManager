@@ -23,32 +23,31 @@ struct MainView: View {
                     MonthYearPickerView(changeDateAction: dateChanged)
                     
                     // Categories
-                    ScrollView {
-                        LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())]) {
-                            ForEach(viewModel.categoriesInformation) { category in
-                                NavigationLink(destination: CategoryDetailView(category: category, date: viewModel.date!)) {
-                                    CategoryView(category: category)
-                                }
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 15) {
+                        ForEach(viewModel.categoriesInformation) { category in
+                            NavigationLink(destination: CategoryDetailView(category: category, date: viewModel.date!)) {
+                                CategoryView(category: category)
                             }
                         }
-                        .padding()
                     }
+                    .padding(.horizontal, 5)
+                    .padding(.top, 15)
                     
                     Spacer()
                     
                     // Monthly total benefits
                     ZStack {
                         Rectangle()
-                            .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
-                            .frame(height: 75)
+                            .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                            .frame(height: 110)
                         
                         HStack(alignment: .center) {
                             Text("Total" + ":")
                                 .foregroundColor(.white)
-                                .font(.title2)
+                                .font(.title)
                             Text(DecimalFormatter.shared.format(viewModel.monthBenefit) + "€")
-                                .foregroundColor(.white)
-                                .font(.title2)
+                                .foregroundColor(viewModel.monthBenefit < 0 ? .red :.white)
+                                .font(.title)
                         }
                     }
                     
@@ -70,8 +69,8 @@ struct MainView: View {
                     }
                 }
             }
-            .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
-            .navigationBarTitle("", displayMode: .inline)
+            .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+            .edgesIgnoringSafeArea(.bottom)
         }
     }
     

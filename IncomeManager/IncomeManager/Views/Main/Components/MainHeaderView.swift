@@ -18,7 +18,7 @@ struct MainHeaderView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                 .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {
@@ -54,10 +54,15 @@ struct MainHeaderView: View {
                     
                     HStack {
                         if isEditing {
-                            TextField("Monthly salary", text: $userInput)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                            TextField("", text: $userInput, prompt: Text("Monthly salary").foregroundColor(.gray))
+                                .textFieldStyle(PlainTextFieldStyle())
+                                .padding(10)
                                 .keyboardType(.decimalPad)
                                 .frame(width: 150, height: 40)
+                                .foregroundColor(.black)
+                                .background(.white)
+                                .cornerRadius(10)
+                                .shadow(radius: 1)
                         } else {
                             Text(DecimalFormatter.shared.format(income) + "€")
                                 .foregroundColor(.white)

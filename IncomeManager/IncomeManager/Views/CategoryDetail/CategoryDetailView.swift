@@ -24,15 +24,14 @@ struct CategoryDetailView: View {
             HeaderView(title: category.getCategoryType().title, totalValue: viewModel.totalValue, color: nil)
             
             Text(DateFormatterHelper.shared.monthAndYearFormat(date: self.date))
-                .foregroundColor(themeManager.selectedIndex == 0 ? Color.black : Color.white)
+                .foregroundColor(0 == 0 ? Color.black : Color.white)
                 .padding(.top, 10)
             
             GeometryReader { geometry in
                 ZStack {
                     Rectangle()
-                        .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+                        .fill(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                         .frame(width: geometry.size.width - 10, height: 300)
-                        .padding(.horizontal, 5)
                         .padding(.top, 5)
                         .cornerRadius(25)
                         .overlay(
@@ -75,7 +74,7 @@ struct CategoryDetailView: View {
             
             Spacer()
         }
-        .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
+        .background(0 == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
             viewModel.onAppear(date, category.getCategoryType())
         }

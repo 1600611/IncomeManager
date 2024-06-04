@@ -92,23 +92,6 @@
         }
       }
     },
-    "Currency" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Divisa"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Divisa"
-          }
-        }
-      }
-    },
     "Dark" : {
       "extractionState" : "manual",
       "localizations" : {

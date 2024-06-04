@@ -22,30 +22,34 @@ struct AddExpenseView: View {
                 HStack {
                     Text("Cost:")
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
     
-                    TextField("Introduce the cost", text: $viewModel.cost)
+                    TextField("", text: $viewModel.cost, prompt: Text("Introduce the cost").foregroundColor(.gray))
                         .keyboardType(.decimalPad)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(.leading, 10)
+                        .textFieldStyle(PlainTextFieldStyle())
+                        .padding(10)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                        .background(.white)
+                        .cornerRadius(10)
+                        .shadow(radius: 1)
                 }
                 .padding()
                 
                 Rectangle()
-                    .fill(Color.primary)
+                    .fill(themeManager.selectedIndex == 0 ? .black : .white)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
                 HStack {
                     Text("Type:")
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
     
                     Spacer()
                 }
                 .padding()
                 
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: 4), spacing: 10) {
+                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: -4), count: 4), spacing: 10) {
                     ForEach(viewModel.defaultExpenses.indices, id: \.self) { index in
                         Button(action: {
                             if self.viewModel.selectedExpense == self.viewModel.defaultExpenses[index] {
@@ -69,7 +73,7 @@ struct AddExpenseView: View {
                                 
                                 Text(self.viewModel.defaultExpenses[index].title)
                                     .font(.caption)
-                                    .foregroundColor(.primary)
+                                    .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                             }
                             .padding()
                             .background(self.viewModel.defaultExpenses[index] == self.viewModel.selectedExpense ? Color(named: self.viewModel.defaultExpenses[index].colorName) ?? Color.gray.opacity(0.1) : Color.clear)
@@ -79,18 +83,18 @@ struct AddExpenseView: View {
                 }
                 
                 Rectangle()
-                    .fill(Color.primary)
+                    .fill(themeManager.selectedIndex == 0 ? .black : .white)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
                 HStack {
                     Text("Date:")
                         .font(.headline)
-                        .foregroundColor(.primary)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                     
                     Text(DateFormatterHelper.shared.format(date: self.viewModel.selectedDate))
                         .padding(.leading, 10)
-                        .foregroundColor(.primary)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                     
                     Spacer()
                     
@@ -100,13 +104,13 @@ struct AddExpenseView: View {
                         Image(systemName: "calendar")
                             .resizable()
                             .frame(width: 22, height: 22)
-                            .foregroundColor(.primary)
+                            .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                     }
                 }
                 .padding()
                 
                 Rectangle()
-                    .fill(Color.primary)
+                    .fill(themeManager.selectedIndex == 0 ? .black : .white)
                     .frame(height: 1)
                     .padding(.horizontal, 10)
                 
@@ -114,16 +118,21 @@ struct AddExpenseView: View {
                     HStack {
                         Text("Comment:")
                             .font(.headline)
-                            .foregroundColor(.primary)
+                            .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                         Spacer()
                     }
                                     
                     HStack {
-                        TextField("Introduce a comment", text: $viewModel.comment)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                        
-                        Spacer()
+                        TextField("", text: $viewModel.comment, prompt: Text("Introduce a comment").foregroundColor(.gray))
+                            .textFieldStyle(PlainTextFieldStyle())
+                            .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                            .padding(10)
+                            .background(.white)
+                            .cornerRadius(10)
+                            .shadow(radius: 1)
                     }
+                    
+                    Spacer()
                 }
                 .padding()
                 
@@ -143,7 +152,7 @@ struct AddExpenseView: View {
                 
                 Spacer()
             }
-            .background(Color(UIColor.systemBackground))
+            .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
             .blur(radius: isShowingDatePicker ? 2 : 0)
             
             if isShowingDatePicker {

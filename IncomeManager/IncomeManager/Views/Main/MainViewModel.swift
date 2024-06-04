@@ -69,7 +69,7 @@ struct CategoryInformation: Identifiable, Equatable {
     private let categoryRepository: CategoryRepository
     private let incomeRepository: IncomeRepository
     
-    init(categoryRepository: CategoryRepository = CoreDataCategoryRepository(), incomeRepository: IncomeRepository = CoreDataIncomeRepository()) {
+    init(categoryRepository: CategoryRepository = MockCategoryRepository(), incomeRepository: IncomeRepository = MockIncomeRepository()) {
         self.categoryRepository = categoryRepository
         self.incomeRepository = incomeRepository
     }

@@ -28,7 +28,7 @@ struct CategoryView: View {
                         .font(.subheadline)
                     Spacer()
                 }
-            }.padding(.bottom, 7.5)
+            }.padding(.bottom, 30)
             
             
             HStack {
@@ -49,11 +49,11 @@ struct CategoryView: View {
                 Text("Total" + ":")
                 Text(DecimalFormatter.shared.format(self.category.getTotalValue()) + "€")
                 Spacer()
-            }.padding(.top, 12.5)
+            }.padding(.top, 25)
         }
         .padding()
-        .frame(width: UIScreen.main.bounds.width / 2 - 20, height: UIScreen.main.bounds.width / 2 - 40)
-        .background(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
+        .frame(width: UIScreen.main.bounds.width / 2 - 5, height: UIScreen.main.bounds.width / 1.85)
+        .background(0 == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
         .border(Color.black, width: 1.25)
         .cornerRadius(5)
         .foregroundColor(.white)

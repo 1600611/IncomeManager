@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct DatePickerPopup: View {
+    @EnvironmentObject var themeManager: ThemeManager
     @Binding var selectedDate: Date?
     @Binding var isPresented: Bool
     @State private var localSelectedDate: Date?
     var date: Date
-    
+
+    init(selectedDate: Binding<Date?>, isPresented: Binding<Bool>, date: Date) {
+        self._selectedDate = selectedDate
+        self._isPresented = isPresented
+        self.date = date
+        self._localSelectedDate = State(initialValue: selectedDate.wrappedValue ?? Date())
+    }
+
     var body: some View {
         VStack {
             HStack {
@@ -25,7 +33,7 @@ struct DatePickerPopup: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.black)
+                        .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
                 }
             }
             
@@ -38,10 +46,11 @@ struct DatePickerPopup: View {
                 }
             ), in: date.intervalOfMonth(), displayedComponents: .date)
                 .datePickerStyle(GraphicalDatePickerStyle())
+                .colorScheme(themeManager.selectedIndex == 0 ? .light : .dark)
         }
         .padding()
         .frame(width: 300, height: 375)
-        .background(Color.white)
+        .background(themeManager.selectedIndex == 0 ? Color.white : CustomColor.darkBackground)
         .cornerRadius(20)
         .shadow(radius: 10)
         .onDisappear {
