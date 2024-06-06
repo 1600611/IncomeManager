@@ -15,7 +15,7 @@ struct DonutChart: Shape {
         var path = Path()
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let outerRadius = min(rect.width, rect.height) / 2
-        let innerRadius = outerRadius * 0.6 // Ajusta el valor según el grosor deseado
+        let innerRadius = outerRadius * 0.6
         
         path.move(to: CGPoint(x: center.x + outerRadius * cos(CGFloat(startAngle.radians)), y: center.y + outerRadius * sin(CGFloat(startAngle.radians))))
         

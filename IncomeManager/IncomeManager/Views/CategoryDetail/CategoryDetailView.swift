@@ -58,7 +58,6 @@ struct CategoryDetailView: View {
                 .frame(width: geometry.size.width - 10, height: 300)
             }
             
-
             ScrollView {
                 ForEach(viewModel.expensesInformation.indices, id: \.self) { index in
                     let type = viewModel.expensesInformation[index].getType()
@@ -69,8 +68,8 @@ struct CategoryDetailView: View {
                     }
                 }
             }
-            .padding(.top, 10)
             .padding(.horizontal, 5)
+            .padding(.top, -20)
             
             Spacer()
         }
@@ -78,6 +77,7 @@ struct CategoryDetailView: View {
         .onAppear() {
             viewModel.onAppear(date, category.getCategoryType())
         }
+        .ignoresSafeArea(.all)
     }
 }
 

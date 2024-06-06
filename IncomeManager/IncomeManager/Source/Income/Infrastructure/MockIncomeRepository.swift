@@ -10,11 +10,12 @@ import Foundation
 class MockIncomeRepository: IncomeRepository {
     
     func fetchIncome(date: Date) -> Income {
-        // Not implementedç
+        
+        // Not implemented
         return Income(amount: nil)
     }
     
     func save(income: Decimal, date: Date) {
-        CDIncome.deleteAll()
+        // Do nothing
     }
 }

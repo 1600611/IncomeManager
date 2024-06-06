@@ -18,7 +18,7 @@ struct MainView: View {
             ZStack {
                 VStack {
                     MainHeaderView(income: viewModel.income ?? 0, incomeChangedAction: monthlyIncomeUpdated, optionsButtonAction: { isMenuVisible.toggle() })
-                        .frame(height: 100)
+                        .frame(height: 120)
                     
                     MonthYearPickerView(changeDateAction: dateChanged)
                                 
@@ -72,11 +72,11 @@ struct MainView: View {
                 }
             }
             .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.all)
         }
     }
     
-    func monthlyIncomeUpdated(_ newIncome: Decimal) {
+    func monthlyIncomeUpdated(_ newIncome: String) {
         viewModel.actionIncomeSetted(newIncome)
     }
     

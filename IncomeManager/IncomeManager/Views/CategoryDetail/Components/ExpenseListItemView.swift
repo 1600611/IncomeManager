@@ -34,7 +34,7 @@ struct ExpenseListItemView: View {
                     Text(DecimalFormatter.shared.format(expenseInformation.getTotalExpended()) + "€")
                         .foregroundColor(.black)
                 }
-                .padding()
+                .padding(.horizontal, 10)
             )
     }
 }

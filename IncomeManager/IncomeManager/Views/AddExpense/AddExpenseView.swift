@@ -170,6 +170,7 @@ struct AddExpenseView: View {
                     
                     Spacer()
                 }
+                .ignoresSafeArea(.all)
                 .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
                 .blur(radius: isShowingDatePicker ? 2 : 0)
             

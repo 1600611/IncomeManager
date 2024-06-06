@@ -45,6 +45,7 @@ struct CategoryInformation: Identifiable, Equatable {
         return totalValue
     }
     
+    // Setters
     mutating func setPercentage(_ percentage: Int) {
         self.percentage = percentage
     }
@@ -78,10 +79,18 @@ struct CategoryInformation: Identifiable, Equatable {
         self.date = date
         self.categories = self.categoryRepository.fetchCategories(date: date)
         self.income = self.incomeRepository.fetchIncome(date: date).getAmount()
-        self.actionIncomeSetted(income!)
+        self.loadCategories(income!)
     }
     
-    func actionIncomeSetted(_ newIncome: Decimal) {
+    func actionIncomeSetted(_ newIncome: String) {
+        guard let newIncome = Decimal(string: newIncome) else { return }
+        
+        self.income = newIncome
+        self.incomeRepository.save(income: newIncome, date: date!)
+        self.loadCategories(newIncome)
+    }
+    
+    func loadCategories(_ newIncome: Decimal) {
         self.income = newIncome
         self.categoriesInformation.removeAll()
         self.monthBenefit = 0
@@ -98,8 +107,6 @@ struct CategoryInformation: Identifiable, Equatable {
             self.categoriesInformation.append(categoryInfo)
             self.monthBenefit += totalValue
         }
-        
-        self.incomeRepository.save(income: newIncome, date: date!)
     }
     
     func actionIncomeDistributionsSetted(_ incomeDistributions: [Int]) {

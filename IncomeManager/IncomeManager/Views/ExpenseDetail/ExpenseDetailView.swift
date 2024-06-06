@@ -44,12 +44,12 @@ struct ExpenseDetailView: View {
                             .padding(.top, 5)
                     }
                     .padding(.horizontal, 10)
-                    .padding(.top, 2)
                 }
             }
             
             Spacer()
         }
+        .ignoresSafeArea(.all)
         .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
             viewModel.onAppear(date, type)

@@ -19,18 +19,18 @@ struct HeaderView: View {
                 if let color = self.color {
                     Rectangle()
                         .fill(Color(named: color) ?? Color.gray.opacity(0.1))
-                        .frame(height: 100)
+                        .frame(height: 120)
                 } else {
                     Rectangle()
                         .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
-                        .frame(height: 100)
+                        .frame(height: 120)
                 }
                 
                 HStack() {
                     VStack {
                         CustomBackButton()
-                            .padding(.bottom, 60)
                             .padding(.leading, 5)
+                            .padding(.top, 5)
                     }
                     
                     Spacer()
@@ -45,16 +45,19 @@ struct HeaderView: View {
                                 .foregroundColor(totalValue < 0 ? .red : .white)
                                 .font(.headline)
                         }
+                        .padding(.top, 25)
                     } else {
                         Text(title)
                             .foregroundColor(.white)
                             .font(.title2)
+                            .padding(.top, 10)
                     }
                     
                     Spacer()
                 }
             }
         }
+        .ignoresSafeArea(edges: .vertical)
         .navigationBarBackButtonHidden()
     }
 }

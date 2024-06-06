@@ -12,28 +12,25 @@ struct MainHeaderView: View {
     @State private var userInput: String = ""
     @State private var isEditing: Bool = false
     var income: Decimal
-    var incomeChangedAction: ((Decimal) -> Void)
+    var incomeChangedAction: ((String) -> Void)
     var optionsButtonAction: (() -> Void)
     
     var body: some View {
         ZStack {
             Rectangle()
                 .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
-                .frame(height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
             
             HStack {
                 Button(action: {
                     optionsButtonAction()
                 }) {
-                    VStack {
-                        Image(systemName: "line.horizontal.3")
-                            .font(.title)
-                            .foregroundColor(.white)
-                        
-                        Spacer()
-                    }
-                    
-                }.padding([.leading, .top], 5)
+
+                    Image(systemName: "line.horizontal.3")
+                        .font(.title)
+                        .foregroundColor(.white)
+                }
+                .padding(.leading, 5)
+                .padding(.top, 5)
                 
                 Spacer()
                 
@@ -77,10 +74,8 @@ struct MainHeaderView: View {
                         Button(action: {
                             isEditing.toggle()
                             if !isEditing {
-                                if let newValue = Decimal(string: userInput) {
-                                    incomeChangedAction(newValue)
-                                    userInput = ""
-                                }
+                                incomeChangedAction(self.userInput)
+                                userInput = ""
                             }
                         }) {
                             Image(systemName: isEditing ? "checkmark.circle" : "pencil.circle")
@@ -88,6 +83,7 @@ struct MainHeaderView: View {
                     }
                 }
                 .padding(.leading, -12.5)
+                .padding(.top, 25)
                 
                 Spacer()
             }

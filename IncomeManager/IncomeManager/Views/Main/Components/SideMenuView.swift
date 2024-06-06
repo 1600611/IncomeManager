@@ -90,6 +90,7 @@ struct SideMenuView: View {
                         
             Spacer()
         }
+        .padding(.top, 30)
         .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .shadow(radius: 5)
     }
