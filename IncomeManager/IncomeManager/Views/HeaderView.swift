@@ -52,11 +52,13 @@ struct HeaderView: View {
                             }
                         }
                         .padding(.top, 25)
+                        .padding(.trailing, 20)
                     } else {
                         Text(title)
                             .foregroundColor(.white)
                             .font(.title2)
                             .padding(.top, 10)
+                            .padding(.trailing, 20)
                     }
                     
                     Spacer()

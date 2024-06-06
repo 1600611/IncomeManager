@@ -14,8 +14,8 @@ class CoreDataExpenseRepository: ExpenseRepository {
         return CDExpense.fetch(on: date, categoryType: categoryType).map({ expenseMapper.map(expenseCD: $0) })
     }
     
-    func fetchExpenses(date: Date, expenseType: ExpenseType) -> [Expense] {
-        return CDExpense.fetch(on: date, expenseType: expenseType).map({ expenseMapper.map(expenseCD: $0) })
+    func fetchExpenses(date: Date, expenseType: ExpenseType, categoryType: CategoryType) -> [Expense] {
+        return CDExpense.fetch(on: date, expenseType: expenseType, categoryType: categoryType).map({ expenseMapper.map(expenseCD: $0) })
     }
     
     func save(amount: Decimal, comment: String, date: Date, categoryType: CategoryType, type: ExpenseType) {

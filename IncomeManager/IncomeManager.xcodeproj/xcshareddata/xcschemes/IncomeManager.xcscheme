@@ -34,7 +34,7 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5DC37E032C11B46E00329B54"
+               BlueprintIdentifier = "5D137CF02C11F3BC00903D82"
                BuildableName = "IncomeManagerTests.xctest"
                BlueprintName = "IncomeManagerTests"
                ReferencedContainer = "container:IncomeManager.xcodeproj">

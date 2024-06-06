@@ -82,7 +82,7 @@ struct MainHeaderView: View {
                         }
                     }
                 }
-                .padding(.leading, -12.5)
+                .padding(.trailing, 20)
                 .padding(.top, 25)
                 
                 Spacer()

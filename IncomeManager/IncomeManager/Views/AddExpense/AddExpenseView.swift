@@ -21,36 +21,59 @@ struct AddExpenseView: View {
                     HeaderView(title: viewModel.isModifing ? "Modify expense" : "Add expense", totalValue: nil)
                     
                     ScrollView {
-                        HStack {
-                            Text("Cost:")
-                                .font(.headline)
-                                .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
-                            
-                            TextField("", text: $viewModel.cost, prompt: Text("Introduce the cost").foregroundColor(.gray))
-                                .keyboardType(.decimalPad)
-                                .textFieldStyle(PlainTextFieldStyle())
-                                .padding(10)
-                                .foregroundColor(.black)
-                                .background(.white)
-                                .cornerRadius(10)
-                                .shadow(radius: 1)
-                                .focused($focusField)
-                                .onTapGesture {
-                                    self.focusField = true
-                                }
-                                .onChange(of: viewModel.cost) { newValue in
-                                    if newValue.contains(",") {
-                                        viewModel.cost = newValue.replacingOccurrences(of: ",", with: ".")
+                        if viewModel.isModifingCost {
+                            HStack {
+                                Text("Cost:")
+                                    .font(.headline)
+                                    .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                                
+                                TextField("", text: $viewModel.costStr, prompt: Text("Introduce the cost").foregroundColor(.gray))
+                                    .keyboardType(.decimalPad)
+                                    .textFieldStyle(PlainTextFieldStyle())
+                                    .padding(10)
+                                    .foregroundColor(.black)
+                                    .background(.white)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 1)
+                                    .focused($focusField)
+                                    .onTapGesture {
+                                        self.focusField = true
                                     }
+                                    .onChange(of: viewModel.costStr) { newValue in
+                                        if newValue.contains(",") {
+                                            viewModel.costStr = newValue.replacingOccurrences(of: ",", with: ".")
+                                        }
+                                    }
+                                
+                                Button(action: {
+                                    self.focusField = false
+                                    self.viewModel.actionAddCost(self.viewModel.costStr)
+                                    self.viewModel.isModifingCost = false
+                                }) {
+                                    Image(systemName: "checkmark.circle")
                                 }
-                            
-                            Button(action: {
-                                self.focusField = false
-                            }) {
-                                Image(systemName: "checkmark.circle")
                             }
+                            .padding()
+                        } else {
+                            HStack() {
+                                Text("Cost:")
+                                    .font(.headline)
+                                    .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                                
+                                Text(viewModel.cost == nil ? "" : DecimalFormatter.shared.format(viewModel.cost!) + "€")
+                                    .foregroundColor(themeManager.selectedIndex == 0 ? .black : .white)
+                                    .font(.headline)
+                                
+                                Button(action: {
+                                    self.viewModel.isModifingCost = true
+                                }) {
+                                    Image(systemName: "pencil.circle")
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding()
                         }
-                        .padding()
                         
                         Rectangle()
                             .fill(themeManager.selectedIndex == 0 ? .black : .white)
@@ -152,25 +175,25 @@ struct AddExpenseView: View {
                             Spacer()
                         }
                         .padding()
-                    }
                         
-                    Button(action: {
-                        viewModel.isModifing ? self.viewModel.actionModifyExpense() : self.viewModel.actionAddExpense()
-                    }) {
-                        Text(viewModel.isModifing ? "Modify" : "Add")
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(maxWidth: 200)
-                            .background(viewModel.isFormValid ? Color.blue : Color.gray)
-                            .cornerRadius(10)
-                            .padding()
+                        Button(action: {
+                            viewModel.isModifing ? self.viewModel.actionModifyExpense() : self.viewModel.actionAddExpense()
+                        }) {
+                            Text(viewModel.isModifing ? "Modify" : "Add")
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(maxWidth: 200)
+                                .background(viewModel.isFormValid ? Color.blue : Color.gray)
+                                .cornerRadius(10)
+                                .padding()
+                        }
+                        .disabled(!viewModel.isFormValid)
                     }
-                    .disabled(!viewModel.isFormValid)
                     
                     Spacer()
                 }
-                .ignoresSafeArea(.all)
+                .ignoresSafeArea(edges: .top)
                 .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
                 .blur(radius: isShowingDatePicker ? 2 : 0)
             

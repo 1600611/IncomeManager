@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpenseDetailView: View {
     @EnvironmentObject var themeManager: ThemeManager
     @StateObject var viewModel = ExpenseDetailViewModel()
+    var categoryType: CategoryType
     var type: ExpenseType
     var date: Date
     var totalExpended: Decimal
@@ -52,7 +53,7 @@ struct ExpenseDetailView: View {
         .ignoresSafeArea(.all)
         .background(themeManager.selectedIndex == 0 ? CustomColor.lightBackground : CustomColor.darkBackground)
         .onAppear() {
-            viewModel.onAppear(date, type)
+            viewModel.onAppear(date, type, categoryType)
         }
     }
 }
@@ -60,6 +61,6 @@ struct ExpenseDetailView: View {
 struct ExpenseDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let expense = Expense(id: UUID(), description: "de locos", amount: Decimal(100), type: "Entertainment", categoryType: "Entertainment", date: Date())
-        ExpenseDetailView(type: expense.getType(), date: expense.getDate(), totalExpended: expense.getAmount())
+        ExpenseDetailView(categoryType: expense.getCategoryType(), type: expense.getType(), date: expense.getDate(), totalExpended: expense.getAmount())
     }
 }

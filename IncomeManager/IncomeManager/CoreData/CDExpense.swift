@@ -28,7 +28,7 @@ extension CDExpense {
         }
     }
     
-    static func fetch(on date: Date, expenseType: ExpenseType) -> [CDExpense] {
+    static func fetch(on date: Date, expenseType: ExpenseType, categoryType: CategoryType) -> [CDExpense] {
         let fetchRequest: NSFetchRequest<CDExpense> = CDExpense.fetchRequest()
         
         let calendar = Calendar.current
@@ -36,7 +36,7 @@ extension CDExpense {
         let startOfMonth = calendar.date(from: monthAndYearComponents)!
         let endOfMonth = calendar.date(byAdding: DateComponents(month: 1, day: -1), to: startOfMonth)!
         
-        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@ AND type == %@", startOfMonth as NSDate, endOfMonth as NSDate, expenseType.rawValue)
+        fetchRequest.predicate = NSPredicate(format: "date >= %@ AND date <= %@ AND type == %@ AND categoryType == %@", startOfMonth as NSDate, endOfMonth as NSDate, expenseType.rawValue, categoryType.rawValue)
         
         do {
             let context = PersistenceController.shared.container.viewContext

@@ -32,8 +32,7 @@ struct CategoryDetailView: View {
                     Rectangle()
                         .fill(themeManager.selectedIndex == 0 ? CustomColor.lightComponentsBackground : CustomColor.darkComponentsBackground)
                         .frame(width: geometry.size.width - 10, height: 300)
-                        .padding(.top, 5)
-                        .cornerRadius(25)
+                        .cornerRadius(30)
                         .overlay(
                             CircleGraphicView(destined: category.getDestinatedValue(), totalMonthExpended: viewModel.monthExpense, expensesInformation: viewModel.expensesInformation)
                                 .frame(width: 250, height: 250)
@@ -63,7 +62,7 @@ struct CategoryDetailView: View {
                     let type = viewModel.expensesInformation[index].getType()
                     let totalExpended = viewModel.expensesInformation[index].getTotalExpended()
                     
-                    NavigationLink(destination: ExpenseDetailView(type: type, date: self.date, totalExpended: totalExpended)) {
+                    NavigationLink(destination: ExpenseDetailView(categoryType: category.getCategoryType(), type: type, date: self.date, totalExpended: totalExpended)) {
                         ExpenseListItemView(expenseInformation: viewModel.expensesInformation[index])
                     }
                 }

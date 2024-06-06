@@ -20,15 +20,15 @@ import Foundation
         self.categoryRepository = categoryRepository
     }
     
-    func onAppear(_ date: Date, _ type: ExpenseType) {
+    func onAppear(_ date: Date, _ type: ExpenseType, _ categoryType: CategoryType) {
         self.date = date
-        self.expenses = self.expenseRepository.fetchExpenses(date: date, expenseType: type)
+        self.expenses = self.expenseRepository.fetchExpenses(date: date, expenseType: type, categoryType: categoryType)
         self.totalExpended = self.expenses.reduce(0, { $0 + $1.getAmount() })
     }
     
     func deleteExpense(_ expense: Expense) {
         self.expenseRepository.delete(id: expense.getId())
-        self.expenses = self.expenseRepository.fetchExpenses(date: expense.getDate(), expenseType: expense.getType())
+        self.expenses = self.expenseRepository.fetchExpenses(date: expense.getDate(), expenseType: expense.getType(), categoryType: expense.getCategoryType())
         self.totalExpended -= expense.getAmount()
         self.categoryRepository.updateSpentValue(categoryType: expense.getCategoryType(), spentValue: -expense.getAmount(), date: self.date!)
     }

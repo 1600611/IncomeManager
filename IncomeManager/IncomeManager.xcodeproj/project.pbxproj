@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D137CFB2C11F3CF00903D82 /* MainViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D137CFA2C11F3CF00903D82 /* MainViewModelTests.swift */; };
+		5D137CFD2C11FD5B00903D82 /* AddExpenseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D137CFC2C11FD5B00903D82 /* AddExpenseViewModelTests.swift */; };
 		5D274E982BFCE8980089F647 /* MockExpenseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */; };
 		5D302A172BFBB66500B3485B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D302A162BFBB66500B3485B /* Assets.xcassets */; };
 		5D338A672BED25560094E6BD /* MockIncomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D338A662BED25560094E6BD /* MockIncomeRepository.swift */; };
@@ -55,7 +57,20 @@
 		5DE98DB72C0F76C40010BD09 /* CDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE98DB62C0F76C40010BD09 /* CDUser.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5D137CF52C11F3BC00903D82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D98C7F82BCEC7040098F12C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D98C7FF2BCEC7040098F12C;
+			remoteInfo = IncomeManager;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5D137CF12C11F3BC00903D82 /* IncomeManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IncomeManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D137CFA2C11F3CF00903D82 /* MainViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewModelTests.swift; sourceTree = "<group>"; };
+		5D137CFC2C11FD5B00903D82 /* AddExpenseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewModelTests.swift; sourceTree = "<group>"; };
 		5D274E972BFCE8970089F647 /* MockExpenseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockExpenseRepository.swift; sourceTree = "<group>"; };
 		5D302A162BFBB66500B3485B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5D338A662BED25560094E6BD /* MockIncomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockIncomeRepository.swift; sourceTree = "<group>"; };
@@ -106,6 +121,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D137CEE2C11F3BC00903D82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D98C7FD2BCEC7040098F12C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -116,6 +138,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D137CF22C11F3BC00903D82 /* IncomeManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D137CFA2C11F3CF00903D82 /* MainViewModelTests.swift */,
+				5D137CFC2C11FD5B00903D82 /* AddExpenseViewModelTests.swift */,
+			);
+			path = IncomeManagerTests;
+			sourceTree = "<group>";
+		};
 		5D338A682BED33110094E6BD /* CategoryDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				5D98C8022BCEC7040098F12C /* IncomeManager */,
+				5D137CF22C11F3BC00903D82 /* IncomeManagerTests */,
 				5D98C8012BCEC7040098F12C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -285,6 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				5D98C8002BCEC7040098F12C /* IncomeManager.app */,
+				5D137CF12C11F3BC00903D82 /* IncomeManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,6 +429,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5D137CF02C11F3BC00903D82 /* IncomeManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D137CF92C11F3BC00903D82 /* Build configuration list for PBXNativeTarget "IncomeManagerTests" */;
+			buildPhases = (
+				5D137CED2C11F3BC00903D82 /* Sources */,
+				5D137CEE2C11F3BC00903D82 /* Frameworks */,
+				5D137CEF2C11F3BC00903D82 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D137CF62C11F3BC00903D82 /* PBXTargetDependency */,
+			);
+			name = IncomeManagerTests;
+			productName = IncomeManagerTests;
+			productReference = 5D137CF12C11F3BC00903D82 /* IncomeManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5D98C7FF2BCEC7040098F12C /* IncomeManager */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D98C8132BCEC7060098F12C /* Build configuration list for PBXNativeTarget "IncomeManager" */;
@@ -420,9 +471,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					5D137CF02C11F3BC00903D82 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 5D98C7FF2BCEC7040098F12C;
+					};
 					5D98C7FF2BCEC7040098F12C = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -444,11 +499,19 @@
 			projectRoot = "";
 			targets = (
 				5D98C7FF2BCEC7040098F12C /* IncomeManager */,
+				5D137CF02C11F3BC00903D82 /* IncomeManagerTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D137CEF2C11F3BC00903D82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D98C7FE2BCEC7040098F12C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +524,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D137CED2C11F3BC00903D82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D137CFB2C11F3CF00903D82 /* MainViewModelTests.swift in Sources */,
+				5D137CFD2C11FD5B00903D82 /* AddExpenseViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5D98C7FC2BCEC7040098F12C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -514,7 +586,53 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5D137CF62C11F3BC00903D82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D98C7FF2BCEC7040098F12C /* IncomeManager */;
+			targetProxy = 5D137CF52C11F3BC00903D82 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		5D137CF72C11F3BC00903D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QPK4MAXB9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joelangles.IncomeManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IncomeManager.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IncomeManager";
+			};
+			name = Debug;
+		};
+		5D137CF82C11F3BC00903D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8QPK4MAXB9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joelangles.IncomeManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/IncomeManager.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/IncomeManager";
+			};
+			name = Release;
+		};
 		5D98C8112BCEC7060098F12C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -695,6 +813,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D137CF92C11F3BC00903D82 /* Build configuration list for PBXNativeTarget "IncomeManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D137CF72C11F3BC00903D82 /* Debug */,
+				5D137CF82C11F3BC00903D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5D98C7FB2BCEC7040098F12C /* Build configuration list for PBXProject "IncomeManager" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

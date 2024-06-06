@@ -21,7 +21,7 @@ class MockExpenseRepository: ExpenseRepository {
         return [expense1, expense2, expense3, expense4, expense5, expense6, expense7, expense8]
     }
     
-    func fetchExpenses(date: Date, expenseType: ExpenseType) -> [Expense] {
+    func fetchExpenses(date: Date, expenseType: ExpenseType, categoryType: CategoryType) -> [Expense] {
         let expense1 = Expense(id: UUID(), description: "de locos", amount: Decimal(86), type: expenseType.rawValue, categoryType: CategoryType.ENTERTAINMENT.rawValue, date: date)
         let expense2 = Expense(id: UUID(), description: "kebab", amount: Decimal(75.8), type: expenseType.rawValue, categoryType: CategoryType.ENTERTAINMENT.rawValue, date: date)
         let expense3 = Expense(id: UUID(), description: "ca la maria", amount: Decimal(100), type: expenseType.rawValue, categoryType: CategoryType.ENTERTAINMENT.rawValue, date: date)

@@ -83,11 +83,32 @@ struct CategoryInformation: Identifiable, Equatable {
     }
     
     func actionIncomeSetted(_ newIncome: String) {
-        guard let newIncome = Decimal(string: newIncome) else { return }
+        guard isValidIncomeString(newIncome) else {
+            return
+        }
+        
+        // Attempt to convert the input string to a Decimal
+        guard let newIncome = Decimal(string: newIncome) else {
+            return
+        }
         
         self.income = newIncome
         self.incomeRepository.save(income: newIncome, date: date!)
         self.loadCategories(newIncome)
+    }
+    
+    // Method to validate the income string
+    private func isValidIncomeString(_ income: String) -> Bool {
+        // Check that there is only one comma or dot
+        let commaCount = income.filter { $0 == "," }.count
+        let dotCount = income.filter { $0 == "." }.count
+        guard commaCount <= 1, dotCount <= 1 else { return false }
+        
+        // Check that the comma or dot is not at the beginning or end
+        guard let firstCharacter = income.first, let lastCharacter = income.last else { return false }
+        guard firstCharacter != ",", firstCharacter != ".", lastCharacter != ",", lastCharacter != "." else { return false }
+        
+        return true
     }
     
     func loadCategories(_ newIncome: Decimal) {
