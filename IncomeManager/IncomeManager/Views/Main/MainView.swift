@@ -48,7 +48,7 @@ struct MainView: View {
                                 .foregroundColor(.white)
                                 .font(.title)
                             Text(DecimalFormatter.shared.format(viewModel.monthBenefit) + "€")
-                                .foregroundColor(viewModel.monthBenefit < 0 ? .red :.white)
+                                .foregroundColor(viewModel.monthBenefit < 0 ? CustomColor.darkRed :.white)
                                 .font(.title)
                         }
                     }

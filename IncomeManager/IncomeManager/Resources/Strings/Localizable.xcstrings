@@ -581,6 +581,9 @@
         }
       }
     },
+    "Total:" : {
+
+    },
     "Type:" : {
       "localizations" : {
         "ca" : {

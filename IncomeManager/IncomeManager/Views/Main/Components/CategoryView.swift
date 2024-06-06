@@ -42,14 +42,15 @@ struct CategoryView: View {
                 Spacer()
                 Text("\(self.category.getSpentValue() > 0 ? "-" : "")" + DecimalFormatter.shared.format(self.category.getSpentValue()) + "€")
                     .font(.system(size: 12.5))
-                    .foregroundColor(self.category.getSpentValue() > 0 ? .red : .white)
+                    .foregroundColor(.white)
             }
             
             HStack {
                 Spacer()
                 Text("Total" + ":")
+                    .foregroundColor(.white)
                 Text(DecimalFormatter.shared.format(self.category.getTotalValue()) + "€")
-                    .foregroundColor(self.category.getTotalValue() < 0 ? .red : .white)
+                    .foregroundColor(self.category.getTotalValue() < 0 ? CustomColor.darkRed : .white)
                 Spacer()
             }.padding(.top, 25)
         }

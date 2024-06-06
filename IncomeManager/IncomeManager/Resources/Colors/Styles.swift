@@ -9,7 +9,8 @@ import Foundation
 import SwiftUI
 
 struct CustomColor {
-        
+    static let darkRed = Color(red: 191 / 255, green: 21 / 255, blue: 21 / 255)
+    
     // Light mode colors
     static let lightBackground = Color.white
     static let lightIcons = Color.green

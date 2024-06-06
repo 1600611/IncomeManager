@@ -41,9 +41,15 @@ struct HeaderView: View {
                                 .foregroundColor(.white)
                                 .font(.title2)
                             
-                            Text("Total" + ": " + DecimalFormatter.shared.format(totalValue) + "€")
-                                .foregroundColor(totalValue < 0 ? .red : .white)
-                                .font(.headline)
+                            HStack {
+                                Text("Total:")
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                                
+                                Text(DecimalFormatter.shared.format(totalValue) + "€")
+                                    .foregroundColor(totalValue < 0 ? CustomColor.darkRed : .white)
+                                    .font(.headline)
+                            }
                         }
                         .padding(.top, 25)
                     } else {
