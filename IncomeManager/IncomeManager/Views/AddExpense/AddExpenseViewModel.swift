@@ -12,7 +12,7 @@ import Foundation
     @Published var costStr: String = ""
     @Published var comment: String = ""
     @Published var selectedExpense: ExpenseType?
-    @Published var selectedDate: Date = Date()
+    @Published var selectedDate: Date?
     @Published var saveCompleted: Bool = false
     @Published var isModifing: Bool = false
     @Published var isModifingCost: Bool = true
@@ -30,6 +30,8 @@ import Foundation
     }
     
     func onAppear() {
+        self.selectedDate = nil
+        
         if let expense = expense {
             cost = expense.getAmount()
             self.costStr = expense.getAmount().description
@@ -82,8 +84,8 @@ import Foundation
             return
         }
         
-        self.expenseRepository.save(amount: self.cost!, comment: comment, date: selectedDate, categoryType: categoryType, type: selectedExpense!)
-        self.categoryRepository.updateSpentValue(categoryType: categoryType, spentValue: self.cost!, date: selectedDate)
+        self.expenseRepository.save(amount: self.cost!, comment: comment, date: selectedDate!, categoryType: categoryType, type: selectedExpense!)
+        self.categoryRepository.updateSpentValue(categoryType: categoryType, spentValue: self.cost!, date: selectedDate!)
         self.saveCompleted = true
     }
     
@@ -93,10 +95,10 @@ import Foundation
         }
         
         if let expense = expense {
-            self.expenseRepository.update(id: expense.getId(), amount: self.cost!, comment: comment, date: selectedDate, categoryType: categoryType, type: selectedExpense!)
+            self.expenseRepository.update(id: expense.getId(), amount: self.cost!, comment: comment, date: selectedDate!, categoryType: categoryType, type: selectedExpense!)
             let oldCost = expense.getAmount()
             let difference = self.cost! - oldCost
-            self.categoryRepository.updateSpentValue(categoryType: categoryType, spentValue: difference, date: selectedDate)
+            self.categoryRepository.updateSpentValue(categoryType: categoryType, spentValue: difference, date: selectedDate!)
             self.saveCompleted = true
         }
     }

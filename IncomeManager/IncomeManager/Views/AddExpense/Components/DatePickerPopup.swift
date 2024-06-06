@@ -18,7 +18,7 @@ struct DatePickerPopup: View {
         self._selectedDate = selectedDate
         self._isPresented = isPresented
         self.date = date
-        self._localSelectedDate = State(initialValue: selectedDate.wrappedValue ?? Date())
+        self._localSelectedDate = State(initialValue: selectedDate.wrappedValue ?? date)
     }
 
     var body: some View {
@@ -39,7 +39,7 @@ struct DatePickerPopup: View {
             
             DatePicker("", selection: Binding<Date>(
                 get: {
-                    self.localSelectedDate ?? Date()
+                    self.localSelectedDate ?? date
                 },
                 set: { newValue in
                     self.localSelectedDate = newValue
