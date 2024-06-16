@@ -21,10 +21,15 @@ extension CDUser {
         }
     }
     
-    static func save(lightTheme: Bool) {
+    static func saveOrUpdate(lightTheme: Bool) {
         let context = PersistenceController.shared.container.viewContext
-        let newUser = CDUser(context: context)
-        newUser.lightTheme = lightTheme
+        
+        if let existingUser = CDUser.fetch() {
+            existingUser.lightTheme = lightTheme
+        } else {
+            let newUser = CDUser(context: context)
+            newUser.lightTheme = lightTheme
+        }
         
         do {
             try context.save()

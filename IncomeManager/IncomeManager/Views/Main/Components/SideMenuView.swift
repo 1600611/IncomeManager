@@ -77,7 +77,7 @@ struct SideMenuView: View {
                     themeManager.selectedIndex = newValue
                     
                     // TODO: Some day put this code into ViewModel
-                    CDUser.save(lightTheme: newValue == 0)
+                    CDUser.saveOrUpdate(lightTheme: newValue == 0)
                 }
             }
             
